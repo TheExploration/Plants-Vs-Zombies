@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=Board
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Board\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=Board()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Board\r\n
+comment2.params=x\ y\ plant
+comment2.target=void\ placePlant(int,\ int,\ Plant)
+comment3.params=
+comment3.target=void\ updateBoard()
+comment4.params=
+comment4.target=void\ act()
+comment4.text=\r\n\ Act\ -\ do\ whatever\ the\ Board\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+numComments=5

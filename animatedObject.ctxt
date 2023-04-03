@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=animatedObject
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ animatedObject\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=void\ act()
+comment2.params=filename\ frames
+comment2.target=greenfoot.GreenfootImage[]\ importSprites(java.lang.String,\ int)
+comment3.params=filename\ frames\ scaleFactor
+comment3.target=greenfoot.GreenfootImage[]\ importSprites(java.lang.String,\ int,\ double)
+comment4.params=sprite\ duration
+comment4.target=void\ animate(greenfoot.GreenfootImage[],\ long)
+comment5.params=sprite\ duration\ loop
+comment5.target=void\ animate(greenfoot.GreenfootImage[],\ long,\ boolean)
+comment6.params=toFrame
+comment6.target=void\ setFrame(int)
+comment7.params=
+comment7.target=int\ getCurrentFrame()
+comment8.params=sprite\ filename
+comment8.target=void\ hitFlash(greenfoot.GreenfootImage[],\ java.lang.String)
+numComments=9

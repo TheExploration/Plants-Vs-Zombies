@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=WaveManager
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ WaveManager\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=timeBetweenWaves\ level\ firstWave
+comment1.target=WaveManager(long,\ Zombie[][],\ long)
+comment2.params=
+comment2.target=WaveManager()
+comment3.params=
+comment3.target=void\ act()
+comment4.params=wave
+comment4.target=void\ sendWave(Zombie[])
+numComments=5
