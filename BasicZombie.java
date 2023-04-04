@@ -15,20 +15,34 @@ public class BasicZombie extends Zombie
     private boolean flashed = false;
     public GreenfootImage[] idle;
     public GreenfootImage[] walk;
+    
     public BasicZombie() {
         idle = importSprites("zombieidle", 4);
-        walk = importSprites("zombiewalk", 6);
-        walkSpeed = (((Math.random() * (16 - 15)) + 16)/100);
-        
+        walk = importSprites("zombiewalk", 7);
+        walkSpeed = (((Math.random() * (16 - 14)) + 16)/100);
+        maxHp = 20;
+        hp = maxHp;
     }
     public void act()
     {
-       animate(walk, 250, true);
-       
-       move(-walkSpeed);
+        if (isLiving()) {
+            animate(walk, 350, true);
+           
+            move(-walkSpeed);
+        } else {
+            deathAnim();            
+            
+        }
     }
-    public void hit() {
-        hitFlash(walk, "zombiewalk");
+    
+    public void hit(int dmg) {
+       
+        AudioPlayer.play(80, "splat.wav", "splat2.wav", "splat3.wav");
+        if (isLiving()) {
+            hitFlash(walk, "zombiewalk");
+        }
+        hp -= dmg;
+        
     }
     
     

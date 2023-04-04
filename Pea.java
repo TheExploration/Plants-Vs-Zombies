@@ -44,12 +44,12 @@ public class Pea extends animatedObject
             BasicZombie hitZombie = (BasicZombie)getOneIntersectingObject(Zombie.class);
             if (!hit) {
                 
-                AudioPlayer.play(80, "splat.wav", "splat2.wav", "splat3.wav");
-                hitZombie.hit();
+                
+                hitZombie.hit(10);
                 hit = true;
                 
             } else if (getX() < hitZombie.getX()) {
-               move(speed); 
+               move(speed+2); 
             }
         }
         

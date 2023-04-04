@@ -12,6 +12,7 @@ public class MyWorld extends World
     Board board = new Board();
     public GreenfootSound Grasswalk = new GreenfootSound("Grasswalk.wav");
     public Zombie[][] level1 = {
+                {new BasicZombie()},
                 {new BasicZombie(), null, new BasicZombie(), new BasicZombie(), new BasicZombie()}, 
                 {new BasicZombie(), new BasicZombie(), new BasicZombie()}
     };
@@ -24,7 +25,7 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(840, 480, 1); 
+        super(820, 480, 1); 
         Greenfoot.setSpeed(50);
         setBackground("lawn2.5.png");
        
@@ -40,6 +41,7 @@ public class MyWorld extends World
     
     public void act() {
         if (!isPlaying) {
+            Grasswalk.setVolume(70);
             Grasswalk.playLoop();
             
             isPlaying = true;
