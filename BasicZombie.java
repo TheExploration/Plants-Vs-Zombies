@@ -20,7 +20,7 @@ public class BasicZombie extends Zombie
         idle = importSprites("zombieidle", 4);
         walk = importSprites("zombiewalk", 7);
         walkSpeed = (((Math.random() * (16 - 14)) + 16)/100);
-        maxHp = 20;
+        maxHp = 100;
         hp = maxHp;
     }
     public void act()
@@ -40,8 +40,11 @@ public class BasicZombie extends Zombie
         AudioPlayer.play(80, "splat.wav", "splat2.wav", "splat3.wav");
         if (isLiving()) {
             hitFlash(walk, "zombiewalk");
+            hp -= dmg;
+        } else if (!finalDeath) {
+            hitFlash(headless, "zombieheadless");
         }
-        hp -= dmg;
+        
         
     }
     

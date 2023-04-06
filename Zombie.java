@@ -12,9 +12,11 @@ public class Zombie extends animatedObject
     public int maxHp;
     public double walkSpeed;
     public int eatSpeed;
+    public boolean fixAnim = false;
     public boolean isAlive = true;
     public GreenfootImage[] headless;
     public GreenfootImage[] fall;
+    public GreenfootImage[] flashHeadless;
     public boolean resetAnim = false;
     public boolean finalDeath = false;
     /**
@@ -39,6 +41,11 @@ public class Zombie extends animatedObject
         }
         if (frame <=7) {
             if (finalDeath) {
+                if (!fixAnim) {
+                    fixAnim = true;
+                    setLocation(getX()-10, getY()+10);
+                    
+                }
                 animate(fall, 350, false);
                 
             } else {

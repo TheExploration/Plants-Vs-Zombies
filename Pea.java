@@ -42,14 +42,16 @@ public class Pea extends animatedObject
         if (isTouching(Zombie.class)) {
             
             BasicZombie hitZombie = (BasicZombie)getOneIntersectingObject(Zombie.class);
-            if (!hit) {
-                
-                
-                hitZombie.hit(10);
-                hit = true;
-                
-            } else if (getX() < hitZombie.getX()) {
-               move(speed+2); 
+            if (!hitZombie.finalDeath) {
+                if (!hit) {
+                    
+                    
+                    hitZombie.hit(10);
+                    hit = true;
+                    
+                } else if (getX() < hitZombie.getX()) {
+                   move(speed+2); 
+                }
             }
         }
         
