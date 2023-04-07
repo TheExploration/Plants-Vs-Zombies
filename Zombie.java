@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
 
 /**
  * Write a description of class Zombie here.
@@ -11,27 +12,44 @@ public class Zombie extends animatedObject
     public int hp;
     public int maxHp;
     public double walkSpeed;
+    public MyWorld MyWorld;
+    public boolean spawnHead = false;
     public int eatSpeed;
-    public boolean fixAnim = false;
     public boolean isAlive = true;
     public GreenfootImage[] headless;
     public GreenfootImage[] fall;
-    public GreenfootImage[] flashHeadless;
     public boolean resetAnim = false;
     public boolean finalDeath = false;
+    public boolean fixAnim = false;
     /**
      * Act - do whatever the Zombie wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public Zombie() {
+    
         headless = importSprites("zombieheadless", 7);
         fall = importSprites("zombiefall",6);
         
     }
     public void act()
     {
+        if (getImage().getTransparency() <= 0) {
+            getWorld().removeObject(this);
+            return;
+        }
         
-        // Add your action code here.
+        if (isLiving()) {
+            update();
+            
+        } else {
+            deathAnim();            
+            
+        }
+        
+    }
+    
+    public void update() {
+        
     }
     
     public void deathAnim() {
@@ -44,23 +62,42 @@ public class Zombie extends animatedObject
                 if (!fixAnim) {
                     fixAnim = true;
                     setLocation(getX()-10, getY()+10);
-                    
                 }
-                animate(fall, 350, false);
+                animate(fall, 200, false);
                 
             } else {
-                animate(headless, 350, false);
+                if (!spawnHead) {
+                    spawnHead = true;
+                    AudioPlayer.play(80, "shoop.wav");
+                    getWorld().addObject(new head(), getX(), getY());
+                }
+                animate(headless, 300, false);
+                
                 move(-walkSpeed);
             }
         } else if (!finalDeath) {
             resetAnim = false;
             finalDeath = true;
+            
+            for (ArrayList<Zombie> i : MyWorld.level.zombieRow) {
+                if (i.contains(this)) {
+                    i.remove(this);                    
+                    break;
+                }
+            }
+            
+        } else {
+            if (getImage().getTransparency()-3 <= 0) {
+                getImage().setTransparency(0);
+            } else {
+                getImage().setTransparency(getImage().getTransparency()-3);
+            }
         }
 
     }
     @Override
     protected void addedToWorld(World world) {
-        
+        MyWorld = (MyWorld)getWorld();
         
     }
     public boolean isLiving() {
@@ -70,6 +107,9 @@ public class Zombie extends animatedObject
             isAlive = true;
         }
         return isAlive;
+    }
+    public void hit(int dmg) {
+        
     }
     
 }

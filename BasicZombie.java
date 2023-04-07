@@ -19,22 +19,15 @@ public class BasicZombie extends Zombie
     public BasicZombie() {
         idle = importSprites("zombieidle", 4);
         walk = importSprites("zombiewalk", 7);
-        walkSpeed = (((Math.random() * (16 - 14)) + 16)/100);
+        walkSpeed = (((Math.random() * (12 - 10)) + 12)/100);
         maxHp = 100;
         hp = maxHp;
     }
-    public void act()
-    {
-        if (isLiving()) {
-            animate(walk, 350, true);
-           
-            move(-walkSpeed);
-        } else {
-            deathAnim();            
-            
-        }
+
+    public void update() {
+        animate(walk, 350, true);   
+        move(-walkSpeed);
     }
-    
     public void hit(int dmg) {
        
         AudioPlayer.play(80, "splat.wav", "splat2.wav", "splat3.wav");

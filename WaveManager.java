@@ -63,13 +63,21 @@ public class WaveManager extends Actor
             lastFrame = System.nanoTime();
             first =false;
         }
-        if (deltaTime >= waveTime && wave != -1 && first == false) {
-            
-            sendWave(level[wave]);
-            wave++;
-            lastFrame = System.nanoTime();
-            
+        if (first == false && wave != -1) {
+            if ((deltaTime >= waveTime) || MyWorld.getObjects(Zombie.class).size() == 0) {
+                
+                sendWave(level[wave]);
+                wave++;
+                lastFrame = System.nanoTime();
+                
+            }
         }
+    }
+    
+     @Override
+    protected void addedToWorld(World world) {
+        MyWorld = (MyWorld)getWorld();
+        
     }
     
     public void sendWave(Zombie[] wave) {
@@ -77,7 +85,7 @@ public class WaveManager extends Actor
         for (int i = 0; i < wave.length; i++) {
             MyWorld = getWorld();
             if (wave[i%5]!=null) {
-                MyWorld.addObject(wave[i%5], 1200, i%5*80+85);
+                MyWorld.addObject(wave[i%5], 1200, i%5*80+90);
                 zombieRow.get(i%5).add(wave[i%5]);
             }
         }

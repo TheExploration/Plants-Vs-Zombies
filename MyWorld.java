@@ -16,12 +16,19 @@ public class MyWorld extends World
                 {new BasicZombie(), null, new BasicZombie(), new BasicZombie(), new BasicZombie()}, 
                 {new BasicZombie(), new BasicZombie(), new BasicZombie()}
     };
-    public WaveManager level = new WaveManager(30000L, level1, 5000L);
+    public WaveManager level = new WaveManager(10000L, level1, 5000L);
     
     /**
      * Constructor for objects of class MyWorld.
      * 
      */
+    public void stopped() {
+        
+        Grasswalk.stop();
+        Greenfoot.setWorld(new MyWorld());
+    }
+
+    
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.

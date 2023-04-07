@@ -15,9 +15,9 @@ public class Peashooter extends Plant
     private GreenfootImage[] shoot;
     private boolean shootOnce = false;
     private boolean shooting = false;
-    private long shootDelay = 1500L;
+    private long shootDelay = 1700L;
     private long lastFrame2 = System.nanoTime();
-    private long deltaTime2 = System.nanoTime();
+    private long deltaTime2;
     
     public Peashooter() {
         shoot = importSprites("peashootershoot", 3);
@@ -53,16 +53,20 @@ public class Peashooter extends Plant
             
             
         }
-        for (int i = 0; i < MyWorld.level.zombieRow.get(getYPos()).size(); i++) {
-            if (MyWorld.level.zombieRow.get(getYPos()).get(i).getX() > getX()){
-                shooting = true;
+        if (MyWorld.level.zombieRow.get(getYPos()).size() == 0) {
+            shooting = false;
+        } else {
+            for (int i = 0; i < MyWorld.level.zombieRow.get(getYPos()).size(); i++) {
+                if (MyWorld.level.zombieRow.get(getYPos()).get(i).getX() > getX()){
+                    shooting = true;
+                    
+                } else {
+                    shooting = false;
+                }
                 
-            } else {
-                shooting = false;
-            }
-            
-        }               
-       
+            }             
+        }
+           
         
     }
  
