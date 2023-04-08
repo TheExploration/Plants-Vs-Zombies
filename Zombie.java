@@ -11,14 +11,17 @@ public class Zombie extends animatedObject
 {
     public boolean fallen = false;
     public boolean eating = false;
+    public boolean eatOnce = false;
     public int hp;
     public int maxHp;
     public double walkSpeed;
     public MyWorld MyWorld;
     public boolean spawnHead = false;
+    public Plant target;
     public int eatSpeed;
     public boolean isAlive = true;
     public GreenfootImage[] headless;
+    public GreenfootImage[] headlesseating;
     public GreenfootImage[] fall;
     public boolean resetAnim = false;
     public boolean finalDeath = false;
@@ -31,7 +34,7 @@ public class Zombie extends animatedObject
     
         headless = importSprites("zombieheadless", 7);
         fall = importSprites("zombiefall",6);
-        
+        headlesseating = importSprites("headlesszombieeating", 7);
     }
     public void act()
     {
@@ -74,9 +77,13 @@ public class Zombie extends animatedObject
                     AudioPlayer.play(80, "shoop.wav");
                     getWorld().addObject(new Head(), getX(), getY()-10);
                 }
-                animate(headless, 350, false);
+                if (!eating) {
+                    animate(headless, 350, false);
+                    move(-walkSpeed);
+                } else {
+                    animate(headlesseating, 350, false);
+                }
                 
-                move(-walkSpeed);
             }
         } else if (!finalDeath) {
             resetAnim = false;
@@ -97,6 +104,19 @@ public class Zombie extends animatedObject
             }
         }
 
+    }
+    
+    public void playEating() {
+        if (frame == 5 || frame == 2) {
+            if (!eatOnce) {
+                eatOnce = true;
+                AudioPlayer.play(70, "chomp.wav", "chomp2.wav", "chompsoft.wav");
+                
+                target.hit(10);
+            } 
+        } else {
+            eatOnce = false;
+        }
     }
     @Override
     protected void addedToWorld(World world) {
@@ -119,9 +139,9 @@ public class Zombie extends animatedObject
         for (int i = 0; i < MyWorld.board.Board[0].length; i++) {
             if (row[i] != null) {
                 
-                if (Math.abs(row[i].getX() - getX()+10) < 25) {
+                if (Math.abs(row[i].getX() - getX()+10) < 30) {
                     eating = true;
-                    
+                    target = row[i];
                     return eating;
                 }
             }

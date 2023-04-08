@@ -23,5 +23,11 @@ public class Sunflower extends Plant
         animate(idle, 200, true);
 
     }
+    public void hit(int dmg) {
+        if (isLiving()) {
+            hitFlash(idle, "sunfloweridle");
+            hp = hp-dmg;
+        }
+    }
   
 }

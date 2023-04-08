@@ -44,7 +44,7 @@ public class Board extends Actor
                 if (Board[i][k] != null) {
                     World MyWorld = getWorld();
                     Plant temp = Board[i][k];
-                    MyWorld.addObject(temp, i*xSpacing+xOffset, k*ySpacing+yOffset);
+                    MyWorld.addObject(temp, k*xSpacing+xOffset, i*ySpacing+yOffset);
                 }
             }
         }

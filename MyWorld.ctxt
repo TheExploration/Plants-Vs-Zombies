@@ -2,8 +2,13 @@
 comment0.target=MyWorld
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ MyWorld\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
-comment1.target=MyWorld()
-comment1.text=\r\n\ \ \ \ public\ void\ stopped()\ {\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ Grasswalk.stop();\r\n\ \ \ \ \ \ \ \ Greenfoot.setWorld(new\ MyWorld());\r\n\ \ \ \ }\r\n
+comment1.target=void\ stopped()
 comment2.params=
-comment2.target=void\ act()
-numComments=3
+comment2.target=boolean\ hasLost()
+comment3.params=
+comment3.target=boolean\ hasWon()
+comment4.params=
+comment4.target=MyWorld()
+comment5.params=
+comment5.target=void\ act()
+numComments=6

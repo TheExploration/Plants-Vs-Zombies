@@ -28,10 +28,11 @@ public class Peashooter extends Plant
    
     public void hit(int dmg) {
         if (isLiving()) {
-            if (!shooting) {
+            if (!shootOnce) {
                 hitFlash(idle, "peashooter");
             } else {
-                hitFlash(shoot, "peashootershoot");
+                hitFlash(shoot, "peashootershoot");  
+                
             }
             hp = hp-dmg;
         }

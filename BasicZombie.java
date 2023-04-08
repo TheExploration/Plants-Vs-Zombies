@@ -17,13 +17,15 @@ public class BasicZombie extends Zombie
     public GreenfootImage[] walk;
     public GreenfootImage[] armless;
     public GreenfootImage[] eat;
-    public boolean eatOnce = false;
+    public GreenfootImage[] armlesseat;
+    
     public BasicZombie() {
         idle = importSprites("zombieidle", 4);
         walk = importSprites("zombiewalk", 7);
         eat = importSprites("zombieeating", 7);
+        armlesseat = importSprites("armlesszombieeating", 7);
         armless = importSprites("armlesszombie", 7);
-        walkSpeed = (((Math.random() * (12 - 10)) + 12)/100);
+        walkSpeed = (((Math.random() * (13 - 10)) + 13)/100);
         maxHp = 100;
         hp = maxHp;
     }
@@ -35,14 +37,7 @@ public class BasicZombie extends Zombie
                 move(-walkSpeed);
             } else {
                 animate(eat, 200, true);
-                if (frame == 5 || frame == 2) {
-                    if (!eatOnce) {
-                        eatOnce = true;
-                        AudioPlayer.play(70, "chomp.wav", "chomp2.wav", "chompsoft.wav");
-                    }
-                } else {
-                    eatOnce = false;
-                }
+                playEating();
             }
         } else {
             if (!fallen) {
@@ -50,14 +45,19 @@ public class BasicZombie extends Zombie
                 AudioPlayer.play(80, "shoop.wav");
                 MyWorld.addObject(new Arm(), getX()+8, getY()+10);
             }
-            animate(armless, 350, true);
-            move(-walkSpeed);
+            if (!isEating()) {
+                animate(armless, 350, true);
+                move(-walkSpeed);
+            } else {
+                animate(armlesseat, 200, true); 
+                playEating();
+            }
             
         }
         
     }
+   
     public void hit(int dmg) {
-       
         AudioPlayer.play(80, "splat.wav", "splat2.wav", "splat3.wav");
         if (isLiving()) {
             
@@ -68,12 +68,21 @@ public class BasicZombie extends Zombie
                     hitFlash(eat, "zombieeating");
                 }
             } else {
-                hitFlash(armless, "armlesszombie");
+                if (!eating) {
+                    hitFlash(armless, "armlesszombie");
+                } else {
+                    hitFlash(armlesseat, "armlesszombieeating");
+                }
+                
             }
             
             hp -= dmg;
         } else if (!finalDeath) {
-            hitFlash(headless, "zombieheadless");
+            if (!eating) {
+                hitFlash(headless, "zombieheadless");
+            } else {
+                hitFlash(headlesseating, "headlesszombieeating");
+            }
         }
         
         

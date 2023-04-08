@@ -13,7 +13,7 @@ public class Plant extends animatedObject
     public int hp;
     public int damage;
     public MyWorld MyWorld;
-    public boolean remove = false;
+ 
     public Plant() {
         
     }
@@ -25,10 +25,10 @@ public class Plant extends animatedObject
     {
         if (isLiving()) {
             update();    
-        } else if (!remove) {
+        } else {
             MyWorld = (MyWorld)getWorld();
             AudioPlayer.play(80,"gulp.wav");
-            remove = true;
+            
             MyWorld.board.removePlant(getXPos(), getYPos());
             MyWorld.removeObject(this);
             
