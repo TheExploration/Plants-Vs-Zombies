@@ -83,7 +83,7 @@ public class WaveManager extends Actor
     public void sendWave(Zombie[] wave) {
         
         for (int i = 0; i < wave.length; i++) {
-            MyWorld = getWorld();
+            
             if (wave[i%5]!=null) {
                 MyWorld.addObject(wave[i%5], 1200, i%5*80+90);
                 zombieRow.get(i%5).add(wave[i%5]);

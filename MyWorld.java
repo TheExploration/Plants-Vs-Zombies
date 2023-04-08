@@ -12,7 +12,7 @@ public class MyWorld extends World
     Board board = new Board();
     public GreenfootSound Grasswalk = new GreenfootSound("Grasswalk.wav");
     public Zombie[][] level1 = {
-                {new BasicZombie()},
+                {null, null, new BasicZombie()},
                 {new BasicZombie(), null, new BasicZombie(), new BasicZombie(), new BasicZombie()}, 
                 {new BasicZombie(), new BasicZombie(), new BasicZombie()}
     };
@@ -22,11 +22,13 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
+    /*
     public void stopped() {
         
         Grasswalk.stop();
         Greenfoot.setWorld(new MyWorld());
     }
+    */
 
     
     public MyWorld()
@@ -36,8 +38,8 @@ public class MyWorld extends World
         Greenfoot.setSpeed(50);
         setBackground("lawn2.5.png");
        
+        addObject(level,0,0);
         addObject(board,0,0);
-        
      
         
         
@@ -62,7 +64,7 @@ public class MyWorld extends World
             
             
             
-            addObject(level,0,0);
+            
         }
         
         

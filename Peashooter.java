@@ -20,12 +20,24 @@ public class Peashooter extends Plant
     private long deltaTime2;
     
     public Peashooter() {
+        maxHp = 100;
+        hp = maxHp;
         shoot = importSprites("peashootershoot", 3);
         idle = importSprites("peashooter", 9);
     }
-    public void act()
-    {
-        MyWorld MyWorld = (MyWorld)getWorld();
+   
+    public void hit(int dmg) {
+        if (isLiving()) {
+            if (!shooting) {
+                hitFlash(idle, "peashooter");
+            } else {
+                hitFlash(shoot, "peashootershoot");
+            }
+            hp = hp-dmg;
+        }
+    }
+    public void update() {
+        MyWorld = (MyWorld)getWorld();
         currentFrame = System.nanoTime();
         if (!shooting) {
             animate(idle, 150, true);
@@ -35,15 +47,17 @@ public class Peashooter extends Plant
             deltaTime2 = (currentFrame - lastFrame2) / 1000000;
             if (deltaTime2 < shootDelay) {
                 animate(idle, 150, true);
+                shootOnce = false;
             } else {
                 if (!shootOnce) {
                     shootOnce = true;
                     frame = 0;
-                    AudioPlayer.play(80, "throw.wav", "throw2.wav");
-                    MyWorld.addObject(new Pea(), getX()+20,getY()-19);
+                    
                 }
-                if (frame >= 2) {
-                    shootOnce = false;
+                
+                if (frame >= 3) {
+                    AudioPlayer.play(80, "throw.wav", "throw2.wav");
+                    MyWorld.addObject(new Pea(), getX()+25,getY()-17);
                     lastFrame2 = currentFrame;
                 }
                 animate(shoot, 100, false);
@@ -66,8 +80,6 @@ public class Peashooter extends Plant
                 
             }             
         }
-           
-        
     }
  
 }

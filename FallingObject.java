@@ -14,33 +14,52 @@ public class FallingObject extends SmoothMover
      */
     
     public double vSpeed = 0;
+    public double hSpeed = 0;
     public double acceleration = 1;
     public long deltaTime;
     public long lastFrame = System.nanoTime();
     public long currentFrame = System.nanoTime();  
     public long fallTime;
-    public FallingObject(double vSpeed, double acceleration) {
+    public int rotate;
+    public FallingObject(double vSpeed, double acceleration, double hSpeed, int rotate, long time) {
         this.vSpeed = vSpeed;
         this.acceleration = acceleration;
+        this.rotate = rotate;
+        this.hSpeed = hSpeed;
+        this.fallTime = time; 
         lastFrame = System.nanoTime();
         currentFrame = System.nanoTime();    
     }
     public void act()
     {
+        update();
+        
+    }
+    public void update() {
         currentFrame = System.nanoTime();
         deltaTime = (currentFrame - lastFrame) / 1000000;
-        if (deltaTime < 700L) {
-            double x = getExactX()+0.6;
+        if (deltaTime < fallTime) {
+            double x = getExactX()+hSpeed;
             double y = getExactY()+vSpeed;
             setLocation(x,y);
-            turn(2);
+            
+            turn(rotate);
+            
             vSpeed = vSpeed + acceleration;
-        } else if (getImage().getTransparency() > 0) {
-            getImage().setTransparency(getImage().getTransparency()-5);
+        } else {
+            checkDeath();
+        }
+    }
+    public void checkDeath() {
+        if (getImage().getTransparency() > 0) {
+            if (getImage().getTransparency()-3 <= 0) {
+                getImage().setTransparency(0);
+            } else {
+                getImage().setTransparency(getImage().getTransparency()-4);
+            }
         } else {
             getWorld().removeObject(this);
             return;
         }
-        // Add your action code here.
     }
 }

@@ -9,6 +9,8 @@ import java.util.*;
  */
 public class Zombie extends animatedObject
 {
+    public boolean fallen = false;
+    public boolean eating = false;
     public int hp;
     public int maxHp;
     public double walkSpeed;
@@ -54,13 +56,14 @@ public class Zombie extends animatedObject
     
     public void deathAnim() {
         if (!resetAnim) {
-                frame = 0;
+                frame = 0;    
                 resetAnim = true;
         }
         if (frame <=7) {
             if (finalDeath) {
                 if (!fixAnim) {
                     fixAnim = true;
+                    AudioPlayer.play(80, "zombie_falling_1.wav", "zombie_falling_2.wav");
                     setLocation(getX()-10, getY()+10);
                 }
                 animate(fall, 200, false);
@@ -69,9 +72,9 @@ public class Zombie extends animatedObject
                 if (!spawnHead) {
                     spawnHead = true;
                     AudioPlayer.play(80, "shoop.wav");
-                    getWorld().addObject(new head(), getX(), getY());
+                    getWorld().addObject(new Head(), getX(), getY()-10);
                 }
-                animate(headless, 300, false);
+                animate(headless, 350, false);
                 
                 move(-walkSpeed);
             }
@@ -110,6 +113,10 @@ public class Zombie extends animatedObject
     }
     public void hit(int dmg) {
         
+    }
+    public boolean isEating() {
+        /////
+        return false;
     }
     
 }

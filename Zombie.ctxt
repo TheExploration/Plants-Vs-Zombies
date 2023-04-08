@@ -16,4 +16,6 @@ comment6.params=
 comment6.target=boolean\ isLiving()
 comment7.params=dmg
 comment7.target=void\ hit(int)
-numComments=8
+comment8.params=
+comment8.target=boolean\ isEating()
+numComments=9

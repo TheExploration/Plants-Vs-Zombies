@@ -4,6 +4,6 @@ comment0.text=\r\n\ Write\ a\ description\ of\ class\ Sunflower\ here.\r\n\ \r\n
 comment1.params=
 comment1.target=Sunflower()
 comment2.params=
-comment2.target=void\ act()
+comment2.target=void\ update()
 comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Sunflower\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 numComments=3

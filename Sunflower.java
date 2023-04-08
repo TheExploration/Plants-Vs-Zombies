@@ -9,25 +9,19 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Sunflower extends Plant
 {
     private GreenfootImage[] idle;
-    private boolean flashed = false;   
+      
     public Sunflower() {
         idle = importSprites("sunfloweridle", 8);
-        flashed = false;
-            
+        maxHp = 100;
+        hp = maxHp;
     }
     /**
      * Act - do whatever the Sunflower wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act()
-    {
+    public void update(){
         animate(idle, 200, true);
 
-        if (flashed == false) {
-            hitFlash(idle, "sunfloweridle");
-            flashed=true;
-        
-        }
-        
     }
+  
 }

@@ -1,6 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.Timer;
-
+import java.io.*;
 /**
  * Write a description of class animatedObject here.
  * 
@@ -108,29 +108,30 @@ public class animatedObject extends SmoothMover
         return frame+1;
     }
     public void hitFlash(GreenfootImage[] sprite, String filename) {
-        
-        int flashFrame = frame+1;
-        if (frame >= sprite.length) {
-            frame = 0;
-            if (frame+1 >= sprite.length) {
-                flashFrame = 1;
-            }
+        int tempFrame = frame;
+        int flashFrame = tempFrame+1;
+        if (tempFrame >= sprite.length) {
+            tempFrame = 0;
+            flashFrame = 1;
+          
         } else if (flashFrame >= sprite.length) {
             flashFrame = 0;
         }
+      
         
-        GreenfootImage first = new GreenfootImage("flash"+filename+(frame+1)+".png");
+        
+        GreenfootImage first = new GreenfootImage("flash"+filename+(tempFrame+1)+".png");
         GreenfootImage second = new GreenfootImage("flash"+filename+(flashFrame+1)+".png");
         first.scale(first.getWidth()*2, first.getHeight()*2);
         second.scale(second.getWidth()*2, second.getHeight()*2);
-        sprite[frame] = first;
+        sprite[tempFrame] = first;
         sprite[flashFrame] = second;
         
         
-        setImage(sprite[frame]);
+        setImage(sprite[tempFrame]);
         
         Timer timer = new Timer();
-        timer.schedule(new Timer1(sprite, filename, frame,flashFrame), 500L); 
+        timer.schedule(new Timer1(sprite, filename, tempFrame,flashFrame), 500L); 
        
     }
    

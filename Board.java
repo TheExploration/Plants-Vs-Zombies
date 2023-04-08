@@ -16,22 +16,26 @@ public class Board extends Actor
     public static final int xSpacing = 64;
     public static final int ySpacing = 80;
     
+    
     /**
      * Constructor for objects of class Board
      */
     public Board()
     {
-
+        
     }
     public void placePlant(int x, int y, Plant plant) {
         if (Board[x][y] == null) {
             Board[x][y] = plant;    
             World MyWorld = getWorld();
-            Plant temp = Board[x][y];
-            MyWorld.addObject(temp, x*xSpacing+xOffset, y*ySpacing+yOffset);
+            
+            MyWorld.addObject(plant, x*xSpacing+xOffset, y*ySpacing+yOffset);
             AudioPlayer.play(80, "plant.wav", "plant2.wav");
         }
         
+    }
+    public void removePlant(int x, int y) {
+        Board[x][y] = null;
     }
     
     public void updateBoard() {
