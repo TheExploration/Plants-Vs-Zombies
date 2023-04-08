@@ -9,7 +9,8 @@ import java.util.*; //HAHAHADIE
 public class WaveManager extends Actor
 {
     public long currentFrame = System.nanoTime();
-    
+    public final int yOffset = 90;
+    public final int ySpacing = 80;
     public ArrayList<ArrayList<Zombie>> zombieRow = new ArrayList<ArrayList<Zombie>>();
     public ArrayList<Zombie> row1 = new ArrayList<Zombie>();
     public ArrayList<Zombie> row2 = new ArrayList<Zombie>();
@@ -85,7 +86,7 @@ public class WaveManager extends Actor
         for (int i = 0; i < wave.length; i++) {
             
             if (wave[i%5]!=null) {
-                MyWorld.addObject(wave[i%5], 1200, i%5*80+90);
+                MyWorld.addObject(wave[i%5], 1200, (i%5)*ySpacing+yOffset);
                 zombieRow.get(i%5).add(wave[i%5]);
             }
         }

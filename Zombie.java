@@ -115,8 +115,28 @@ public class Zombie extends animatedObject
         
     }
     public boolean isEating() {
-        /////
-        return false;
+        var row = MyWorld.board.Board[getYPos()];
+        for (int i = 0; i < MyWorld.board.Board[0].length; i++) {
+            if (row[i] != null) {
+                
+                if (Math.abs(row[i].getX() - getX()+10) < 25) {
+                    eating = true;
+                    
+                    return eating;
+                }
+            }
+        }
+        eating = false;
+        return eating;
+        
+        
+        
+    }
+    public int getYPos() {
+        return ((getY()-MyWorld.level.yOffset)/MyWorld.level.ySpacing);
+    }
+    public int getXPos() {
+        return getX();
     }
     
 }

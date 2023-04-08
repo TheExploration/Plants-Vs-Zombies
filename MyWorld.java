@@ -55,14 +55,16 @@ public class MyWorld extends World
             
             isPlaying = true;
             
-            for (int k = 0; k < board.Board[0].length; k++) {
+            for (int k = 0; k < board.Board.length; k++) {
                 board.placePlant(0,k, new Sunflower());
             }
-            for (int k = 0; k < board.Board[0].length; k++) {
+            for (int k = 0; k < board.Board.length; k++) {
                 board.placePlant(1,k, new Peashooter());
             }
             
-            
+            for (int k = 0; k < board.Board.length; k++) {
+                board.placePlant(8,k, new Sunflower());
+            }
             
             
         }

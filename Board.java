@@ -10,7 +10,7 @@ public class Board extends Actor
 {
     
      // instance variables - replace the example below with your own
-    public Plant[][] Board = new Plant[9][5]; 
+    public Plant[][] Board = new Plant[5][9]; 
     public static final int xOffset = 237;
     public static final int yOffset = 110;
     public static final int xSpacing = 64;
@@ -25,8 +25,8 @@ public class Board extends Actor
         
     }
     public void placePlant(int x, int y, Plant plant) {
-        if (Board[x][y] == null) {
-            Board[x][y] = plant;    
+        if (Board[y][x] == null) {
+            Board[y][x] = plant;    
             World MyWorld = getWorld();
             
             MyWorld.addObject(plant, x*xSpacing+xOffset, y*ySpacing+yOffset);
@@ -35,7 +35,7 @@ public class Board extends Actor
         
     }
     public void removePlant(int x, int y) {
-        Board[x][y] = null;
+        Board[y][x] = null;
     }
     
     public void updateBoard() {
