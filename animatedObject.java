@@ -36,17 +36,7 @@ public class animatedObject extends SmoothMover
         }
         return temp;
     }
-    public GreenfootImage[] importSprites(int shiftFactor, String filename, int frames) {
-        GreenfootImage[] temp = new GreenfootImage[frames];
-        for (int i = 0; i < frames; i++) {
-            GreenfootImage scale = new GreenfootImage(filename+(i+1)+".png");
-            
-            scale.drawImage(scale, scale.getWidth()/4+shiftFactor, scale.getHeight()/4);
-            scale.scale(scale.getWidth()*2, scale.getHeight()*2);
-            temp[i] = scale;
-        }
-        return temp;
-    }
+
     
     public GreenfootImage[] importSprites(String filename, int frames, double scaleFactor) {
         GreenfootImage[] temp = new GreenfootImage[frames];

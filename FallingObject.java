@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class FallingObject extends SmoothMover
+public class FallingObject extends animatedObject
 {
     /**
      * Act - do whatever the fallingObject wants to do. This method is called whenever
@@ -35,6 +35,7 @@ public class FallingObject extends SmoothMover
         update();
         
     }
+    
     public void update() {
         currentFrame = System.nanoTime();
         deltaTime = (currentFrame - lastFrame) / 1000000;
@@ -52,7 +53,7 @@ public class FallingObject extends SmoothMover
     }
     public void checkDeath() {
         if (getImage().getTransparency() > 0) {
-            if (getImage().getTransparency()-3 <= 0) {
+            if (getImage().getTransparency()-4 <= 0) {
                 getImage().setTransparency(0);
             } else {
                 getImage().setTransparency(getImage().getTransparency()-4);

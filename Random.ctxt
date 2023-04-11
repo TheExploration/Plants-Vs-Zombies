@@ -7,4 +7,6 @@ comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Random\r\n
 comment2.params=min\ max
 comment2.target=int\ Int(int,\ int)
 comment2.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\ \r\n\ @param\ \ y\ \ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ \ the\ sum\ of\ x\ and\ y\ \r\n
-numComments=3
+comment3.params=min\ max
+comment3.target=double\ Double(int,\ int)
+numComments=4

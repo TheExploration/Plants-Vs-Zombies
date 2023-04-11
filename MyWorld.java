@@ -20,7 +20,7 @@ public class MyWorld extends World
                 {new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie()}
     };
     public WaveManager level = new WaveManager(50000L, level1, 10000L, true);
-    
+    public SeedBank seedbank = new SeedBank();
 
     public void stopped() {
         
@@ -49,7 +49,7 @@ public class MyWorld extends World
         super(820, 480, 1, false); 
         Greenfoot.setSpeed(50);
         setBackground("lawn2.5.png");
-        
+        addObject(seedbank,0,0);
         addObject(board,0,0);
         
      
@@ -70,6 +70,9 @@ public class MyWorld extends World
             
             for (int k = 0; k < board.Board.length; k++) {
                 board.placePlant(0,k, new Sunflower());
+            }
+            for (int k = 0; k < board.Board.length; k++) {
+                board.placePlant(2,k, new Peashooter());
             }
             
             /*

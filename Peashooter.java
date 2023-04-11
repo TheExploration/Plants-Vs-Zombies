@@ -20,7 +20,7 @@ public class Peashooter extends Plant
     private long deltaTime2;
     
     public Peashooter() {
-        maxHp = 100;
+        maxHp = 60;
         hp = maxHp;
         shoot = importSprites("peashootershoot", 3);
         idle = importSprites("peashooter", 9);
@@ -71,15 +71,16 @@ public class Peashooter extends Plant
         if (MyWorld.level.zombieRow.get(getYPos()).size() == 0) {
             shooting = false;
         } else {
-            for (int i = 0; i < MyWorld.level.zombieRow.get(getYPos()).size(); i++) {
-                if (MyWorld.level.zombieRow.get(getYPos()).get(i).getX() > getX()){
+            
+            for (Zombie i : MyWorld.level.zombieRow.get(getYPos())) {
+                if (i.getX() > getX() && i.getX()<=MyWorld.getWidth()+10){
                     shooting = true;
-                    
+                    break;
                 } else {
                     shooting = false;
                 }
-                
-            }             
+            }
+                                    
         }
     }
  

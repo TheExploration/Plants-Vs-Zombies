@@ -48,7 +48,7 @@ public class Plant extends animatedObject
     }
     @Override
     public void addedToWorld(World world) {
-        MyWorld MyWorld = (MyWorld)getWorld();
+        MyWorld = (MyWorld)getWorld();
         MyWorld.addObject(new Dirt(), getX(), getY()+30);
     }
     public boolean isLiving() {

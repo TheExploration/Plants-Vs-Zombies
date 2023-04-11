@@ -23,7 +23,7 @@ class DelayWave extends TimerTask
         level.finishedSending = true;
         if (wave[i]!=null) {
                     
-                level.MyWorld.addObject(wave[i], 900, (i%5)*level.ySpacing+level.yOffset);
+                level.MyWorld.addObject(wave[i], 840, (i%5)*level.ySpacing+level.yOffset);
                 level.zombieRow.get(i%5).add(wave[i]);
         }       
         

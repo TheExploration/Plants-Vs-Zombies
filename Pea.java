@@ -13,6 +13,8 @@ public class Pea extends animatedObject
     private GreenfootImage[] pea;
     private boolean hit = false;
     public MyWorld MyWorld;
+    private boolean foundTarget = false;
+    public Zombie hitZombie;
     /**
      * Act - do whatever the Pea wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -39,10 +41,15 @@ public class Pea extends animatedObject
             MyWorld.removeObject(this);   
             return;
         }
-        if (isTouching(Zombie.class)) {
+        if (getOneIntersectingObject(Zombie.class) != null) {
             
-            Zombie hitZombie = (Zombie)getOneIntersectingObject(Zombie.class);
-            if (!hitZombie.finalDeath) {
+            if (!((Zombie)getOneIntersectingObject(Zombie.class)).finalDeath) {
+                if (!foundTarget) {
+                    hitZombie = (Zombie)getOneIntersectingObject(Zombie.class);
+                    foundTarget = true;
+                }
+                
+                
                 if (!hit) {
                     
                     
@@ -50,7 +57,7 @@ public class Pea extends animatedObject
                     hit = true;
                     
                 } else if (getX() < hitZombie.getX()) {
-                   move(speed+2); 
+                   move(speed); 
                 }
             }
         }

@@ -25,7 +25,7 @@ public class BasicZombie extends Zombie
         eat = importSprites("zombieeating", 7);
         armlesseat = importSprites("armlesszombieeating", 7);
         armless = importSprites("armlesszombie", 7);
-        walkSpeed = (((Math.random() * (13 - 10)) + 13)/100);
+        walkSpeed = (((Math.random() * (15 - 12)) + 12)/100);
         maxHp = 100;
         hp = maxHp;
     }

@@ -106,7 +106,7 @@ public class WaveManager extends Actor
                 if (wave[i]!=null) {
                     //Send!
                     
-                    MyWorld.addObject(wave[i], 900, (i%5)*ySpacing+yOffset);
+                    MyWorld.addObject(wave[i], 840, (i%5)*ySpacing+yOffset);
                     zombieRow.get(i%5).add(wave[i]);
                 }
             } else {
