@@ -21,7 +21,7 @@ public class MyWorld extends World
     };
     public WaveManager level = new WaveManager(50000L, level1, 10000L, true);
     public SeedBank seedbank = new SeedBank();
-
+    
     public void stopped() {
         
         Grasswalk.stop();
@@ -51,9 +51,9 @@ public class MyWorld extends World
         setBackground("lawn2.5.png");
         addObject(seedbank,0,0);
         addObject(board,0,0);
-        
+        setPaintOrder(SunCounter.class, Sun.class);
      
-        
+  
         
         
         

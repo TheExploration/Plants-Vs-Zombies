@@ -28,7 +28,7 @@ public class SeedBank extends Actor
     @Override
     public void addedToWorld(World world) {
         MyWorld = (MyWorld)getWorld();
-        MyWorld.addObject(suncounter, 125, 50);
+        MyWorld.addObject(suncounter, 120, 50);
     }
     
 }

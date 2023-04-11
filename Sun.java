@@ -29,7 +29,7 @@ public class Sun extends FallingObject
             if (checkClick()) {
                 beenClicked = true;
                 AudioPlayer.play(90, "points.wav");
-                SunCounter.Sun+=25;
+                
             }
         }
         
@@ -46,7 +46,7 @@ public class Sun extends FallingObject
                 
             
         } else {
-            if (!(Math.abs(getX()-SunCounter.x) < 10 && Math.abs(getY()-SunCounter.y) < 10)) {
+            if (!(Math.abs(getX()-SunCounter.x) < 20 && Math.abs(getY()-SunCounter.y) < 20)) {
                 turnTowards(SunCounter.x,SunCounter.y);
                 move(20);
             }
@@ -62,13 +62,13 @@ public class Sun extends FallingObject
         return clicked;
     }
     public void checkDeath() {
-        if (Math.abs(getX()-SunCounter.x) < 10 && Math.abs(getY()-SunCounter.y) < 10) {
-            
+        if (Math.abs(getX()-SunCounter.x) < 20 && Math.abs(getY()-SunCounter.y) < 20) {
+            move(0.5);
             if (getImage().getTransparency() > 0) {
-                if (getImage().getTransparency()-50 <= 0) {
+                if (getImage().getTransparency()-20 <= 0) {
                     getImage().setTransparency(0);
                 } else {
-                    getImage().setTransparency(getImage().getTransparency()-50);
+                    getImage().setTransparency(getImage().getTransparency()-20);
                 }
             } else {
                 getWorld().removeObject(this);
