@@ -10,7 +10,8 @@ public class Sunflower extends Plant
 {
     private GreenfootImage[] idle;
     private boolean test = false;
-    
+    private long lastFrame2 = System.nanoTime();
+    private long deltaTime2;
     public Sunflower() {
         idle = importSprites("sunfloweridle", 8);
         maxHp = 60;
@@ -33,7 +34,9 @@ public class Sunflower extends Plant
         }
     }
     public void produceSun() {
-         if (!test) {
+        deltaTime2 = (currentFrame - lastFrame2) / 1000000;
+        if (deltaTime2 > 5000L) {
+            lastFrame2 = System.nanoTime();
             hitFlash(idle, "sunfloweridle");
             test= true;
             MyWorld.addObject(new Sun(), getX(), getY()-10);

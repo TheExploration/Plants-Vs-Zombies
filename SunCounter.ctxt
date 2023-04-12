@@ -7,4 +7,6 @@ comment2.params=world
 comment2.target=void\ addedToWorld(greenfoot.World)
 comment3.params=
 comment3.target=void\ updateText()
-numComments=4
+comment4.params=sun
+comment4.target=void\ addSun(int)
+numComments=5
