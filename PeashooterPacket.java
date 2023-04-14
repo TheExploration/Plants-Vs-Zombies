@@ -14,6 +14,7 @@ public class PeashooterPacket extends SeedPacket
      */
     public PeashooterPacket() {
         super(20000L, true, 100, "peashooterpacket");
+        
     }
     public void act()
     {

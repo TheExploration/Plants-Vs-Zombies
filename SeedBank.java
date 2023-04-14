@@ -13,22 +13,42 @@ public class SeedBank extends Actor
      * Act - do whatever the SeedBank wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public ArrayList<SeedPacket> seedbank = new ArrayList<SeedPacket>();
+   
     public MyWorld MyWorld;
     public SunCounter suncounter = new SunCounter();
     public SeedPacket[] bank;
     public SeedPacket selectedPacket = null;
+
     
     public SeedBank(SeedPacket[] bank) {
-        seedbank.add(new PeashooterPacket());
-        seedbank.add( new SunflowerPacket());
+        
         this.bank = bank;
     }
     public void act() {
-        if (Greenfoot.mouseClicked(SeedPacket.class)) {
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+        for (SeedPacket i : bank) {
+            if (Greenfoot.mouseClicked(i)) {
+                SeedPacket clicked = (SeedPacket)mouse.getActor();
+                
+                if (selectedPacket != clicked) {
+                    if (clicked.selected == false) {
+                        selectedPacket = clicked;
+                        AudioPlayer.play(80, "seedlift.wav");
+                        clicked.setSelected(false);
+                    } else {
+                        
+                    }
+                } else {
+                    if (clicked.recharged == false) {
+                        selectedPacket = null;
+                        AudioPlayer.play(80, "seedlift.wav");
+                        clicked.setRecharged(true);
+                    }
+                }
             
+            }
+            // Add your action code here.
         }
-        // Add your action code here.
     }
     @Override
     public void addedToWorld(World world) {

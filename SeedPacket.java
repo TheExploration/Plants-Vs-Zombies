@@ -19,12 +19,19 @@ public class SeedPacket extends Actor
     public long currentFrame = System.nanoTime();
     public int sunCost;
     public boolean recharged = false;
+    public boolean startRecharged = false;
     public String name;
+    public boolean selected = false;
     public SeedPacket(long rechargeTime, boolean recharged, int sunCost, String name) {
         this.rechargeTime = rechargeTime;
         this.recharged = recharged;
         this.sunCost = sunCost;
         this.name = name;
+        
+    }
+    
+    public void addedToWorld(World world) {
+        setRecharged(recharged);
     }
     
     public void act()
@@ -36,11 +43,13 @@ public class SeedPacket extends Actor
         if (deltaTime > rechargeTime && !recharged) {
             lastFrame = currentFrame;
             setRecharged(true);
+            startRecharged = false;
         }
         // Add your action code here.
     }
     public void startRecharge() {
         lastFrame = currentFrame;
+        
     }
     public void setRecharged(boolean charge) {
         recharged = charge;
@@ -50,7 +59,19 @@ public class SeedPacket extends Actor
             setImage(name+"2.png");
         }
     }
+    public void setSelected(boolean bool) {
+        selected = bool;
+         if (selected) {
+            setImage(name+"2.png");
+        } else {
+            setImage(name+"1.png");
+        }
+    }
+    
     public boolean getCharge() {
+        return recharged;
+    }
+    public boolean getSelected() {
         return recharged;
     }
 }
