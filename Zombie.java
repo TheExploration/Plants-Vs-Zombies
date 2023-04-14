@@ -38,10 +38,7 @@ public class Zombie extends animatedObject
     }
     public void act()
     {
-        if (getImage().getTransparency() <= 0) {
-            getWorld().removeObject(this);
-            return;
-        }
+        
         
         if (isLiving()) {
             update();
@@ -67,9 +64,12 @@ public class Zombie extends animatedObject
                 if (!fixAnim) {
                     fixAnim = true;
                     AudioPlayer.play(80, "zombie_falling_1.wav", "zombie_falling_2.wav");
-                    setLocation(getX()-10, getY()+10);
+                    
+                    MyWorld.addObject(new fallingZombie(fall), getX()-10, getY()+10);
+                    getWorld().removeObject(this);
+                    return;
                 }
-                animate(fall, 200, false);
+                
                 
             } else {
                 if (!spawnHead) {
@@ -96,13 +96,7 @@ public class Zombie extends animatedObject
                 }
             }
             
-        } else {
-            if (getImage().getTransparency()-3 <= 0) {
-                getImage().setTransparency(0);
-            } else {
-                getImage().setTransparency(getImage().getTransparency()-3);
-            }
-        }
+        } 
 
     }
     

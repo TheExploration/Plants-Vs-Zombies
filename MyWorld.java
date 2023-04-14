@@ -20,8 +20,10 @@ public class MyWorld extends World
                 {new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie()}
     };
     public WaveManager level = new WaveManager(50000L, level1, 10000L, true);
-    public SeedBank seedbank = new SeedBank();
+    public SeedPacket[] bank = {new SunflowerPacket(), new PeashooterPacket()};
+    public SeedBank seedbank = new SeedBank(bank);   
     
+     
     public void stopped() {
         
         Grasswalk.stop();
@@ -51,7 +53,7 @@ public class MyWorld extends World
         setBackground("lawn2.5.png");
         addObject(seedbank,0,0);
         addObject(board,0,0);
-        setPaintOrder(SunCounter.class, Sun.class);
+        setPaintOrder(SunCounter.class, Sun.class, Dirt.class, Pea.class, Zombie.class, Plant.class, fallingZombie.class);
      
   
         

@@ -17,7 +17,7 @@ public class Sun extends FallingObject
     public boolean clicked = false;
     public boolean beenClicked = false;
     public Sun() {
-        super(-3, 0.2, Random.Int(-2, 2), Random.Int(-1,1), 650L);
+        super(-3, 0.15, Random.Double(-100, 100), 0, 800L);
         sun = importSprites("sun", 2);
         
     }
@@ -29,7 +29,7 @@ public class Sun extends FallingObject
             if (checkClick()) {
                 beenClicked = true;
                 AudioPlayer.play(90, "points.wav");
-                MyWorld.seedbank.suncounter.addSun(200);
+                MyWorld.seedbank.suncounter.addSun(25);
                 
             }
         }

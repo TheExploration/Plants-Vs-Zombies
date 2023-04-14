@@ -12,8 +12,45 @@ public class SeedPacket extends Actor
      * Act - do whatever the SeedPacket wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
+    public long deltaTime;
+    public long lastFrame = System.nanoTime();
+    public long rechargeTime;
+    public long currentFrame = System.nanoTime();
+    public int sunCost;
+    public boolean recharged = false;
+    public String name;
+    public SeedPacket(long rechargeTime, boolean recharged, int sunCost, String name) {
+        this.rechargeTime = rechargeTime;
+        this.recharged = recharged;
+        this.sunCost = sunCost;
+        this.name = name;
+    }
+    
     public void act()
     {
+        currentFrame = System.nanoTime();
+        deltaTime = (currentFrame - lastFrame) / 1000000;
+        
+        
+        if (deltaTime > rechargeTime && !recharged) {
+            lastFrame = currentFrame;
+            setRecharged(true);
+        }
         // Add your action code here.
+    }
+    public void startRecharge() {
+        lastFrame = currentFrame;
+    }
+    public void setRecharged(boolean charge) {
+        recharged = charge;
+        if (recharged) {
+            setImage(name+"1.png");
+        } else {
+            setImage(name+"2.png");
+        }
+    }
+    public boolean getCharge() {
+        return recharged;
     }
 }

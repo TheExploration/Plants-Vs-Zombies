@@ -12,6 +12,9 @@ public class SunflowerPacket extends SeedPacket
      * Act - do whatever the SunflowerPacket wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public SunflowerPacket() {
+        super(5000L, true,50, "sunflowerpacket");
+    }
     public void act()
     {
         // Add your action code here.

@@ -35,7 +35,7 @@ public class Sunflower extends Plant
     }
     public void produceSun() {
         deltaTime2 = (currentFrame - lastFrame2) / 1000000;
-        if (deltaTime2 > 5000L) {
+        if (deltaTime2 > 20000L) {
             lastFrame2 = System.nanoTime();
             hitFlash(idle, "sunfloweridle");
             test= true;

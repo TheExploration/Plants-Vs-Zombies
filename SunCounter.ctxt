@@ -9,4 +9,6 @@ comment3.params=
 comment3.target=void\ updateText()
 comment4.params=sun
 comment4.target=void\ addSun(int)
-numComments=5
+comment5.params=sun
+comment5.target=void\ removeSun(int)
+numComments=6
