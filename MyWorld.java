@@ -12,7 +12,7 @@ public class MyWorld extends World
     private boolean isPlaying = false;
     public boolean lose = false;
     Board board = new Board();
-    public GreenfootSound Grasswalk = new GreenfootSound("Grasswalk.wav");
+    public GreenfootSound Grasswalk = new GreenfootSound("Grasswalk.mp3");
     public Zombie[][] level1 = {
                 {null, null, new BasicZombie(), null, null, new BasicZombie(), null, new BasicZombie()},
                 {new BasicZombie(), null, new BasicZombie(), new BasicZombie(), new BasicZombie()}, 
@@ -76,22 +76,12 @@ public class MyWorld extends World
             level.startLevel();
             isPlaying = true;
             
-            for (int k = 0; k < board.Board.length; k++) {
-                board.placePlant(0,k, new Sunflower());
-            }
-            for (int k = 0; k < board.Board.length; k++) {
-                board.placePlant(2,k, new Peashooter());
-            }
+           
             
-            /*
-            for (int k = 0; k < board.Board.length; k++) {
-                board.placePlant(1,k, new Peashooter());
-            }
-            */
             
         }
         if (hasLost()) {
-            AudioPlayer.play(80, "losemusic.wav");
+            AudioPlayer.play(80, "losemusic.mp3");
         }
         
     }

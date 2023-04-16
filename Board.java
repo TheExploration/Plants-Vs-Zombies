@@ -31,7 +31,7 @@ public class Board extends Actor
             World MyWorld = getWorld();
             
             MyWorld.addObject(plant, x*xSpacing+xOffset, y*ySpacing+yOffset);
-            AudioPlayer.play(80, "plant.wav", "plant2.wav");
+            AudioPlayer.play(80, "plant.mp3", "plant2.mp3");
         }
         
     }

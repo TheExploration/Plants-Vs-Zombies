@@ -42,7 +42,7 @@ public class BasicZombie extends Zombie
         } else {
             if (!fallen) {
                 fallen = true;
-                AudioPlayer.play(80, "shoop.wav");
+                AudioPlayer.play(80, "shoop.mp3");
                 MyWorld.addObject(new Arm(), getX()+8, getY()+10);
             }
             if (!isEating()) {
@@ -58,7 +58,7 @@ public class BasicZombie extends Zombie
     }
    
     public void hit(int dmg) {
-        AudioPlayer.play(80, "splat.wav", "splat2.wav", "splat3.wav");
+        AudioPlayer.play(80, "splat.mp3", "splat2.mp3", "splat3.mp3");
         if (isLiving()) {
             
             if (!fallen) {

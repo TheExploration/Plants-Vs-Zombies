@@ -63,7 +63,7 @@ public class Zombie extends animatedObject
             if (finalDeath) {
                 if (!fixAnim) {
                     fixAnim = true;
-                    AudioPlayer.play(80, "zombie_falling_1.wav", "zombie_falling_2.wav");
+                    AudioPlayer.play(80, "zombie_falling_1.mp3", "zombie_falling_2.mp3");
                     
                     MyWorld.addObject(new fallingZombie(fall), getX()-10, getY()+10);
                     getWorld().removeObject(this);
@@ -74,7 +74,7 @@ public class Zombie extends animatedObject
             } else {
                 if (!spawnHead) {
                     spawnHead = true;
-                    AudioPlayer.play(80, "shoop.wav");
+                    AudioPlayer.play(80, "shoop.mp3");
                     getWorld().addObject(new Head(), getX(), getY()-10);
                 }
                 if (!eating) {
@@ -104,7 +104,7 @@ public class Zombie extends animatedObject
         if (frame == 5 || frame == 2) {
             if (!eatOnce) {
                 eatOnce = true;
-                AudioPlayer.play(70, "chomp.wav", "chomp2.wav", "chompsoft.wav");
+                AudioPlayer.play(70, "chomp.mp3", "chomp2.mp3", "chompsoft.mp3");
                 
                 target.hit(10);
             } 

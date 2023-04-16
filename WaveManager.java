@@ -53,7 +53,7 @@ public class WaveManager extends Actor
     }
     public void startLevel() {
         wave = 0;
-        AudioPlayer.play(80, "readysetplant.wav");
+        AudioPlayer.play(80, "readysetplant.mp3");
     }
     
     public void act()
@@ -67,7 +67,7 @@ public class WaveManager extends Actor
         }
         
         if (deltaTime >= firstWave && wave != -1 && first == true) {
-            AudioPlayer.play(80, "awooga.wav");
+            AudioPlayer.play(80, "awooga.mp3");
             sendWave(level[wave]);
             wave++;
             lastFrame = System.nanoTime();

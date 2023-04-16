@@ -57,7 +57,7 @@ public class Peashooter extends Plant
                 }
                 
                 if (frame >= 3) {
-                    AudioPlayer.play(80, "throw.wav", "throw2.wav");
+                    AudioPlayer.play(80, "throw.mp3", "throw2.mp3");
                     MyWorld.addObject(new Pea(), getX()+25,getY()-17);
                     lastFrame2 = currentFrame;
                 }

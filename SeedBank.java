@@ -94,7 +94,7 @@ public class SeedBank extends Actor
                                 }
                                 selectedPacket = clicked;
                                 clicked.setSelected(true);
-                                AudioPlayer.play(80, "seedlift.wav");
+                                AudioPlayer.play(80, "seedlift.mp3");
                                 image = clicked.addImage();
                             } else {
                                 
@@ -103,7 +103,7 @@ public class SeedBank extends Actor
                             if (clicked.recharged) {
                                 selectedPacket = null;
                                 clicked.setSelected(false);
-                                AudioPlayer.play(80, "seedlift.wav");
+                                AudioPlayer.play(80, "seedlift.mp3");
                             }
                         }
                 

@@ -29,7 +29,7 @@ public class Sun extends FallingObject
         if (!beenClicked) {
             if (checkClick()) {
                 beenClicked = true;
-                AudioPlayer.play(90, "points.wav");
+                AudioPlayer.play(90, "points.mp3");
                 MyWorld.seedbank.suncounter.addSun(25);
                 
             }
