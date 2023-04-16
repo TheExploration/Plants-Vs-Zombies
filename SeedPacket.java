@@ -72,6 +72,12 @@ public class SeedPacket extends Actor
         return recharged;
     }
     public boolean getSelected() {
-        return recharged;
+        return selected;
+    }
+    public TransparentObject addImage() {
+        return null;
+    }
+    public Plant getPlant() {
+        return null;
     }
 }

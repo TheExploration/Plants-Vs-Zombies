@@ -17,6 +17,7 @@ public class Board extends Actor
     public static final int ySpacing = 80;
     
     
+    
     /**
      * Constructor for objects of class Board
      */

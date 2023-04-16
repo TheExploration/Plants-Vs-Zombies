@@ -20,4 +20,12 @@ public class PeashooterPacket extends SeedPacket
     {
         // Add your action code here.
     }
+    public TransparentObject addImage() {
+        TransparentObject temp = new TransparentPeashooter(false);
+        ((MyWorld)getWorld()).addObject(temp, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+        return temp;
+    }
+    public Plant getPlant() {
+        return new Peashooter();
+    }
 }

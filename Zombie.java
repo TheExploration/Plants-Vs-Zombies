@@ -38,16 +38,16 @@ public class Zombie extends animatedObject
     }
     public void act()
     {
+        if (getWorld() != null) {
         
-        
-        if (isLiving()) {
-            update();
-            
-        } else {
-            deathAnim();            
-            
+            if (isLiving()) {
+                update();
+                
+            } else {
+                deathAnim();            
+                
+            }
         }
-        
     }
     
     public void update() {

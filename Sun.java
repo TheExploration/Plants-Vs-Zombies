@@ -22,6 +22,7 @@ public class Sun extends FallingObject
         
     }
     public void update() {
+        
         currentFrame = System.nanoTime();
         deltaTime = (currentFrame - lastFrame) / 1000000;
         animate(sun, 200, true);
@@ -55,12 +56,22 @@ public class Sun extends FallingObject
         checkDeath();
     }
     public boolean checkClick() {
-        if (Greenfoot.mouseClicked(this)) {
-            clicked =  true;
-        } else {
-            clicked = false;
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+        if (mouse != null && Greenfoot.mouseClicked(null)) {
+            
+            MyWorld.moveHitbox();
+            if (intersects(MyWorld.hitbox)) {
+                clicked =  true;    
+            } else {
+                clicked = false;
+            }
+            return clicked;
         }
+            
+        
+        clicked = false;
         return clicked;
+        
     }
     public void checkDeath() {
         if (Math.abs(getX()-SunCounter.x) < 20 && Math.abs(getY()-SunCounter.y) < 20) {

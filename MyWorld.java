@@ -22,14 +22,19 @@ public class MyWorld extends World
     public WaveManager level = new WaveManager(50000L, level1, 10000L, true);
     public SeedPacket[] bank = {new SunflowerPacket(), new PeashooterPacket()};
     public SeedBank seedbank = new SeedBank(bank);   
-    
+    public Hitbox hitbox = new Hitbox();
      
     public void stopped() {
         
         Grasswalk.stop();
         
     }
-    
+    public void moveHitbox() {
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+        if (mouse != null) {
+            hitbox.setLocation(mouse.getX(), mouse.getY());
+        }
+    }
 
     public boolean hasLost() {
         for (Zombie i : getObjects(Zombie.class)) {
@@ -53,9 +58,10 @@ public class MyWorld extends World
         setBackground("lawn2.5.png");
         addObject(seedbank,0,0);
         addObject(board,0,0);
-        setPaintOrder(SunCounter.class, Sun.class, Dirt.class, Pea.class, Zombie.class, Plant.class, fallingZombie.class);
+        addObject(hitbox, 0,0);
+        setPaintOrder(SunCounter.class, TransparentObject.class, Sun.class, Dirt.class, Pea.class, Zombie.class, Plant.class, fallingZombie.class);
      
-  
+          
         
         
         

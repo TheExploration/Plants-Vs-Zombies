@@ -26,41 +26,41 @@ public class Pea extends animatedObject
     }
     public void act()
     {
-        
-        MyWorld = (MyWorld)getWorld();
-        if (frame >= 3) {
-            MyWorld.removeObject(this);   
-            return;
-        }
-        if (!hit) {
-            move(speed);
-        } else {
-            animate(pea, 150, false);
-        }
-        if (isAtEdge()) {
-            MyWorld.removeObject(this);   
-            return;
-        }
-        if (isTouching(Zombie.class)) {
-            
-            if (!((Zombie)getOneIntersectingObject(Zombie.class)).finalDeath) {
-                if (!foundTarget) {
-                    hitZombie = (Zombie)getOneIntersectingObject(Zombie.class);
-                    foundTarget = true;
-                }
+        if (getWorld() != null) {
+            MyWorld = (MyWorld)getWorld();
+            if (frame >= 3) {
+                MyWorld.removeObject(this);   
+                return;
+            }
+            if (!hit) {
+                move(speed);
+            } else {
+                animate(pea, 150, false);
+            }
+            if (isAtEdge()) {
+                MyWorld.removeObject(this);   
+                return;
+            }
+            if (isTouching(Zombie.class)) {
                 
-                
-                if (!hit) {
+                if (!((Zombie)getOneIntersectingObject(Zombie.class)).finalDeath) {
+                    if (!foundTarget) {
+                        hitZombie = (Zombie)getOneIntersectingObject(Zombie.class);
+                        foundTarget = true;
+                    }
                     
                     
-                    hitZombie.hit(10);
-                    hit = true;
-                    
-                } else if (getX() < hitZombie.getX()) {
-                   move(speed); 
+                    if (!hit) {
+                        
+                        
+                        hitZombie.hit(10);
+                        hit = true;
+                        
+                    } else if (hitZombie != null && getX() < hitZombie.getX()) {
+                       move(speed); 
+                    }
                 }
             }
         }
-        
     }
 }
