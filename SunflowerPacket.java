@@ -15,10 +15,7 @@ public class SunflowerPacket extends SeedPacket
     public SunflowerPacket() {
         super(5000L, true,50, "sunflowerpacket");
     }
-    public void act()
-    {
-        // Add your action code here.
-    }
+ 
     public TransparentObject addImage() {
         TransparentObject temp = new TransparentSunflower(false);
         ((MyWorld)getWorld()).addObject(temp, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());

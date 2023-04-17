@@ -133,7 +133,7 @@ public class Zombie extends animatedObject
         for (int i = 0; i < MyWorld.board.Board[0].length; i++) {
             if (row[i] != null) {
                 
-                if (Math.abs(row[i].getX() - getX()+10) < 30) {
+                if (Math.abs(row[i].getX() - getX()+5) < 35) {
                     eating = true;
                     target = row[i];
                     return eating;

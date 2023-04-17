@@ -13,13 +13,10 @@ public class PeashooterPacket extends SeedPacket
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public PeashooterPacket() {
-        super(20000L, true, 100, "peashooterpacket");
+        super(10000L, true, 100, "peashooterpacket");
         
     }
-    public void act()
-    {
-        // Add your action code here.
-    }
+    
     public TransparentObject addImage() {
         TransparentObject temp = new TransparentPeashooter(false);
         ((MyWorld)getWorld()).addObject(temp, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());

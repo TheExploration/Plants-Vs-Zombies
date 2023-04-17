@@ -27,7 +27,7 @@ public class Plant extends animatedObject
             update();    
         } else {
             MyWorld = (MyWorld)getWorld();
-            AudioPlayer.play(80,"gulp.wav");
+            AudioPlayer.play(80,"gulp.mp3");
             
             MyWorld.board.removePlant(getXPos(), getYPos());
             MyWorld.removeObject(this);

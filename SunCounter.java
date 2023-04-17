@@ -10,7 +10,7 @@ public class SunCounter extends Actor
 {
     public static final int x = 120;
     public static final int y = 50;
-    public int sun = 0;
+    public int sun = 1000;
     public static final int textY = 45;
     /**
      * Act - do whatever the SunCounter wants to do. This method is called whenever

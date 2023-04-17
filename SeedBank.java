@@ -73,7 +73,16 @@ public class SeedBank extends Actor
                     } else {
                         int x = (int)((mouse.getX()-x1)/xSpacing);
                         int y = (int)((mouse.getY()-y1)/ySpacing);
-                        MyWorld.board.placePlant(x, y, selectedPacket.getPlant());
+                        if (MyWorld.board.Board[y][x] == null) {
+                            MyWorld.board.placePlant(x, y, selectedPacket.getPlant());
+                            suncounter.removeSun(selectedPacket.sunCost);
+                            getWorld().removeObject(image);
+                            image = null;
+                            selectedPacket.startRecharge();
+                            selectedPacket.setRecharged(false);
+                            selectedPacket.setSelected(false);
+                            selectedPacket = null;
+                        }
                     }
                 }
                 
@@ -97,7 +106,7 @@ public class SeedBank extends Actor
                                 AudioPlayer.play(80, "seedlift.mp3");
                                 image = clicked.addImage();
                             } else {
-                                
+                                AudioPlayer.play(80, "buzzer.mp3");
                             }
                         } else {
                             if (clicked.recharged) {
