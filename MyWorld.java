@@ -11,6 +11,7 @@ public class MyWorld extends World
 {
     private boolean isPlaying = false;
     public boolean lose = false;
+    public boolean loseOnce = false;
     Board board = new Board();
     public GreenfootSound Grasswalk = new GreenfootSound("Grasswalk.mp3");
     public Zombie[][] level1 = {
@@ -38,8 +39,9 @@ public class MyWorld extends World
 
     public boolean hasLost() {
         for (Zombie i : getObjects(Zombie.class)) {
-            if (i.getX() < 200) {
+            if (i.getX() < 150) {
                 lose = true;
+                return lose;
             } else {
                 lose = false;
             }
@@ -80,8 +82,14 @@ public class MyWorld extends World
             
             
         }
-        if (hasLost()) {
+        if (!loseOnce && hasLost()) {
+            Grasswalk.stop();
             AudioPlayer.play(80, "losemusic.mp3");
+            Timer DelayAudio = new Timer();
+            GreenfootSound scream = new GreenfootSound("scream.mp3");
+            DelayAudio.schedule(new DelayAudio(scream, 70, false), 3000L);
+            loseOnce = true;
+            Greenfoot.delay(1000);
         }
         
     }
