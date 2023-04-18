@@ -11,10 +11,10 @@ public class Board extends Actor
     
      // instance variables - replace the example below with your own
     public Plant[][] Board = new Plant[5][9]; 
-    public static final int xOffset = 237;
-    public static final int yOffset = 110;
-    public static final int xSpacing = 64;
-    public static final int ySpacing = 80;
+    public static final int xOffset = 214;
+    public static final int yOffset = 95;
+    public static final int xSpacing = 58;
+    public static final int ySpacing = 72;
     
     
     
