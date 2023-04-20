@@ -41,7 +41,7 @@ public class Pea extends animatedObject
                 MyWorld.removeObject(this);   
                 return;
             }
-            if (isTouching(Zombie.class)) {
+            if (isTouching(Zombie.class) && getOneIntersectingObject(Zombie.class) != null) {
                 
                 if (!((Zombie)getOneIntersectingObject(Zombie.class)).finalDeath) {
                     if (!foundTarget) {

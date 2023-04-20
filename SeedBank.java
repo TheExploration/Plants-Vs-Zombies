@@ -21,12 +21,12 @@ public class SeedBank extends Actor
     public TransparentObject image = null;
     public TransparentObject transparent = null;
     
-    public static final int x1 = 200;
-    public static final int x2 = 775;
-    public static final int xSpacing = 64;
-    public static final int y1 = 67;
-    public static final int y2 = 463;
-    public static final int ySpacing = 80;
+    public static final int x1 = 182;
+    public static final int x2 = 702;
+    public static final int xSpacing = Board.xSpacing;
+    public static final int y1 = 62;
+    public static final int y2 = 417;
+    public static final int ySpacing = Board.ySpacing;
     
     public SeedBank(SeedPacket[] bank) {
         
@@ -52,7 +52,7 @@ public class SeedBank extends Actor
             
             if (Greenfoot.mouseClicked(null)) {
                 MyWorld.moveHitbox();
-                
+                //Debug: System.out.println(mouse.getX()+" "+ mouse.getY());
                 
                 if (image != null) {
                     if (mouse.getX() < x1 || mouse.getX() > x2 || mouse.getY() < y1 || mouse.getY() > y2) {

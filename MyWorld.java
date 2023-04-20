@@ -4,23 +4,25 @@ import java.util.*;
 /**
  * Write a description of class MyWorld here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Exploration
+ * @version 0.1
  */
+
 public class MyWorld extends World
-{
+{   
+    
     private boolean isPlaying = false;
     public boolean lose = false;
     public boolean loseOnce = false;
     Board board = new Board();
     public GreenfootSound Grasswalk = new GreenfootSound("Grasswalk.mp3");
     public Zombie[][] level1 = {
-                {null, null, new BasicZombie(), null, null, new BasicZombie(), null, new BasicZombie()},
+                {null, null, new BasicZombie(), null, null},
                 {new BasicZombie(), null, new BasicZombie(), new BasicZombie(), new BasicZombie()}, 
-                {new BasicZombie(), new BasicZombie(), new BasicZombie()}, 
-                {new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie()}
+                {new BasicZombie(), new BasicZombie(), new BasicZombie(),  new BasicZombie(), new BasicZombie()}, 
+                {new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie()}
     };
-    public WaveManager level = new WaveManager(50000L, level1, 10000L, true);
+    public WaveManager level = new WaveManager(45000L, level1, 10000L, true);
     public SeedPacket[] bank = {new SunflowerPacket(), new PeashooterPacket()};
     public SeedBank seedbank = new SeedBank(bank);   
     public Hitbox hitbox = new Hitbox();
@@ -39,7 +41,11 @@ public class MyWorld extends World
 
     public boolean hasLost() {
         for (Zombie i : getObjects(Zombie.class)) {
-            if (i.getX() < 150) {
+            if (i.getX() < 165) {
+                //move to door
+            }
+            
+            if (i.getX() < 125) {
                 lose = true;
                 return lose;
             } else {
@@ -55,13 +61,13 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(735, 430, 1, false); 
+        super(733, 430, 1, false); 
         Greenfoot.setSpeed(50);
         setBackground("lawn2.png");
         addObject(seedbank,0,0);
         addObject(board,0,0);
         addObject(hitbox, 0,0);
-        setPaintOrder(SunCounter.class, TransparentObject.class, Sun.class, Dirt.class, Pea.class, Zombie.class, Plant.class, fallingZombie.class);
+        setPaintOrder(SunCounter.class, TransparentObject.class, Sun.class, Dirt.class, Pea.class, FallingObject.class, Zombie.class, Plant.class, fallingZombie.class);
      
           
         
