@@ -10,8 +10,11 @@ public class SunCounter extends Actor
 {
     public static final int x = 120;
     public static final int y = 50;
-    public int sun = 1000;
+    public int sun = 50;
     public static final int textY = 45;
+    public long currentFrame = System.nanoTime();
+    public long lastFrame = System.nanoTime();
+    public long deltaTime;    
     /**
      * Act - do whatever the SunCounter wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -21,6 +24,12 @@ public class SunCounter extends Actor
     
     public void act()
     {
+        currentFrame = System.nanoTime();
+        deltaTime = (currentFrame - lastFrame) / 1000000;
+        if (deltaTime >= 10000L) {
+            MyWorld.addObject(new FallingSun(), Random.Int(SeedBank.x1, SeedBank.x2), 0);
+            lastFrame = System.nanoTime();
+        }
         
         // Add your action code here.
     }

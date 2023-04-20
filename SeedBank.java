@@ -20,7 +20,7 @@ public class SeedBank extends Actor
     public SeedPacket selectedPacket = null;
     public TransparentObject image = null;
     public TransparentObject transparent = null;
-    
+
     public static final int x1 = 182;
     public static final int x2 = 702;
     public static final int xSpacing = Board.xSpacing;

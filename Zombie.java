@@ -59,7 +59,7 @@ public class Zombie extends animatedObject
                 frame = 0;    
                 resetAnim = true;
         }
-        if (frame <=7) {
+        if (frame <=6) {
             if (finalDeath) {
                 if (!fixAnim) {
                     fixAnim = true;

@@ -32,6 +32,11 @@ public class MyWorld extends World
         Grasswalk.stop();
         
     }
+    public void started() {
+        
+        Greenfoot.setWorld(new MyWorld());
+        
+    }
     public void moveHitbox() {
         MouseInfo mouse = Greenfoot.getMouseInfo();
         if (mouse != null) {
@@ -41,9 +46,7 @@ public class MyWorld extends World
 
     public boolean hasLost() {
         for (Zombie i : getObjects(Zombie.class)) {
-            if (i.getX() < 165) {
-                //move to door
-            }
+        
             
             if (i.getX() < 125) {
                 lose = true;

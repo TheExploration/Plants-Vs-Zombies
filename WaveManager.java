@@ -9,7 +9,7 @@ import java.util.*; //HAHAHADIE
 public class WaveManager extends Actor
 {
     public long currentFrame = System.nanoTime();
-    public static final int xOffset = 760;
+    public static final int xOffset = 770;
     public static final int yOffset = 80;
     public static final int ySpacing = 71;
     public ArrayList<ArrayList<Zombie>> zombieRow = new ArrayList<ArrayList<Zombie>>();
@@ -62,6 +62,8 @@ public class WaveManager extends Actor
         if (wave != -1) {
             currentFrame = System.nanoTime();
             deltaTime = (currentFrame - lastFrame) / 1000000;
+        } else {
+            lastFrame = System.nanoTime();
         }
         if (wave > level.length-1) {
                 wave = -1;
@@ -116,7 +118,7 @@ public class WaveManager extends Actor
                 if (wave[i] != null) {
                     finishedSending = false;
                     int wait = (int)(i/5);
-                    long delayTime = (long)(wait*5000L);
+                    long delayTime = (long)(wait*4000L);
                     Timer delay = new Timer();
                     delay.schedule(new DelayWave(wave, i, this), delayTime);
                 }
