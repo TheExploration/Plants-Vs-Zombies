@@ -26,6 +26,7 @@ public class MyWorld extends World
     public SeedPacket[] bank = {new SunflowerPacket(), new PeashooterPacket()};
     public SeedBank seedbank = new SeedBank(bank);   
     public Hitbox hitbox = new Hitbox();
+    public Shovel shovel = new Shovel();
      
     public void stopped() {
         
@@ -70,7 +71,8 @@ public class MyWorld extends World
         addObject(seedbank,0,0);
         addObject(board,0,0);
         addObject(hitbox, 0,0);
-        setPaintOrder(SunCounter.class, TransparentObject.class, Sun.class, Dirt.class, Pea.class, FallingObject.class, Zombie.class, Plant.class, fallingZombie.class);
+        addObject(shovel, 690,420);
+        setPaintOrder(SunCounter.class, clickShovel.class, Shovel.class, TransparentObject.class, FallingSun.class, Sun.class, Dirt.class, Pea.class, FallingObject.class, Zombie.class, fallingZombie.class, Plant.class);
      
           
         

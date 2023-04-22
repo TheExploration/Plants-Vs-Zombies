@@ -74,7 +74,7 @@ public class Zombie extends animatedObject
             } else {
                 if (!spawnHead) {
                     spawnHead = true;
-                    AudioPlayer.play(80, "shoop.mp3");
+                    AudioPlayer.play(80, "limbs_pop.mp3");
                     getWorld().addObject(new Head(), getX(), getY()-10);
                 }
                 if (!eating) {

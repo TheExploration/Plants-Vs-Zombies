@@ -36,6 +36,15 @@ public class animatedObject extends SmoothMover
         }
         return temp;
     }
+    public GreenfootImage[] importSprites(String filename, int frames, boolean upscale) {
+        GreenfootImage[] temp = new GreenfootImage[frames];
+        for (int i = 0; i < frames; i++) {
+            GreenfootImage scale = new GreenfootImage(filename+(i+1)+".png");
+            temp[i] = scale;
+        }
+        return temp;
+    }
+
 
     
     public GreenfootImage[] importSprites(String filename, int frames, double scaleFactor) {

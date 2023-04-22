@@ -36,7 +36,12 @@ public class Board extends Actor
         
     }
     public void removePlant(int x, int y) {
-        Board[y][x] = null;
+        if (Board[y][x] != null) {
+            getWorld().removeObject(Board[y][x]);
+            Board[y][x] = null;    
+        }
+        //plant.mp3 is not used for shovel???
+        AudioPlayer.play(80,"plant2.mp3");
     }
     
     public void updateBoard() {

@@ -59,11 +59,9 @@ public class SeedBank extends Actor
                         MyWorld.removeObject(image);
                         image = null;
                         boolean selected = false;
-                        for (Object i : MyWorld.hitbox.getTouching()) {
-                            if (i.equals(selectedPacket)) {
+                        AudioPlayer.play(80,"tap.mp3", "tap2.mp3");
+                        if (MyWorld.hitbox.getTouching().contains(selectedPacket)) {
                                 selected = true;
-                            }
-                        
                         }
                         if (!selected) {
                             selectedPacket.setSelected(false);

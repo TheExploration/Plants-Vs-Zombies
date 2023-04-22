@@ -12,6 +12,7 @@ public class Plant extends animatedObject
     public boolean isAlive = true;
     public int hp;
     public int damage;
+    public boolean opaque = false;
     public MyWorld MyWorld;
  
     public Plant() {
@@ -25,6 +26,11 @@ public class Plant extends animatedObject
     {
         if (isLiving()) {
             update();    
+            if (!opaque) {
+                getImage().setTransparency(255);
+            } else {
+                getImage().setTransparency(125);
+            }
         } else {
             MyWorld = (MyWorld)getWorld();
             AudioPlayer.play(80,"gulp.mp3");
@@ -34,8 +40,8 @@ public class Plant extends animatedObject
             
             return;
         } 
-        
-        // Add your action code here.
+
+    
     }
     public void update() {
         
