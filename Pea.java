@@ -56,7 +56,7 @@ public class Pea extends animatedObject
                         hitZombie.hit(10);
                         hit = true;
                         
-                    } else if (hitZombie != null && getX() < hitZombie.getX()) {
+                    } else if (hitZombie.getWorld() != null && getX() < hitZombie.getX()) {
                        move(speed); 
                     }
                 }

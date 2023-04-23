@@ -35,7 +35,7 @@ public class MyWorld extends World
     }
     public void started() {
         
-        Greenfoot.setWorld(new MyWorld());
+        Greenfoot.setSpeed(50);        
         
     }
     public void moveHitbox() {
@@ -72,7 +72,7 @@ public class MyWorld extends World
         addObject(board,0,0);
         addObject(hitbox, 0,0);
         addObject(shovel, 690,420);
-        setPaintOrder(SunCounter.class, clickShovel.class, Shovel.class, TransparentObject.class, FallingSun.class, Sun.class, Dirt.class, Pea.class, FallingObject.class, Zombie.class, fallingZombie.class, Plant.class);
+        setPaintOrder(Transition.class, SunCounter.class, clickShovel.class, Shovel.class, TransparentObject.class, SeedPacket.class, FallingSun.class, Sun.class, Dirt.class, Pea.class, FallingObject.class, Zombie.class, fallingZombie.class, Plant.class);
      
           
         
@@ -87,10 +87,7 @@ public class MyWorld extends World
             Timer DelayAudio = new Timer();
             DelayAudio.schedule(new DelayAudio(Grasswalk, 70, true), 2000L); 
             level.startLevel();
-            isPlaying = true;
-            
-           
-            
+            isPlaying = true;           
             
         }
         if (!loseOnce && hasLost()) {
@@ -98,9 +95,10 @@ public class MyWorld extends World
             AudioPlayer.play(80, "losemusic.mp3");
             Timer DelayAudio = new Timer();
             GreenfootSound scream = new GreenfootSound("scream.mp3");
-            DelayAudio.schedule(new DelayAudio(scream, 70, false), 3000L);
+            DelayAudio.schedule(new DelayAudio(scream, 70, false), 4000L);
             loseOnce = true;
-            Greenfoot.delay(1000);
+            Greenfoot.delay(250);
+            addObject(new Transition(false, new GameOver(), "gameover.png", 5), 365, 215);
         }
         
     }
