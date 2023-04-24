@@ -16,18 +16,58 @@ public class MyWorld extends World
     public boolean loseOnce = false;
     Board board = new Board();
     public GreenfootSound Grasswalk = new GreenfootSound("Grasswalk.mp3");
+    Zombie[] ZombierO = {new BasicZombie(), new BasicZombie(), new BasicZombie(), new Conehead(), };
+    
+    
+    
     public Zombie[][] level1 = {
-                {null, null, new BasicZombie(), null, null},
-                {new BasicZombie(), null, new BasicZombie(), new BasicZombie(), new BasicZombie()}, 
-                {new BasicZombie(), new BasicZombie(), new BasicZombie(),  new BasicZombie(), new BasicZombie()}, 
-                {new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie()}
+                {null, new Conehead(), null, new BasicZombie(), null},
+                {new BasicZombie(), null, new BasicZombie(), new BasicZombie(), new Conehead()}, 
+                {new BasicZombie(), new BasicZombie(), new BasicZombie(),  new BasicZombie(), new Conehead()}, 
+                {new Conehead(), new Conehead(), new Conehead(), new BasicZombie(), new BasicZombie(),new Conehead(), new BasicZombie(), new Conehead()}
     };
-    public WaveManager level = new WaveManager(45000L, level1, 10000L, true);
+    /*
+    DOESNT WORK
+    public Zombie[][] fixOrder(String[][] level) {
+        int longest = 0;
+        
+        
+        for (int i = 0; i < level.length; i++) {
+            if (level[i].length > longest) {
+                longest = level[i].length;
+                
+            }
+        }
+        Zombie[][] waves = new Zombie[level.length][longest];
+        for (int r = 0; r < longest; r++) {
+            for (int c = 0; c < level.length; c++) {
+                if (r < level[c].length) {
+                    if (level[c][r] != null) {
+                        if (level[c][r].equals("Basic")) {
+                            waves[c][r] = new BasicZombie();
+                        } else if (level[c][r].equals("Conehead")) {
+                            waves[c][r] = new Conehead();
+                        }
+                    }
+                }
+            }
+        }
+        return waves;
+        
+    }
+    */
     public SeedPacket[] bank = {new SunflowerPacket(), new PeashooterPacket(), new WalnutPacket()};
     public SeedBank seedbank = new SeedBank(bank);   
     public Hitbox hitbox = new Hitbox();
     public Shovel shovel = new Shovel();
-     
+    
+    
+    public WaveManager level = new WaveManager(45000L, level1, 10000L, true);
+    
+    
+    
+    
+    
     public void stopped() {
         
         Grasswalk.stop();

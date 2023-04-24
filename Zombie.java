@@ -65,7 +65,7 @@ public class Zombie extends animatedObject
                     fixAnim = true;
                     AudioPlayer.play(80, "zombie_falling_1.mp3", "zombie_falling_2.mp3");
                     
-                    MyWorld.addObject(new fallingZombie(fall), getX()-10, getY()+10);
+                    MyWorld.addObject(new fallingZombie(fall), getX()-10, getY());
                     getWorld().removeObject(this);
                     return;
                 }

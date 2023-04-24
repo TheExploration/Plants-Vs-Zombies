@@ -10,8 +10,8 @@ public class WaveManager extends Actor
 {
     public long currentFrame = System.nanoTime();
     public static final int xOffset = 770;
-    public static final int yOffset = 80;
-    public static final int ySpacing = 71;
+    public static final int yOffset = 65;
+    public static final int ySpacing = 73;
     public ArrayList<ArrayList<Zombie>> zombieRow = new ArrayList<ArrayList<Zombie>>();
     public ArrayList<Zombie> row1 = new ArrayList<Zombie>();
     public ArrayList<Zombie> row2 = new ArrayList<Zombie>();
@@ -56,6 +56,26 @@ public class WaveManager extends Actor
         wave = 0;
         AudioPlayer.play(80, "readysetplant.mp3");
     }
+    
+    //Fix order cause no setPaintOrder for actors :(
+    public void fixOrder() {
+       
+        List<Zombie> zombies = MyWorld.getObjects(Zombie.class);
+        for (int r = 0; r < 5; r++) {
+            for (int i = 0; i < zombies.size(); i++) {
+                if (zombies.get(i).getYPos() == r) {
+                    int x = zombies.get(i).getX();
+                    int y = zombies.get(i).getY();
+                    MyWorld.removeObject(zombies.get(i));
+                    MyWorld.addObject(zombies.get(i), x, y);
+                    
+                        
+                    
+                }
+            }
+        }
+    }
+    
     
     public void act()
     {
@@ -124,5 +144,6 @@ public class WaveManager extends Actor
                 }
             }
         }
+        fixOrder();
     }
 }
