@@ -7,60 +7,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 
-public class Pea extends animatedObject
+public class Pea extends Projectile
 {
-    private double speed = 4;
-    private GreenfootImage[] pea;
-    private boolean hit = false;
-    public MyWorld MyWorld;
-    private boolean foundTarget = false;
-    public Zombie hitZombie;
+    
     /**
      * Act - do whatever the Pea wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Pea() {
-        pea = importSprites("pea",3);
-        setImage(pea[0]);
+    public Pea(int yPos) {
+        super("pea", 3, yPos);
         
-    }
-    public void act()
-    {
-        if (getWorld() != null) {
-            MyWorld = (MyWorld)getWorld();
-            if (frame >= 3) {
-                MyWorld.removeObject(this);   
-                return;
-            }
-            if (!hit) {
-                move(speed);
-            } else {
-                animate(pea, 150, false);
-            }
-            if (isAtEdge()) {
-                MyWorld.removeObject(this);   
-                return;
-            }
-            if (isTouching(Zombie.class) && getOneIntersectingObject(Zombie.class) != null) {
-                
-                if (!((Zombie)getOneIntersectingObject(Zombie.class)).finalDeath) {
-                    if (!foundTarget) {
-                        hitZombie = (Zombie)getOneIntersectingObject(Zombie.class);
-                        foundTarget = true;
-                    }
-                    
-                    
-                    if (!hit) {
-                        
-                        
-                        hitZombie.hit(10);
-                        hit = true;
-                        
-                    } else if (hitZombie.getWorld() != null && getX() < hitZombie.getX()) {
-                       move(speed); 
-                    }
-                }
-            }
-        }
+        
     }
 }
