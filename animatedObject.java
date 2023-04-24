@@ -31,21 +31,13 @@ public class animatedObject extends SmoothMover
         GreenfootImage[] temp = new GreenfootImage[frames];
         for (int i = 0; i < frames; i++) {
             GreenfootImage scale = new GreenfootImage(filename+(i+1)+".png");
-            scale.scale(scale.getWidth()*2, scale.getHeight()*2);
-            temp[i] = scale;
-        }
-        return temp;
-    }
-    public GreenfootImage[] importSprites(String filename, int frames, boolean upscale) {
-        GreenfootImage[] temp = new GreenfootImage[frames];
-        for (int i = 0; i < frames; i++) {
-            GreenfootImage scale = new GreenfootImage(filename+(i+1)+".png");
+            
             temp[i] = scale;
         }
         return temp;
     }
 
-
+/*
     
     public GreenfootImage[] importSprites(String filename, int frames, double scaleFactor) {
         GreenfootImage[] temp = new GreenfootImage[frames];
@@ -56,7 +48,7 @@ public class animatedObject extends SmoothMover
         }
         return temp;
     }
-    
+    */
     
     
     public void animate(GreenfootImage[] sprite, long duration) {
@@ -127,8 +119,7 @@ public class animatedObject extends SmoothMover
         
         GreenfootImage first = new GreenfootImage("flash"+filename+(tempFrame+1)+".png");
         GreenfootImage second = new GreenfootImage("flash"+filename+(flashFrame+1)+".png");
-        first.scale(first.getWidth()*2, first.getHeight()*2);
-        second.scale(second.getWidth()*2, second.getHeight()*2);
+ 
         sprite[tempFrame] = first;
         sprite[flashFrame] = second;
         
@@ -139,6 +130,7 @@ public class animatedObject extends SmoothMover
         timer.schedule(new Timer1(sprite, filename, tempFrame,flashFrame), 500L); 
        
     }
+
    
     
 

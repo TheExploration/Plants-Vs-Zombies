@@ -14,7 +14,7 @@ public class Dirt extends animatedObject
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public Dirt() {
-        dirt = importSprites("dirt",4,1);
+        dirt = importSprites("dirt",4);
     }
     public void act()
     {

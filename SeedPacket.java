@@ -19,7 +19,7 @@ public class SeedPacket extends Actor
     public long currentFrame = System.nanoTime();
     public int sunCost;
     public boolean recharged = false;
-    public boolean startRecharged = false;
+    
     public String name;
     public boolean selected = false;
     public MyWorld MyWorld;

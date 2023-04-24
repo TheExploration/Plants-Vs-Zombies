@@ -23,7 +23,7 @@ public class MyWorld extends World
                 {new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie()}
     };
     public WaveManager level = new WaveManager(45000L, level1, 10000L, true);
-    public SeedPacket[] bank = {new SunflowerPacket(), new PeashooterPacket()};
+    public SeedPacket[] bank = {new SunflowerPacket(), new PeashooterPacket(), new WalnutPacket()};
     public SeedBank seedbank = new SeedBank(bank);   
     public Hitbox hitbox = new Hitbox();
     public Shovel shovel = new Shovel();

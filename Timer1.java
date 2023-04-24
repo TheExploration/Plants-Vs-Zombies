@@ -25,8 +25,7 @@ class Timer1 extends TimerTask
     public void run() {
         GreenfootImage first = new GreenfootImage(spriteSheet+(frame+1)+".png");
         GreenfootImage second = new GreenfootImage(spriteSheet+(frame2+1)+".png");
-        first.scale(first.getWidth()*2, first.getHeight()*2);
-        second.scale(second.getWidth()*2, second.getHeight()*2);
+        
         image[frame] = first;
         image[frame2] = second;
         
