@@ -16,14 +16,21 @@ public class MyWorld extends World
     public boolean loseOnce = false;
     Board board = new Board();
     public GreenfootSound Grasswalk = new GreenfootSound("Grasswalk.mp3");
-    Zombie[] ZombierO = {new BasicZombie(), new BasicZombie(), new BasicZombie(), new Conehead(), };
+    
     
     
     
     public Zombie[][] level1 = {
-                {null, new Conehead(), null, new BasicZombie(), null},
-                {new BasicZombie(), null, new BasicZombie(), new BasicZombie(), new Conehead()}, 
-                {new BasicZombie(), new BasicZombie(), new BasicZombie(),  new BasicZombie(), new Conehead()}, 
+                {new Conehead(), new Conehead(), new Conehead(), new BasicZombie(), new BasicZombie(),new Conehead(), new BasicZombie(), new Conehead()},      
+                {null, null, null, new BasicZombie(), null},
+                {new BasicZombie(), null, null, null, null}, 
+                {null, new BasicZombie(), null, new BasicZombie()},
+                {null, null, new Conehead(), null, null},
+                {new BasicZombie(), null, new BasicZombie(), new BasicZombie(), null}, 
+                {new Conehead(), null, null, null, null},
+                {null, new BasicZombie(), null, null, new Conehead()},
+                {new BasicZombie(), new BasicZombie(), new BasicZombie(),  null, new Conehead()}, 
+                {null, null, new BasicZombie(), null, null},
                 {new Conehead(), new Conehead(), new Conehead(), new BasicZombie(), new BasicZombie(),new Conehead(), new BasicZombie(), new Conehead()}
     };
     /*
@@ -89,7 +96,7 @@ public class MyWorld extends World
         for (Zombie i : getObjects(Zombie.class)) {
         
             
-            if (i.getX() < 125) {
+            if (i.getWorld() != null && i.getX() < 125) {
                 lose = true;
                 return lose;
             } else {

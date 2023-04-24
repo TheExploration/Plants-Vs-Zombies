@@ -46,15 +46,12 @@ public class Projectile extends animatedObject {
                 MyWorld.removeObject(this);   
                 return;
             }
-            if (isTouching(Zombie.class)) {
-                
-                if (((Zombie)getOneIntersectingObject(Zombie.class)).getYPos() == yPos) {
+            for (Zombie i : MyWorld.level.zombieRow.get(yPos)) {
+                if (Math.abs(i.getX() - getX()) < 20) {
                     if (!foundTarget) {
-                        hitZombie = (Zombie)getOneIntersectingObject(Zombie.class);
+                        hitZombie = i;
                         foundTarget = true;
-                    }
-                    
-                    
+                    } 
                     if (!hit) {
                         
                         
@@ -65,7 +62,11 @@ public class Projectile extends animatedObject {
                        move(speed); 
                     }
                 }
+                
+                
             }
+            
+           
         }
     }
 }

@@ -25,6 +25,8 @@ public class WaveManager extends Actor
     public long waveTime;
     public long firstWave;
     public long deltaTime;
+    public long deltaTime2;
+    public long lastFrame2 = System.nanoTime();
     public boolean won = false;
     public World MyWorld;
     private int wave = -1;
@@ -63,7 +65,7 @@ public class WaveManager extends Actor
         List<Zombie> zombies = MyWorld.getObjects(Zombie.class);
         for (int r = 0; r < 5; r++) {
             for (int i = 0; i < zombies.size(); i++) {
-                if (zombies.get(i).getYPos() == r) {
+                if (zombies.get(i).getWorld() != null && zombies.get(i).getYPos() == r) {
                     int x = zombies.get(i).getX();
                     int y = zombies.get(i).getY();
                     MyWorld.removeObject(zombies.get(i));
@@ -79,6 +81,16 @@ public class WaveManager extends Actor
     
     public void act()
     {
+        deltaTime2 = (currentFrame - lastFrame2) / 1000000;
+        if (deltaTime2 >= 10000L) {
+            try {
+                fixOrder();
+            } catch (Exception ex) {
+                
+            }
+            lastFrame2 = System.nanoTime();
+        }
+        
         if (wave != -1) {
             currentFrame = System.nanoTime();
             deltaTime = (currentFrame - lastFrame) / 1000000;
@@ -144,6 +156,6 @@ public class WaveManager extends Actor
                 }
             }
         }
-        fixOrder();
+        
     }
 }
