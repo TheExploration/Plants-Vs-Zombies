@@ -81,15 +81,7 @@ public class WaveManager extends Actor
     
     public void act()
     {
-        deltaTime2 = (currentFrame - lastFrame2) / 1000000;
-        if (deltaTime2 >= 10000L) {
-            try {
-                fixOrder();
-            } catch (Exception ex) {
-                
-            }
-            lastFrame2 = System.nanoTime();
-        }
+        
         
         if (wave != -1) {
             currentFrame = System.nanoTime();
@@ -156,6 +148,7 @@ public class WaveManager extends Actor
                 }
             }
         }
-        
+        Timer fix = new Timer();
+        fix.schedule(new FixOrder(this), 10000L);
     }
 }

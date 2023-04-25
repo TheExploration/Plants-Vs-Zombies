@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=FixOrder
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Timer2\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=level
+comment1.target=FixOrder(WaveManager)
+comment2.params=
+comment2.target=void\ run()
+numComments=3
