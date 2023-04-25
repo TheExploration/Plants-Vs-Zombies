@@ -59,14 +59,17 @@ public class animatedObject extends SmoothMover
         if (deltaTime > duration) {
             lastFrame = currentFrame;    
             frame++;
-            
+            if (frame < sprite.length) {
+                setImage(sprite[frame]);
+            }
+
         }
         if (frame < sprite.length) {
-            setImage(sprite[frame]);
+            
         } else {
             
             frame = 0;
-            setImage(sprite[frame]);
+            
         }
         
            
@@ -80,14 +83,16 @@ public class animatedObject extends SmoothMover
             
             lastFrame = currentFrame;    
             frame++;
-            
+            if (frame < sprite.length) {
+                setImage(sprite[frame]);
+            }
         }
         if (frame < sprite.length) {
-            setImage(sprite[frame]);
+            
         } else if (loop) {
             
             frame = 0;
-            setImage(sprite[frame]);
+            
         } else {
             //do nothing
         }
