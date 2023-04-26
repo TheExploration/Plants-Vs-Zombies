@@ -12,7 +12,7 @@ public class Conehead extends Zombie
      * Act - do whatever the BasicZombie wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
+    public boolean cone = true;
     public GreenfootImage[] idle;
     public GreenfootImage[] walk;
     public GreenfootImage[] armless;
@@ -73,6 +73,11 @@ public class Conehead extends Zombie
                 playEating();
             }
         } else {
+            if (cone) {
+                cone = false;
+                MyWorld.addObject(new Cone(), getX(), getY()-25);
+            }
+            
             if (hp > 50) {
                 if (!isEating()) {
                     animate(walk, 350, true);   

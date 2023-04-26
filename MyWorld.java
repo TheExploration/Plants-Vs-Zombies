@@ -21,7 +21,7 @@ public class MyWorld extends World
     
     
     public Zombie[][] level1 = {
-                {new Conehead(), new Conehead(), new Conehead(), new BasicZombie(), new BasicZombie(),new Conehead(), new BasicZombie(), new Conehead()},      
+                {null, null, new Conehead()},      
                 {null, null, null, new BasicZombie(), null},
                 {new BasicZombie(), null, null, null, null}, 
                 {null, new BasicZombie(), null, new BasicZombie()},
@@ -63,7 +63,7 @@ public class MyWorld extends World
         
     }
     */
-    public SeedPacket[] bank = {new SunflowerPacket(), new PeashooterPacket(), new WalnutPacket()};
+    public SeedPacket[] bank = {new SunflowerPacket(), new PeashooterPacket(), new WalnutPacket(), new CactusPacket()};
     public SeedBank seedbank = new SeedBank(bank);   
     public Hitbox hitbox = new Hitbox();
     public Shovel shovel = new Shovel();

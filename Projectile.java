@@ -16,14 +16,17 @@ public class Projectile extends animatedObject {
     public Zombie hitZombie;
     public int frameCount;
     public int yPos;
+    public int damage;
     /**
      * Act - do whatever the Pea wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Projectile(String name, int frameCount, int yPos) {
+    public Projectile(String name, int frameCount, int yPos, int dmg, double speed) {
         this.frameCount = frameCount;
         this.image = importSprites(name, frameCount);
         this.yPos = yPos;
+        this.damage = dmg;
+        this.speed = speed;
         setImage(image[0]);
         
         
@@ -55,7 +58,7 @@ public class Projectile extends animatedObject {
                     if (!hit) {
                         
                         
-                        hitZombie.hit(10);
+                        hitZombie.hit(damage);
                         hit = true;
                         
                     } else if (hitZombie.getWorld() != null && getX() < hitZombie.getX()) {

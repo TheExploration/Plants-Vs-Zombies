@@ -17,15 +17,11 @@ public class animatedObject extends SmoothMover
     public long deltaTime;
     public long lastFrame = System.nanoTime();
     public long currentFrame = System.nanoTime();
-    
+    public GreenfootImage[] previousSprites = null;
     
     public int frame = 0;
     //In milliseconds (ms)
     
-    public void act()
-    {
-        // Add your action code here.
-    }
     
     public GreenfootImage[] importSprites(String filename, int frames) {
         GreenfootImage[] temp = new GreenfootImage[frames];
@@ -36,8 +32,6 @@ public class animatedObject extends SmoothMover
         }
         return temp;
     }
-
-/*
     
     public GreenfootImage[] importSprites(String filename, int frames, double scaleFactor) {
         GreenfootImage[] temp = new GreenfootImage[frames];
@@ -48,7 +42,7 @@ public class animatedObject extends SmoothMover
         }
         return temp;
     }
-    */
+    
     
     
     public void animate(GreenfootImage[] sprite, long duration) {
@@ -69,7 +63,11 @@ public class animatedObject extends SmoothMover
         } else {
             
             frame = 0;
-            
+            setImage(sprite[frame]);
+        }
+        if (!sprite.equals(previousSprites)) {
+            setImage(sprite[frame]);
+            previousSprites = sprite;
         }
         
            
@@ -92,11 +90,15 @@ public class animatedObject extends SmoothMover
         } else if (loop) {
             
             frame = 0;
-            
+            setImage(sprite[frame]);
         } else {
             //do nothing
         }
-        
+        if (!sprite.equals(previousSprites) && frame < sprite.length) {
+            
+            setImage(sprite[frame]);
+            previousSprites = sprite;
+        }
                
         
 

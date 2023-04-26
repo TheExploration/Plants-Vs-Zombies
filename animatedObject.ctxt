@@ -1,13 +1,12 @@
 #BlueJ class context
 comment0.target=animatedObject
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ animatedObject\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=
-comment1.target=void\ act()
-comment2.params=filename\ frames
-comment2.target=greenfoot.GreenfootImage[]\ importSprites(java.lang.String,\ int)
+comment1.params=filename\ frames
+comment1.target=greenfoot.GreenfootImage[]\ importSprites(java.lang.String,\ int)
+comment2.params=filename\ frames\ scaleFactor
+comment2.target=greenfoot.GreenfootImage[]\ importSprites(java.lang.String,\ int,\ double)
 comment3.params=sprite\ duration
 comment3.target=void\ animate(greenfoot.GreenfootImage[],\ long)
-comment3.text=\r\n\ \ \ \ \r\n\ \ \ \ public\ GreenfootImage[]\ importSprites(String\ filename,\ int\ frames,\ double\ scaleFactor)\ {\r\n\ \ \ \ \ \ \ \ GreenfootImage[]\ temp\ \=\ new\ GreenfootImage[frames];\r\n\ \ \ \ \ \ \ \ for\ (int\ i\ \=\ 0;\ i\ <\ frames;\ i++)\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ GreenfootImage\ scale\ \=\ new\ GreenfootImage(filename+(i+1)+".png");\r\n\ \ \ \ \ \ \ \ \ \ \ \ scale.scale((int)(scale.getWidth()*scaleFactor),\ (int)(scale.getHeight()*scaleFactor));\r\n\ \ \ \ \ \ \ \ \ \ \ \ temp[i]\ \=\ scale;\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ return\ temp;\r\n\ \ \ \ }\r\n
 comment4.params=sprite\ duration\ loop
 comment4.target=void\ animate(greenfoot.GreenfootImage[],\ long,\ boolean)
 comment5.params=toFrame
