@@ -45,7 +45,6 @@ public class Zombie extends animatedObject
                 
             } else {
                 deathAnim();            
-                
             }
         }
     }

@@ -153,7 +153,8 @@ public class WaveManager extends Actor
                 }
             }
         }
+        long fixTime = (long)(1000L+(wave.length-1)/5*4000L);
         Timer fix = new Timer();
-        fix.schedule(new FixOrder(this), 10000L);
+        fix.schedule(new FixOrder(this), fixTime);
     }
 }
