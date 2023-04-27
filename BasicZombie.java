@@ -43,7 +43,7 @@ public class BasicZombie extends Zombie
             if (!fallen) {
                 fallen = true;
                 AudioPlayer.play(80, "limbs_pop.mp3");
-                MyWorld.addObject(new Arm(), getX()+8, getY()+10);
+                MyWorld.addObject(new Arm(), getX()+8, getY()+20);
             }
             if (!isEating()) {
                 animate(armless, 350, true);

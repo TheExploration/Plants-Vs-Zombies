@@ -18,7 +18,8 @@ class FixOrder extends TimerTask
         this.level = level;
     }
     public void run() {
-        level.fixOrder();
         
+            level.fixOrder();
+       
     }
 }

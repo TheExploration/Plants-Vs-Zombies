@@ -58,7 +58,7 @@ public class Cactus extends Plant
                 
                 if (frame >= 2) {
                     
-                    MyWorld.addObject(new Needle(getYPos()), getX()+30,getY());
+                    MyWorld.addObject(new Needle(getYPos()), getX()+30,getY()-8);
                     lastFrame2 = currentFrame;
                 }
                 animate(shoot, 150, false);

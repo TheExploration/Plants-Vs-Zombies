@@ -22,7 +22,7 @@ public class Walnut extends Plant
         idle = importSprites("walnut", 5);
         d = importSprites("walnutd", 5);
         dd = importSprites("walnutdd", 5);
-        maxHp = 720;
+        maxHp = 730;
         hp = maxHp;
     }
     

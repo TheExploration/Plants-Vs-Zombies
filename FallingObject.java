@@ -53,10 +53,10 @@ public class FallingObject extends animatedObject
     }
     public void checkDeath() {
         if (getImage().getTransparency() > 0) {
-            if (getImage().getTransparency()-4 <= 0) {
+            if (getImage().getTransparency()-3 <= 0) {
                 getImage().setTransparency(0);
             } else {
-                getImage().setTransparency(getImage().getTransparency()-4);
+                getImage().setTransparency(getImage().getTransparency()-3);
             }
         } else {
             getWorld().removeObject(this);

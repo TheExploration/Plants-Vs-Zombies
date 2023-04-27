@@ -68,8 +68,13 @@ public class WaveManager extends Actor
                 if (zombies.get(i).getWorld() != null && zombies.get(i).getYPos() == r) {
                     int x = zombies.get(i).getX();
                     int y = zombies.get(i).getY();
-                    MyWorld.removeObject(zombies.get(i));
-                    MyWorld.addObject(zombies.get(i), x, y);
+                    try {
+                        MyWorld.removeObject(zombies.get(i));
+                    
+                        MyWorld.addObject(zombies.get(i), x, y);
+                    } catch (Exception ex) {
+                        System.out.println("Fix Order Error");
+                    }
                     
                         
                     

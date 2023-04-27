@@ -13,7 +13,7 @@ public class SunflowerPacket extends SeedPacket
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public SunflowerPacket() {
-        super(5000L, true,50, "sunflowerpacket");
+        super(8000L, true,50, "sunflowerpacket");
     }
  
     public TransparentObject addImage() {

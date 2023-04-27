@@ -13,7 +13,7 @@ public class Head extends FallingObject
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public Head() {
-        super(-3, 0.2, 0.6, Random.Int(1, 5), 700L);
+        super(-3, 0.2, 0.7, Random.Int(1, 5), 700L);
         
     }
     

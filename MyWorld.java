@@ -21,7 +21,6 @@ public class MyWorld extends World
     
     
     public Zombie[][] level1 = {
-                {null, null, new Conehead()},      
                 {null, null, null, new BasicZombie(), null},
                 {new BasicZombie(), null, null, null, null}, 
                 {null, new BasicZombie(), null, new BasicZombie()},
@@ -69,7 +68,7 @@ public class MyWorld extends World
     public Shovel shovel = new Shovel();
     
     
-    public WaveManager level = new WaveManager(45000L, level1, 10000L, true);
+    public WaveManager level = new WaveManager(47000L, level1, 10000L, true);
     
     
     

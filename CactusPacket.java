@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class CactusPacket extends SeedPacket
 {
     public CactusPacket() {
-        super(10000L, true, 125, "cactuspacket");
+        super(20000L, false, 125, "cactuspacket");
         
     }
     
