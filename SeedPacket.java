@@ -38,6 +38,7 @@ public class SeedPacket extends Actor
     public void addedToWorld(World world) {
         setRecharged(recharged);
         if (recharged) {
+            doneRechargeTime = true;
             setImage(name+"1.png");
         } else {
             setImage(name+"2.png");
@@ -55,7 +56,7 @@ public class SeedPacket extends Actor
         
         
         
-        if (deltaTime < rechargeTime) {
+        if (deltaTime < rechargeTime && !doneRechargeTime) {
             if (!recharged && deltaTime2 > 500L) {
                 
                 setImage(name+"2.png");
@@ -85,6 +86,7 @@ public class SeedPacket extends Actor
         if (MyWorld.seedbank.suncounter.sun >= sunCost) {
             if (!recharged) {
                 if (deltaTime > rechargeTime) {
+                    
                     setRecharged(true); 
                 } else {
                     setRecharged(false);
@@ -100,14 +102,14 @@ public class SeedPacket extends Actor
     }
     public void startRecharge() {
         lastFrame = currentFrame;
-        
+        doneRechargeTime = false;
     }
     public void setRecharged(boolean charge) {
         if (recharged != charge) {
             recharged = charge;
             if (recharged) {
                 setImage(name+"1.png");
-                doneRechargeTime = false;
+                
             } else {
                 setImage(name+"2.png");
             }

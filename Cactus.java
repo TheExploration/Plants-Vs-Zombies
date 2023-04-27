@@ -20,7 +20,7 @@ public class Cactus extends Plant
     private long deltaTime2;
     
     public Cactus() {
-        maxHp = 60;
+        maxHp = 100;
         hp = maxHp;
         shoot = importSprites("cactusshoot", 2);
         idle = importSprites("cactus", 4);

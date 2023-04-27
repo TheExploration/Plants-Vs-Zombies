@@ -33,7 +33,7 @@ public class MyWorld extends World
                 {new Conehead(), new Conehead(), new Conehead(), new BasicZombie(), new BasicZombie(),new Conehead(), new BasicZombie(), new Conehead()}
     };
     /*
-    DOESNT WORK
+    FIX ORDER
     public Zombie[][] fixOrder(String[][] level) {
         int longest = 0;
         
@@ -62,7 +62,7 @@ public class MyWorld extends World
         
     }
     */
-    public SeedPacket[] bank = {new SunflowerPacket(), new PeashooterPacket(), new WalnutPacket(), new CactusPacket()};
+    public SeedPacket[] bank = {new SunflowerPacket(), new PeashooterPacket(), new WalnutPacket(), new CactusPacket(), new TwinSunflowerPacket()};
     public SeedBank seedbank = new SeedBank(bank);   
     public Hitbox hitbox = new Hitbox();
     public Shovel shovel = new Shovel();
