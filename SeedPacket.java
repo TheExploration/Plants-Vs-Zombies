@@ -26,12 +26,17 @@ public class SeedPacket extends Actor
     public boolean selected = false;
     public MyWorld MyWorld;
     public boolean doneRechargeTime = false;
-   
+    public GreenfootImage image1;
+    public GreenfootImage image2;
+    public GreenfootImage uncharged;
+    
     public SeedPacket(long rechargeTime, boolean recharged, int sunCost, String name) {
         this.rechargeTime = rechargeTime;
         this.recharged = recharged;
         this.sunCost = sunCost;
         this.name = name;
+        this.image1 = new GreenfootImage(name+"1.png");     
+        this.image2 = new GreenfootImage(name+"2.png");   
         
     }
     
@@ -39,12 +44,12 @@ public class SeedPacket extends Actor
         setRecharged(recharged);
         if (recharged) {
             doneRechargeTime = true;
-            setImage(name+"1.png");
+            setImage(image1);
         } else {
-            setImage(name+"2.png");
+            setImage(image2);
         }
         MyWorld = ((MyWorld)getWorld());
-        
+        recharge = new GreenfootImage(getImage().getWidth(), getImage().getHeight());
         
         
     }
@@ -61,7 +66,6 @@ public class SeedPacket extends Actor
                 
                 setImage(name+"2.png");
                 
-                recharge = new GreenfootImage(getImage().getWidth(), getImage().getHeight());
                 recharge.setColor(Color.BLACK);
                 recharge.clear();
                 int height = getImage().getHeight() - (int)Math.round(getImage().getHeight()*((double)deltaTime/rechargeTime));
@@ -78,7 +82,7 @@ public class SeedPacket extends Actor
            
         } else if (!recharged && !doneRechargeTime){
             doneRechargeTime = true;
-            setImage(name+"2.png");
+            setImage(image2);
         }
         
         
@@ -108,10 +112,10 @@ public class SeedPacket extends Actor
         if (recharged != charge) {
             recharged = charge;
             if (recharged) {
-                setImage(name+"1.png");
+                setImage(image1);
                 
             } else {
-                setImage(name+"2.png");
+                setImage(image2);
             }
         }
         
@@ -120,9 +124,9 @@ public class SeedPacket extends Actor
     public void setSelected(boolean bool) {
         selected = bool;
          if (selected) {
-            setImage(name+"2.png");
+            setImage(image2);
         } else {
-            setImage(name+"1.png");
+            setImage(image1);
         }
     }
     
