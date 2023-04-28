@@ -21,6 +21,7 @@ public class MyWorld extends World
     
     
     public Zombie[][] level1 = {
+        {new Conehead(), new Conehead(), new Conehead(), new BasicZombie(), new BasicZombie(),new Conehead(), new BasicZombie(), new Conehead(),new Conehead(), new Conehead(), new Conehead(), new BasicZombie(), new BasicZombie(),new Conehead(), new BasicZombie(), new Conehead()},
                 {null, new BasicZombie(), null, null},
                 {new BasicZombie(), null, null, null, null}, 
                 {null, new BasicZombie(), null, new BasicZombie()},

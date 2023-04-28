@@ -62,7 +62,7 @@ public class Projectile extends animatedObject {
                         hit = true;
                         
                     } else if (hitZombie.getWorld() != null && getX() < hitZombie.getX()) {
-                       move(speed); 
+                        move(speed); 
                     }
                 }
                 

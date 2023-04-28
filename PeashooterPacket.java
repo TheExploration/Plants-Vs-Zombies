@@ -13,7 +13,7 @@ public class PeashooterPacket extends SeedPacket
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public PeashooterPacket() {
-        super(10000L, true, 1000, "peashooterpacket");
+        super(0, true, 0, "peashooterpacket");
         
     }
     

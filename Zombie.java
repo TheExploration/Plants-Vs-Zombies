@@ -1,12 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
-/**
- * Write a description of class Zombie here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+
 public class Zombie extends animatedObject
 {
     public boolean fallen = false;
@@ -65,7 +60,9 @@ public class Zombie extends animatedObject
                     AudioPlayer.play(80, "zombie_falling_1.mp3", "zombie_falling_2.mp3");
                     
                     MyWorld.addObject(new fallingZombie(fall), getX()-10, getY()+20);
-                    getWorld().removeObject(this);
+                    getWorld().numberOfObjects();
+                    if (getWorld() != null)
+                    MyWorld.removeObject(this);
                     return;
                 }
                 
