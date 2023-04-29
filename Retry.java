@@ -16,6 +16,6 @@ public class Retry extends Button
         super("retry1.png", "retry2.png");
     }
     public void update() {
-        getWorld().addObject(new Transition(false, new MyWorld(), 10), 365, 215);
+        getWorld().addObject(new Transition(false, new IntroLevel1(), 10), 365, 215);
     }
 }
