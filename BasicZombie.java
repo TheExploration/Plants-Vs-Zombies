@@ -20,7 +20,7 @@ public class BasicZombie extends Zombie
     public GreenfootImage[] armlesseat;
     
     public BasicZombie() {
-        idle = importSprites("zombieidle", 4);
+        
         walk = importSprites("zombiewalk", 7);
         eat = importSprites("zombieeating", 7);
         armlesseat = importSprites("armlesszombieeating", 7);

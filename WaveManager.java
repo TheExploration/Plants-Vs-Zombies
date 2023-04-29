@@ -57,6 +57,7 @@ public class WaveManager extends Actor
     public void startLevel() {
         wave = 0;
         AudioPlayer.play(80, "readysetplant.mp3");
+        MyWorld.addObject(new ReadySetPlant(), 400, 230);
     }
     
     //Fix order cause no setPaintOrder for actors :(
