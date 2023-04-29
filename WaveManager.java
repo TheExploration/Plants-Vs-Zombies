@@ -148,13 +148,28 @@ public class WaveManager extends Actor
                     finishedSending = false;
                     int wait = (int)(i/5);
                     long delayTime = (long)(wait*4000L);
+                    MyWorld.addObject(new DelayWave(wave, i, this, delayTime), 0,0);
+                }
+                
+                /* Deprecated
+                *if (wave[i] != null) {
+                    finishedSending = false;
+                    int wait = (int)(i/5);
+                    long delayTime = (long)(wait*4000L);
                     Timer delay = new Timer();
                     delay.schedule(new DelayWave(wave, i, this), delayTime);
-                }
+                }*/
             }
         }
-        long fixTime = (long)(1000L+(wave.length-1)/5*4000L);
+        
+        /* Deprecated
+         * long fixTime = (long)(1000L+(wave.length-1)/5*4000L);
         Timer fix = new Timer();
-        fix.schedule(new FixOrder(this), fixTime);
+        fix.schedule(new FixOrder(this), fixTime);*/
+        
+        
+        long fixTime = (long)(1000L+(wave.length-1)/5*4000L);
+    
+        MyWorld.addObject(new FixOrder(this, fixTime), 0,0);
     }
 }

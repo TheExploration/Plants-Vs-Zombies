@@ -34,7 +34,7 @@ public class MyWorld extends World
                 {new Conehead(), new Conehead(), new Conehead(), new BasicZombie(), new BasicZombie(),new Conehead(), new BasicZombie(), new Conehead()}
     };
     /*
-    FIX ORDER
+    DOESNT WORK
     public Zombie[][] fixOrder(String[][] level) {
         int longest = 0;
         

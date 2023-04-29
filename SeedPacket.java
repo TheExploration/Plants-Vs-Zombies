@@ -28,7 +28,6 @@ public class SeedPacket extends Actor
     public boolean doneRechargeTime = false;
     public GreenfootImage image1;
     public GreenfootImage image2;
-    public GreenfootImage uncharged;
     
     public SeedPacket(long rechargeTime, boolean recharged, int sunCost, String name) {
         this.rechargeTime = rechargeTime;
