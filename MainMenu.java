@@ -16,6 +16,11 @@ public class MainMenu extends World
         super(576, 430, 1, false); 
         addObject(hitbox,0,0);
         addObject(new Start(), 412, 132);
+        addObject(new More(), 398, 224);
+        addObject(new Bush(), 459, 394);
+        addObject(new Achievements(), 155, 380);
+        addObject(new SaveBlock(), 150, 175);
+        
         Greenfoot.setSpeed(50);
     }
     public void started() {
