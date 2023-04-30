@@ -26,8 +26,8 @@ public class Start extends Button
         if (clicked) {
             animate(start, 80, true);
             counter++;
-            if (counter == 100) {
-                world.menutheme.stop();
+            if (counter == 200) {
+                
                 update();
             }
         } else {
@@ -40,8 +40,11 @@ public class Start extends Button
                 }
                 if (Greenfoot.mouseClicked(this)) {
                     clicked = true;
+                    world.menutheme.stop();
                     AudioPlayer.play(100, "gravebutton.mp3");
-                    AudioPlayer.play(70, "evillaugh.mp3");
+                    AudioPlayer.play(70, "losemusic.mp3");
+                    getWorld().addObject(new DelayAudio(new GreenfootSound("evillaugh.mp3"), 70, false, 1000L), 0,0);
+                    
                 }
             }
         }
