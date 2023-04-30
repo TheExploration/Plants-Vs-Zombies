@@ -1,13 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
-/**
- * Write a description of class MyWorld here.
- * 
- * @author Exploration
- * @version 0.1
- */
-
 public class MyWorld extends World
 {   
     
@@ -25,13 +18,14 @@ public class MyWorld extends World
                 {new BasicZombie(), null, null, null, null}, 
                 {null, new BasicZombie(), null, new BasicZombie()},
                 {null, null, new Conehead(), null, null},
-                {new BasicZombie(), null, new BasicZombie(), new BasicZombie(), null}, 
+                {new BasicZombie(), null, new BasicZombie(), new BasicZombie(), new BasicZombie()}, 
                 {new Buckethead(), null, null, null, null},
                 {null, new BasicZombie(), null, null, new Conehead()},
                 {new BasicZombie(), new BasicZombie(), new BasicZombie(),  null, new Conehead()}, 
                 {null, null, new BasicZombie(), null, null},
                 {new Conehead(), new Conehead(), new Conehead(), new BasicZombie(), new BasicZombie(), new Buckethead(), null, new BasicZombie(), new Conehead()}
     };
+   
     
     public SeedPacket[] bank = {new SunflowerPacket(), new PeashooterPacket(), new WalnutPacket(), new CactusPacket(), new TwinSunflowerPacket()};
     public SeedBank seedbank = new SeedBank(bank);   
@@ -39,7 +33,7 @@ public class MyWorld extends World
     public Shovel shovel = new Shovel();
     
     
-    public WaveManager level = new WaveManager(47000L, level1, 10000L, true);
+    public WaveManager level = new WaveManager(47000L, level1, 10000L, true, 4, 9);
     
     
     
@@ -90,7 +84,7 @@ public class MyWorld extends World
         addObject(board,0,0);
         addObject(hitbox, 0,0);
         addObject(shovel, 690,420);
-         setPaintOrder(Transition.class, ReadySetPlant.class, SunCounter.class, clickShovel.class, Shovel.class, TransparentObject.class, SeedPacket.class, FallingSun.class, Sun.class, Dirt.class, Projectile.class, FallingObject.class, Zombie.class, fallingZombie.class, Plant.class);
+         setPaintOrder(Transition.class, ReadySetPlant.class, AHugeWave.class, SunCounter.class, clickShovel.class, Shovel.class, TransparentObject.class, SeedPacket.class, FallingSun.class, Sun.class, Dirt.class, Projectile.class, FallingObject.class, Zombie.class, fallingZombie.class, Plant.class);
      
           
         

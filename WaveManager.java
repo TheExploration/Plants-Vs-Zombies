@@ -9,7 +9,7 @@ import java.util.*; //HAHAHADIE
 public class WaveManager extends Actor
 {
     public long currentFrame = System.nanoTime();
-    public static final int xOffset = 770;
+    public static final int xOffset = 800;
     public static final int yOffset = 65;
     public static final int ySpacing = 73;
     public ArrayList<ArrayList<Zombie>> zombieRow = new ArrayList<ArrayList<Zombie>>();
@@ -32,13 +32,15 @@ public class WaveManager extends Actor
     private int wave = -1;
     public boolean first = false;
     public boolean finishedSending = false;
+    public int[] hugeWaves;
     
-    public WaveManager(long timeBetweenWaves, Zombie[][] level, long firstWave, boolean first) {
+    
+    public WaveManager(long timeBetweenWaves, Zombie[][] level, long firstWave, boolean first, int... hugeWaves) {
         this.level = level;
         this.levelTime = levelTime;
         this.waveTime = timeBetweenWaves;
         this.firstWave = firstWave;
-        
+        this.hugeWaves = hugeWaves;
         this.first = first;
         zombieRow.add(row1);
         zombieRow.add(row2);
@@ -101,6 +103,7 @@ public class WaveManager extends Actor
         
         if (deltaTime >= firstWave && wave != -1 && first == true) {
             AudioPlayer.play(80, "awooga.mp3");
+            checkHugeWave();
             sendWave(level[wave]);
             wave++;
             lastFrame = System.nanoTime();
@@ -108,11 +111,26 @@ public class WaveManager extends Actor
         }
         if (first == false && wave != -1) {
             if ((deltaTime >= waveTime) || MyWorld.getObjects(Zombie.class).size() == 0) {
-                
+                checkHugeWave();
                 sendWave(level[wave]);
                 wave++;
                 lastFrame = System.nanoTime();
                 
+            }
+        }
+    }
+    public void checkHugeWave() {
+        for (int i : hugeWaves) {
+            if (i == wave) {
+                if (wave == level.length-1) {
+                    AudioPlayer.play(70, "hugewave.mp3");
+                    getWorld().addObject(new AHugeWave(true),360,215);
+                                        
+                } else {
+                    AudioPlayer.play(70, "hugewave.mp3");
+                    getWorld().addObject(new AHugeWave(false),360,215);
+                   
+                }
             }
         }
     }

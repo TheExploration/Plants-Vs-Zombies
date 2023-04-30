@@ -35,7 +35,9 @@ class DelayAudio extends Actor
         currentFrame = System.nanoTime();
         deltaTime = (currentFrame - lastFrame) / 1000000;
         if (deltaTime > delayTime) {
-            stop.stop();
+            if (stop != null) {
+                stop.stop();
+            }
             music.setVolume(volume);
             if (loop) {
                 music.playLoop();
