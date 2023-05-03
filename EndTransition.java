@@ -12,7 +12,7 @@ public class EndTransition extends Actor
      * Act - do whatever the EndTransition wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public int alpha;
+    public int alpha = 255;
     public EndTransition() {
         getImage().setTransparency(255);
     }
