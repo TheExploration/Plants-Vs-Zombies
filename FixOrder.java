@@ -23,6 +23,7 @@ class FixOrder extends Actor
         deltaTime = (currentFrame - lastFrame) / 1000000;
         if (deltaTime > delayTime) {
             level.fixOrder();
+            level.finishedSending = true;
             getWorld().removeObject(this);
             return;
         }

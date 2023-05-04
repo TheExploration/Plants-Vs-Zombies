@@ -27,7 +27,7 @@ class DelayWave extends Actor
         currentFrame = System.nanoTime();
         deltaTime = (currentFrame - lastFrame) / 1000000;
         if (deltaTime > delayTime) {
-            level.finishedSending = true;
+            
             if (wave[i]!=null) {
                         
                     level.MyWorld.addObject(wave[i], WaveManager.xOffset, (i%5)*level.ySpacing+level.yOffset);

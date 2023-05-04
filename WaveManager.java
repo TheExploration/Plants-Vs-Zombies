@@ -9,7 +9,7 @@ import java.util.*; //HAHAHADIE
 public class WaveManager extends Actor
 {
     public long currentFrame = System.nanoTime();
-    public static final int xOffset = 800;
+    public static final int xOffset = 760;
     public static final int yOffset = 65;
     public static final int ySpacing = 73;
     public ArrayList<ArrayList<Zombie>> zombieRow = new ArrayList<ArrayList<Zombie>>();
@@ -103,36 +103,39 @@ public class WaveManager extends Actor
         
         if (deltaTime >= firstWave && wave != -1 && first == true) {
             AudioPlayer.play(80, "awooga.mp3");
-            checkHugeWave();
-            sendWave(level[wave]);
+            checkSendWave();
+            
             wave++;
             lastFrame = System.nanoTime();
             first =false;
         }
         if (first == false && wave != -1) {
             if ((deltaTime >= waveTime) || MyWorld.getObjects(Zombie.class).size() == 0) {
-                checkHugeWave();
-                sendWave(level[wave]);
+                checkSendWave();
+                
                 wave++;
                 lastFrame = System.nanoTime();
                 
             }
         }
     }
-    public void checkHugeWave() {
+    public void checkSendWave() {
         for (int i : hugeWaves) {
             if (i == wave) {
                 if (wave == level.length-1) {
                     AudioPlayer.play(70, "hugewave.mp3");
+                    sendHugeWave(level[wave]);
                     MyWorld.addObject(new AHugeWave(true),360,215);
-                                        
+                    return;       
                 } else {
                     AudioPlayer.play(70, "hugewave.mp3");
+                    sendHugeWave(level[wave]);
                     MyWorld.addObject(new AHugeWave(false),360,215);
-                   
+                    return;     
                 }
             }
         }
+        sendWave(level[wave]);
     }
     
      @Override
@@ -191,4 +194,40 @@ public class WaveManager extends Actor
     
         MyWorld.addObject(new FixOrder(this, fixTime), 0,0);
     }
+        public void sendHugeWave(Zombie[] wave) {
+        
+        for (int i = 0; i < wave.length; i++) {
+         
+            
+            //If more then 1 zombie per row, delay depending on how many
+            if (wave[i] != null) {
+                finishedSending = false;
+                int wait = (int)(i/5);
+                long delayTime = (long)(wait*4000L + 4000L);
+                MyWorld.addObject(new DelayWave(wave, i, this, delayTime), 0,0);
+            }
+            
+            /* Deprecated
+            *if (wave[i] != null) {
+                finishedSending = false;
+                int wait = (int)(i/5);
+                long delayTime = (long)(wait*4000L);
+                Timer delay = new Timer();
+                delay.schedule(new DelayWave(wave, i, this), delayTime);
+            }*/
+        
+        }
+        
+        /* Deprecated
+         * long fixTime = (long)(1000L+(wave.length-1)/5*4000L);
+        Timer fix = new Timer();
+        fix.schedule(new FixOrder(this), fixTime);*/
+        
+        
+        long fixTime = (long)(4500L+(wave.length-1)/5*4000L);
+    
+        MyWorld.addObject(new FixOrder(this, fixTime), 0,0);
+    }
+    
+    
 }
