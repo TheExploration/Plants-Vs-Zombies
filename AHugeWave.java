@@ -16,6 +16,8 @@ public class AHugeWave extends Actor
     public boolean finalWave = false;
     public AHugeWave(boolean finalWave) {
         this.finalWave = finalWave;
+
+    
     }
     
     public void act()

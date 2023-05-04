@@ -58,7 +58,7 @@ public class BasicZombie extends Zombie
     }
    
     public void hit(int dmg) {
-        AudioPlayer.play(80, "splat.mp3", "splat2.mp3", "splat3.mp3");
+        AudioPlayer.play(70, "splat.mp3", "splat2.mp3", "splat3.mp3");
         if (isLiving()) {
             
             if (!fallen) {

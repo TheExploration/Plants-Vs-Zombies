@@ -124,11 +124,11 @@ public class WaveManager extends Actor
             if (i == wave) {
                 if (wave == level.length-1) {
                     AudioPlayer.play(70, "hugewave.mp3");
-                    getWorld().addObject(new AHugeWave(true),360,215);
+                    MyWorld.addObject(new AHugeWave(true),360,215);
                                         
                 } else {
                     AudioPlayer.play(70, "hugewave.mp3");
-                    getWorld().addObject(new AHugeWave(false),360,215);
+                    MyWorld.addObject(new AHugeWave(false),360,215);
                    
                 }
             }

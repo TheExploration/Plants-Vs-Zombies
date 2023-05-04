@@ -10,20 +10,31 @@ public class MyWorld extends World
     Board board = new Board();
     public GreenfootSound Grasswalk = new GreenfootSound("Grasswalk.mp3");
     public GreenfootSound CYS;
-    
+    public Zombie n = null;
     
     
     public Zombie[][] level1 = {
                 {null, new BasicZombie(), null, null},
+                {n},
                 {new BasicZombie(), null, null, null, null}, 
+                {n},
                 {null, new BasicZombie(), null, new BasicZombie()},
+                {new BasicZombie()},
                 {null, null, new Conehead(), null, null},
-                {new BasicZombie(), null, new BasicZombie(), new BasicZombie(), new BasicZombie()}, 
+                {n},
+                {new BasicZombie(), null, new BasicZombie(), new BasicZombie(), new BasicZombie() , new BasicZombie()}, 
+                {null, new Conehead()},
+                {n,n,n, new BasicZombie()},
                 {new Buckethead(), null, null, null, null},
+                {n,n,n,n,new Conehead()},
+                {n, new BasicZombie()},
                 {null, new BasicZombie(), null, null, new Conehead()},
+                {n,n,new BasicZombie()},
                 {new BasicZombie(), new BasicZombie(), new BasicZombie(),  null, new Conehead()}, 
+                {n,n,n,new Conehead()},
                 {null, null, new BasicZombie(), null, null},
-                {new Conehead(), new Conehead(), new Conehead(), new BasicZombie(), new BasicZombie(), new Buckethead(), null, new BasicZombie(), new Conehead()}
+                {n},
+                {new Conehead(), new Conehead(), new Conehead(), new BasicZombie(), new BasicZombie(), new Buckethead(), null, new BasicZombie(), new Conehead(), new Buckethead()}
     };
    
     
@@ -33,7 +44,7 @@ public class MyWorld extends World
     public Shovel shovel = new Shovel();
     
     
-    public WaveManager level = new WaveManager(47000L, level1, 10000L, true, 4, 9);
+    public WaveManager level = new WaveManager(23500L, level1, 10000L, true, 8, 20);
     
     
     
@@ -84,7 +95,7 @@ public class MyWorld extends World
         addObject(board,0,0);
         addObject(hitbox, 0,0);
         addObject(shovel, 690,420);
-         setPaintOrder(Transition.class, ReadySetPlant.class, AHugeWave.class, SunCounter.class, clickShovel.class, Shovel.class, TransparentObject.class, SeedPacket.class, FallingSun.class, Sun.class, Dirt.class, Projectile.class, FallingObject.class, Zombie.class, fallingZombie.class, Plant.class);
+        setPaintOrder(Transition.class, AHugeWave.class,ReadySetPlant.class, SunCounter.class, clickShovel.class, Shovel.class, TransparentObject.class, SeedPacket.class, FallingSun.class, Sun.class, Dirt.class, Projectile.class, FallingObject.class, Zombie.class, fallingZombie.class, Plant.class);
      
           
         
@@ -103,7 +114,7 @@ public class MyWorld extends World
         addObject(board,0,0);
         addObject(hitbox, 0,0);
         addObject(shovel, 690,420);
-         setPaintOrder(Transition.class, ReadySetPlant.class, SunCounter.class, clickShovel.class, Shovel.class, TransparentObject.class, SeedPacket.class, FallingSun.class, Sun.class, Dirt.class, Projectile.class, FallingObject.class, Zombie.class, fallingZombie.class, Plant.class);
+        setPaintOrder(Transition.class,AHugeWave.class, ReadySetPlant.class, SunCounter.class, clickShovel.class, Shovel.class, TransparentObject.class, SeedPacket.class, FallingSun.class, Sun.class, Dirt.class, Projectile.class, FallingObject.class, Zombie.class, fallingZombie.class, Plant.class);
      
           
         
