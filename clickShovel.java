@@ -23,50 +23,58 @@ public class clickShovel extends SmoothMover
         MouseInfo mouse = Greenfoot.getMouseInfo();
         if (mouse != null) {
             setLocation(mouse.getX(), mouse.getY());
-            MyWorld.moveHitbox();
             
-            
-            if (touchingPlant() != null) {
-                if (lastPlant != null && lastPlant != touchingPlant()) {
-                    lastPlant.opaque = false;
-                    lastPlant = touchingPlant();
-                } else {
-                    lastPlant = touchingPlant();
-                    lastPlant.opaque = true;
-                }
-                
-            } else {
+    
+            if (mouse.getX() < SeedBank.x1 || mouse.getX() > SeedBank.x2 || mouse.getY() < SeedBank.y1 || mouse.getY() > SeedBank.y2)  {
                 if (lastPlant != null) {
                     lastPlant.opaque = false;
                 }
-            }
-            
-            
-            
-            if (Greenfoot.mouseClicked(null)) {
-                
-                if (touchingPlant() != null) {
-                    Plant target = touchingPlant();
-                    MyWorld.board.removePlant(target.getXPos(), target.getYPos());
+                if (Greenfoot.mouseClicked(null)) {
+                    
+                    
+                    MyWorld.shovel.setSelected(false);
+                    MyWorld.removeObject(this);
+                    return;
+                }
+            } else {
+                  int x = (int)((mouse.getX()-SeedBank.x1)/SeedBank.xSpacing);
+                int y = (int)((mouse.getY()-SeedBank.y1)/SeedBank.ySpacing);
+                Plant current = MyWorld.board.getPlant(x, y);
+                if (current != null) {
+
+                    if (lastPlant != null && lastPlant != current) {
+                        lastPlant.opaque = false;
+                        lastPlant = current;
+                    } else {
+                        lastPlant = current;
+                        lastPlant.opaque = true;
+                    }
                     
                 } else {
-                    AudioPlayer.play(80, "tap.mp3", "tap2.mp3");
-                    
+                    if (lastPlant != null) {
+                        lastPlant.opaque = false;
+                    }
                 }
-                MyWorld.shovel.setSelected(false);
-                MyWorld.removeObject(this);
-                return;
+                
+                
+                
+                if (Greenfoot.mouseClicked(null)) {
+                    
+                    if (current != null) {
+                        
+                        MyWorld.board.removePlant(current.getXPos(), current.getYPos());
+                        
+                    } else {
+                        AudioPlayer.play(80, "tap.mp3", "tap2.mp3");
+                        
+                    }
+                    MyWorld.shovel.setSelected(false);
+                    MyWorld.removeObject(this);
+                    return;
+                }
             }
         }
         // Add your action code here.
     }
-    public Plant touchingPlant() {
-        for (Object i : MyWorld.hitbox.getTouching()) {
-            if (i instanceof Plant) {
-                return (Plant)i;
-                    
-            }
-        }
-        return null;
-    }
+  
 }

@@ -7,6 +7,7 @@ public class MyWorld extends World
     private boolean isPlaying = false;
     public boolean lose = false;
     public boolean loseOnce = false;
+    public boolean winOnce = false;
     Board board = new Board();
     public GreenfootSound Grasswalk = new GreenfootSound("Grasswalk.mp3");
     public GreenfootSound CYS;
@@ -35,6 +36,9 @@ public class MyWorld extends World
                 {null, null, new BasicZombie(), null, null},
                 {n},
                 {new Conehead(), new Conehead(), new Conehead(), new BasicZombie(), new BasicZombie(), new Buckethead(), null, new BasicZombie(), new Conehead(), new Buckethead()}
+    };
+    public Zombie[][] level2 = {
+                {null, new BasicZombie(), null, null}
     };
    
     
@@ -65,6 +69,10 @@ public class MyWorld extends World
         if (mouse != null) {
             hitbox.setLocation(mouse.getX(), mouse.getY());
         }
+    }
+    public void finishLevel() {
+        Grasswalk.stop();
+        AudioPlayer.play(70, "winmusic.mp3");
     }
 
     public boolean hasLost() {
@@ -142,6 +150,11 @@ public class MyWorld extends World
             loseOnce = true;
             Greenfoot.delay(250);
             addObject(new Transition(false, new GameOver(), "gameover.png", 5), 365, 215);
+        }
+        if (!winOnce && level.hasWon()) {
+            Grasswalk.stop();
+            winOnce = true;
+            addObject(new MoneyBag(), Random.Int(SeedBank.x1, SeedBank.x2), 215);
         }
         
     }

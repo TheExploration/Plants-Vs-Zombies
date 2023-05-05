@@ -5,6 +5,4 @@ comment1.params=world
 comment1.target=void\ addedToWorld(greenfoot.World)
 comment2.params=
 comment2.target=void\ act()
-comment3.params=
-comment3.target=Plant\ touchingPlant()
-numComments=4
+numComments=3

@@ -35,6 +35,9 @@ public class Board extends Actor
         }
         
     }
+    public Plant getPlant(int x, int y) {
+        return Board[y][x];
+    }
     public void removePlant(int x, int y) {
         if (Board[y][x] != null) {
             getWorld().removeObject(Board[y][x]);
