@@ -124,11 +124,13 @@ public class WaveManager extends Actor
             if (i == wave) {
                 if (wave == level.length-1) {
                     AudioPlayer.play(70, "hugewave.mp3");
+                    finishedSending = false;
                     sendHugeWave(level[wave]);
                     MyWorld.addObject(new AHugeWave(true),360,215);
                     return;       
                 } else {
                     AudioPlayer.play(70, "hugewave.mp3");
+                    finishedSending = false;
                     sendHugeWave(level[wave]);
                     MyWorld.addObject(new AHugeWave(false),360,215);
                     return;     
@@ -203,7 +205,7 @@ public class WaveManager extends Actor
             if (wave[i] != null) {
                 finishedSending = false;
                 int wait = (int)(i/5);
-                long delayTime = (long)(wait*4000L + 4000L);
+                long delayTime = (long)(wait*8000L + 4000L);
                 MyWorld.addObject(new DelayWave(wave, i, this, delayTime), 0,0);
             }
             
@@ -224,7 +226,7 @@ public class WaveManager extends Actor
         fix.schedule(new FixOrder(this), fixTime);*/
         
         
-        long fixTime = (long)(4500L+(wave.length-1)/5*4000L);
+        long fixTime = (long)(8055L+(wave.length-1)/5*4000L);
     
         MyWorld.addObject(new FixOrder(this, fixTime), 0,0);
     }

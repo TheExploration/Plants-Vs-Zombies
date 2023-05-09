@@ -151,7 +151,7 @@ public class MyWorld extends World
             Greenfoot.delay(250);
             addObject(new Transition(false, new GameOver(), "gameover.png", 5), 365, 215);
         }
-        if (!winOnce && level.hasWon()) {
+        if (!winOnce && hasWon()) {
             Grasswalk.stop();
             winOnce = true;
             addObject(new MoneyBag(), Random.Int(SeedBank.x1, SeedBank.x2), 215);
