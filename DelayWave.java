@@ -29,11 +29,12 @@ class DelayWave extends Actor
         if (deltaTime > delayTime) {
             
             if (wave[i]!=null) {
-                        
+                                            
                     level.MyWorld.addObject(wave[i], WaveManager.xOffset, (i%5)*level.ySpacing+level.yOffset);
                     level.zombieRow.get(i%5).add(wave[i]);
                     
-            }       
+            }
+            
             getWorld().removeObject(this);
             return;
         }

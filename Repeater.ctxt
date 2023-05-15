@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Repeater
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Repeater\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=Repeater()
+comment2.params=dmg
+comment2.target=void\ hit(int)
+comment3.params=
+comment3.target=void\ update()
+numComments=4

@@ -26,6 +26,8 @@ public class WinRepeater extends FallingObject
         deltaTime = (currentFrame - lastFrame) / 1000000;
         if (move) {
             setImage("repeaterpacket1.png");
+            
+            
             if (getX() < (getWorld().getWidth()/2-5)) {
                 move(2);
             } else if (getX() > (getWorld().getWidth()/2+5)){
@@ -34,6 +36,7 @@ public class WinRepeater extends FallingObject
                 if (!addTrans) {
                     addTrans=true;
                     getWorld().addObject(new Transition(false, new IntroLevel2(), "whitetransition.png", 1), 360, 215);
+                    AudioPlayer.play(70, "lightfill.mp3");
                 }
             }
         } else {

@@ -29,7 +29,7 @@ public class WaveManager extends Actor
     public long lastFrame2 = System.nanoTime();
     public boolean won = false;
     public World MyWorld;
-    private int wave = -1;
+    public int wave = -1;
     public boolean first = false;
     public boolean finishedSending = false;
     public int[] hugeWaves;
@@ -158,7 +158,6 @@ public class WaveManager extends Actor
         
         for (int i = 0; i < wave.length; i++) {
             if (i < 5) {
-                finishedSending = true;
                 if (wave[i]!=null) {
                     //Send!
                     
@@ -199,13 +198,13 @@ public class WaveManager extends Actor
         public void sendHugeWave(Zombie[] wave) {
         
         for (int i = 0; i < wave.length; i++) {
-         
+            finishedSending = false;
             
             //If more then 1 zombie per row, delay depending on how many
             if (wave[i] != null) {
                 finishedSending = false;
                 int wait = (int)(i/5);
-                long delayTime = (long)(wait*8000L + 4000L);
+                long delayTime = (long)(wait*4000L + 8000L);
                 MyWorld.addObject(new DelayWave(wave, i, this, delayTime), 0,0);
             }
             
@@ -226,7 +225,7 @@ public class WaveManager extends Actor
         fix.schedule(new FixOrder(this), fixTime);*/
         
         
-        long fixTime = (long)(8055L+(wave.length-1)/5*4000L);
+        long fixTime = (long)(8050L+(wave.length-1)/5*4000L);
     
         MyWorld.addObject(new FixOrder(this, fixTime), 0,0);
     }

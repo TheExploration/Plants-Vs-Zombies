@@ -38,6 +38,7 @@ public class MyWorld extends World
                 {new Conehead(), new Conehead(), new Conehead(), new BasicZombie(), new BasicZombie(), new Buckethead(), null, new BasicZombie(), new Conehead(), new Buckethead()}
     };
     public Zombie[][] level2 = {
+                {null, new BasicZombie(), null, null},
                 {null, new BasicZombie(), null, null}
     };
    
@@ -48,7 +49,7 @@ public class MyWorld extends World
     public Shovel shovel = new Shovel();
     
     
-    public WaveManager level = new WaveManager(23500L, level1, 10000L, true, 8, 20);
+    public WaveManager level = new WaveManager(23500L, level2, 10000L, true, 8, 20);
     
     
     
@@ -73,6 +74,8 @@ public class MyWorld extends World
     public void finishLevel() {
         Grasswalk.stop();
         AudioPlayer.play(70, "winmusic.mp3");
+        
+        
     }
 
     public boolean hasLost() {
@@ -152,9 +155,8 @@ public class MyWorld extends World
             addObject(new Transition(false, new GameOver(), "gameover.png", 5), 365, 215);
         }
         if (!winOnce && hasWon()) {
-            Grasswalk.stop();
             winOnce = true;
-            addObject(new MoneyBag(), Random.Int(SeedBank.x1, SeedBank.x2), 215);
+            addObject(new WinRepeater(), Random.Int(SeedBank.x1, SeedBank.x2), 215);
         }
         
     }
