@@ -147,10 +147,10 @@ public class MyWorld extends World
         if (!loseOnce && hasLost()) {
             Grasswalk.stop();
             AudioPlayer.play(80, "losemusic.mp3");
-            Timer DelayAudio = new Timer();
+            
             GreenfootSound scream = new GreenfootSound("scream.mp3");
             
-            addObject(new DelayAudio(scream, 70, true, 4000L), 0,0);
+            addObject(new DelayAudio(scream, 70, false, 4000L), 0,0);
             loseOnce = true;
             Greenfoot.delay(250);
             addObject(new Transition(false, new GameOver(), "gameover.png", 5), 365, 215);

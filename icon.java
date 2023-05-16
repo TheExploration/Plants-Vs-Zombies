@@ -16,7 +16,7 @@ public class icon extends World
     public icon()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(300, 192, 1); 
+        super(900, 576, 1); 
         Greenfoot.setWorld(new First());
     }
     public void started() {
