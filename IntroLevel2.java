@@ -67,7 +67,7 @@ public class IntroLevel2 extends World
             }
             
             
-           
+            
             Greenfoot.setWorld(new MyWorld(CYS));
         }
        

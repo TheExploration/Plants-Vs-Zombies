@@ -49,7 +49,7 @@ public class MyWorld extends World
     public Shovel shovel = new Shovel();
     
     
-    public WaveManager level = new WaveManager(23500L, level2, 10000L, true, 8, 20);
+    public WaveManager level = new WaveManager(23500L, level1, 20000L, true, 8, 20);
     
     
     
@@ -58,6 +58,7 @@ public class MyWorld extends World
     public void stopped() {
         
         Grasswalk.stop();
+        Greenfoot.setWorld(new MyWorld());
         
     }
     public void started() {

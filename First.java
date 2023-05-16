@@ -17,6 +17,7 @@ public class First extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(576, 430, 1, false); 
+        setBackground(new GreenfootImage("transition.png"));
         addObject(new Transition(true, new PopCap(),10),288, 215);
         setPaintOrder(EndTransition.class, Transition.class);
     }
