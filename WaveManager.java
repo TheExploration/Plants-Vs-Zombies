@@ -98,6 +98,7 @@ public class WaveManager extends Actor
             lastFrame = System.nanoTime();
         }
         if (wave > level.length-1) {
+                MyWorld.addObject(new finishedSending(this, 15000L), 0,0);
                 wave = -1;
         }
         
