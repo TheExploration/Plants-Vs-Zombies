@@ -56,13 +56,15 @@ public class MyWorld extends World
     
     
     public void stopped() {
-        
-        Grasswalk.stop();
-        Greenfoot.setWorld(new MyWorld());
+        if (Grasswalk.isPlaying()) {
+            Grasswalk.pause();
+        }
         
     }
     public void started() {
-        
+        if (!Grasswalk.isPlaying()) {
+            Grasswalk.playLoop();
+        }
         Greenfoot.setSpeed(50);        
         
     }
