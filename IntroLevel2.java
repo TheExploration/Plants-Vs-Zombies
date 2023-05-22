@@ -14,7 +14,33 @@ public class IntroLevel2 extends World
     public int scrollSpeed = 4;
     public int location = 0;
     public boolean started = false;
+    public Zombie n = null;
+    public SeedPacket[] bank = {new SunflowerPacket(), new PeashooterPacket(), new WalnutPacket(), new RepeaterPacket()};
     
+    public SeedBank seedbank = new SeedBank(bank); 
+    public Zombie[][] level2 = {
+                {null, new BasicZombie(), null, null},
+                {n},
+                {new BasicZombie(), null, null, null, null}, 
+                {n},
+                {null, new BasicZombie(), null, new BasicZombie()},
+                {new BasicZombie()},
+                {null, null, new Conehead(), null, null},
+                {n},
+                {new BasicZombie(), new Conehead(), new BasicZombie(), new BasicZombie(), new BasicZombie(), n,new BasicZombie()}, 
+                {n},
+                {new Conehead(), n, null, new BasicZombie(), null, null, new BasicZombie()},
+                {new BasicZombie(),n,n, new BasicZombie(), null, new BasicZombie(), new BasicZombie()},
+                {new Buckethead(), null, null, null, null},
+                {n,new BasicZombie(),n,n,new Conehead(), n, n, new BasicZombie()},
+                {null, new BasicZombie(), null, null, new Conehead(),n,n,new BasicZombie()},
+                {new BasicZombie(), new BasicZombie(), new BasicZombie(),  null, new Conehead()}, 
+                {null, null, new BasicZombie(), null, null},
+                {n},
+                {new Conehead(), new Conehead(), new Conehead(), new BasicZombie(), new BasicZombie(), new Buckethead(), null, new BasicZombie(), new Conehead(), new Buckethead()}
+    };
+    
+    public WaveManager level = new WaveManager(23500L, level2, 20000L, true, 8, 18);
     public IntroLevel2()
     {    
         
@@ -56,6 +82,13 @@ public class IntroLevel2 extends World
             
             scrollBGimage(location);
         }
+        else if (count == 450) {
+            List<IdleZombie> idleZombie = getObjects(IdleZombie.class );
+            for ( IdleZombie zombie : idleZombie ) {
+                
+                removeObject(zombie);
+            }
+        }
         else if ( count == 500 )
         {
             
@@ -68,7 +101,7 @@ public class IntroLevel2 extends World
             
             
             
-            Greenfoot.setWorld(new MyWorld(CYS));
+            Greenfoot.setWorld(new MyWorld(CYS,level, seedbank));
         }
        
     }

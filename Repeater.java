@@ -14,6 +14,8 @@ public class Repeater extends Plant
     private GreenfootImage[] idle;
     private GreenfootImage[] shoot;
     private boolean shootOnce = false;
+    private int shootCount = 0;
+    private boolean resetFrame = false;
     private boolean shooting = false;
     private long shootDelay = 1700L;
     private long lastFrame2 = System.nanoTime();
@@ -22,16 +24,16 @@ public class Repeater extends Plant
     public Repeater() {
         maxHp = 60;
         hp = maxHp;
-        shoot = importSprites("repeatershoot", 2);
-        idle = importSprites("repeater", 5);
+        shoot = importSprites("repeatershoot", 3);
+        idle = importSprites("repeater", 7);
     }
    
     public void hit(int dmg) {
         if (isLiving()) {
             if (!shootOnce) {
-                hitFlash(idle, "peashooter");
+                hitFlash(idle, "repeater");
             } else {
-                hitFlash(shoot, "peashootershoot");  
+                hitFlash(shoot, "repeatershoot");  
                 
             }
             hp = hp-dmg;
@@ -41,27 +43,32 @@ public class Repeater extends Plant
         MyWorld = (MyWorld)getWorld();
         currentFrame = System.nanoTime();
         if (!shooting) {
-            animate(idle, 150, true);
+            animate(idle, 250, true);
             lastFrame2 = System.nanoTime();
         } else {
             
             deltaTime2 = (currentFrame - lastFrame2) / 1000000;
             if (deltaTime2 < shootDelay) {
-                animate(idle, 150, true);
-                shootOnce = false;
+                animate(idle, 250, true);
+                shootCount = 0;
+                resetFrame = false;
             } else {
-                if (!shootOnce) {
-                    shootOnce = true;
-                    frame = 0;
-                    
+                if (shootCount >= 2) {
+                    lastFrame2 = currentFrame;
+                }
+                if (!resetFrame) {
+                    setFrame(1);
+                    resetFrame = true;
                 }
                 
                 if (frame >= 3) {
                     AudioPlayer.play(80, "throw.mp3", "throw2.mp3");
                     MyWorld.addObject(new Pea(getYPos()), getX()+25,getY()-17);
-                    lastFrame2 = currentFrame;
+                    setFrame(1);
+                    setImage("repeatershoot1.png");
+                    shootCount++;
                 }
-                animate(shoot, 100, false);
+                animate(shoot, 70, false);
                 
                 
             }

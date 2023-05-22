@@ -94,10 +94,11 @@ public class animatedObject extends SmoothMover
         } else {
             //do nothing
         }
-        if (!sprite.equals(previousSprites) && frame < sprite.length) {
-            
-            setImage(sprite[frame]);
-            previousSprites = sprite;
+        if (!sprite.equals(previousSprites)) {
+            if (frame < sprite.length) {
+                setImage(sprite[frame]);
+                previousSprites = sprite;
+            }
         }
                
         
@@ -106,6 +107,7 @@ public class animatedObject extends SmoothMover
     }
     public void setFrame(int toFrame) {
         frame = toFrame-1;
+    
     }
     
     public int getCurrentFrame() {

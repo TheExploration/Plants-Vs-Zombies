@@ -13,6 +13,10 @@ public class MyWorld extends World
     public GreenfootSound CYS;
     public Zombie n = null;
     
+   
+    
+    
+
     
     public Zombie[][] level1 = {
                 {null, new BasicZombie(), null, null},
@@ -23,25 +27,19 @@ public class MyWorld extends World
                 {new BasicZombie()},
                 {null, null, new Conehead(), null, null},
                 {n},
-                {new BasicZombie(), null, new BasicZombie(), new BasicZombie(), new BasicZombie() , new BasicZombie()}, 
-                {null, new Conehead()},
-                {n,n,n, new BasicZombie()},
+                {new BasicZombie(), new Conehead(), new BasicZombie(), new BasicZombie(), new BasicZombie(), n,new BasicZombie()}, 
+                {n},
+                {new Conehead(), n, null, new BasicZombie(), null, null, new BasicZombie()},
+                {new BasicZombie(),n,n, new BasicZombie(), null, new BasicZombie(), new BasicZombie()},
                 {new Buckethead(), null, null, null, null},
-                {n,n,n,n,new Conehead()},
-                {n, new BasicZombie()},
-                {null, new BasicZombie(), null, null, new Conehead()},
-                {n,n,new BasicZombie()},
+                {n,new BasicZombie(),n,n,new Conehead(), n, n, new BasicZombie()},
+                {null, new BasicZombie(), null, null, new Conehead(),n,n,new BasicZombie()},
                 {new BasicZombie(), new BasicZombie(), new BasicZombie(),  null, new Conehead()}, 
-                {n,n,n,new Conehead()},
                 {null, null, new BasicZombie(), null, null},
                 {n},
                 {new Conehead(), new Conehead(), new Conehead(), new BasicZombie(), new BasicZombie(), new Buckethead(), null, new BasicZombie(), new Conehead(), new Buckethead()}
     };
-    public Zombie[][] level2 = {
-                {null, new BasicZombie(), null, null},
-                {null, new BasicZombie(), null, null}
-    };
-   
+ 
     
     public SeedPacket[] bank = {new SunflowerPacket(), new PeashooterPacket(), new WalnutPacket(), new CactusPacket(), new TwinSunflowerPacket()};
     public SeedBank seedbank = new SeedBank(bank);   
@@ -49,7 +47,7 @@ public class MyWorld extends World
     public Shovel shovel = new Shovel();
     
     
-    public WaveManager level = new WaveManager(23500L, level1, 20000L, true, 8, 20);
+    public WaveManager level = new WaveManager(23500L, level1, 20000L, true, 8, 18);
     
     
     
@@ -117,11 +115,13 @@ public class MyWorld extends World
         
         
     }
-    public MyWorld(GreenfootSound CYS)
+    public MyWorld(GreenfootSound CYS, WaveManager level,  SeedBank seedbank)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(733, 430, 1, false); 
         this.CYS = CYS;
+        this.seedbank = seedbank;
+        this.level = level;
         Greenfoot.setSpeed(50);
         setBackground("lawn2.png");
         addObject(seedbank,0,0);
@@ -129,7 +129,7 @@ public class MyWorld extends World
         addObject(hitbox, 0,0);
         addObject(shovel, 690,420);
         setPaintOrder(Transition.class,AHugeWave.class, ReadySetPlant.class, SunCounter.class, clickShovel.class, Shovel.class, TransparentObject.class, SeedPacket.class, FallingSun.class, Sun.class, Dirt.class, Projectile.class, FallingObject.class, Zombie.class, fallingZombie.class, Plant.class);
-     
+        
           
         
         
