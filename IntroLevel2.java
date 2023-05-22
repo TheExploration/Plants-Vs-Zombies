@@ -15,7 +15,7 @@ public class IntroLevel2 extends World
     public int location = 0;
     public boolean started = false;
     public Zombie n = null;
-    public SeedPacket[] bank = {new SunflowerPacket(), new PeashooterPacket(), new WalnutPacket(), new RepeaterPacket()};
+    public SeedPacket[] bank = {new SunflowerPacket(), new PeashooterPacket(), new WalnutPacket(), new CactusPacket(), new RepeaterPacket()};
     
     public SeedBank seedbank = new SeedBank(bank); 
     public Zombie[][] level2 = {
