@@ -50,7 +50,7 @@ public class Projectile extends animatedObject {
                 return;
             }
             for (Zombie i : MyWorld.level.zombieRow.get(yPos)) {
-                if (Math.abs(i.getX() - getX()) < 20) {
+                if (Math.abs(i.getX() - getX()) < 30) {
                     if (!foundTarget) {
                         hitZombie = i;
                         foundTarget = true;

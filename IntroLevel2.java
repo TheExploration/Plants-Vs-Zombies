@@ -19,7 +19,7 @@ public class IntroLevel2 extends World
     
     public SeedBank seedbank = new SeedBank(bank); 
     public Zombie[][] level2 = {
-                {null, new BasicZombie(), null, null},
+                {null, new Brickhead(), null, null},
                 {n},
                 {new BasicZombie(), null, null, null, null}, 
                 {n},
@@ -39,13 +39,9 @@ public class IntroLevel2 extends World
                 {n},
                 {new Conehead(), new Conehead(), new Conehead(), new BasicZombie(), new BasicZombie(), new Buckethead(), null, new BasicZombie(), new Conehead(), new Buckethead()}
     };
-    public Zombie[][] test = {
-                
-                {new BasicZombie()},
-                {new Conehead(), new Conehead(), new Conehead(), new BasicZombie(), new BasicZombie(), new Buckethead(), null, new BasicZombie(), new Conehead(), new Buckethead()}
-    };
+  
     
-    public WaveManager level = new WaveManager(23500L, test, 15000L, true, 1);
+    public WaveManager level = new WaveManager(23500L, level2, 15000L, true, 1);
     public IntroLevel2()
     {    
         
