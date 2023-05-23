@@ -36,6 +36,8 @@ public class SunCounter extends Actor
     
     public void addedToWorld(World world) {
         MyWorld = (MyWorld)getWorld();
+        currentFrame = System.nanoTime();
+        lastFrame = System.nanoTime();
         updateText();
     }
     public void updateText() {

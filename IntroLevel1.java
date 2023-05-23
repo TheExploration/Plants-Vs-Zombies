@@ -41,7 +41,7 @@ public class IntroLevel1 extends World
                 {new Conehead(), new Conehead(), new Conehead(), new BasicZombie(), new BasicZombie(), new Buckethead(), null, new BasicZombie(), new Conehead(), new Buckethead()}
     };
     
-    public WaveManager level = new WaveManager(23500L, level1, 20000L, true, 8, 18);
+    public WaveManager level = new WaveManager(23500L, level1, 15000L, true, 8, 18);
     public IntroLevel1()
     {    
         
@@ -93,7 +93,7 @@ public class IntroLevel1 extends World
         else if ( count == 500 )
         {
            
-            Greenfoot.setWorld(new MyWorld(CYS, level, seedbank));
+            Greenfoot.setWorld(new MyWorld(CYS, level, seedbank, new IntroLevel1()));
         }
        
     }

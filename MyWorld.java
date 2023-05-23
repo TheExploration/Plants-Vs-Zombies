@@ -8,11 +8,11 @@ public class MyWorld extends World
     public boolean lose = false;
     public boolean loseOnce = false;
     public boolean winOnce = false;
-    Board board = new Board();
+    public Board board = new Board();
     public GreenfootSound Grasswalk = new GreenfootSound("Grasswalk.mp3");
     public GreenfootSound CYS;
     public Zombie n = null;
-    
+    public World restartWorld;
    
     
     
@@ -115,12 +115,13 @@ public class MyWorld extends World
         
         
     }
-    public MyWorld(GreenfootSound CYS, WaveManager level,  SeedBank seedbank)
+    public MyWorld(GreenfootSound CYS, WaveManager level,  SeedBank seedbank, World restartWorld)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(733, 430, 1, false); 
         this.CYS = CYS;
         this.seedbank = seedbank;
+        this.restartWorld = restartWorld;
         this.level = level;
         Greenfoot.setSpeed(50);
         setBackground("lawn2.png");
@@ -155,7 +156,7 @@ public class MyWorld extends World
             addObject(new DelayAudio(scream, 70, false, 4000L), 0,0);
             loseOnce = true;
             Greenfoot.delay(250);
-            addObject(new Transition(false, new GameOver(), "gameover.png", 5), 365, 215);
+            addObject(new Transition(false, new GameOver(restartWorld), "gameover.png", 5), 365, 215);
         }
         if (!winOnce && hasWon()) {
             winOnce = true;

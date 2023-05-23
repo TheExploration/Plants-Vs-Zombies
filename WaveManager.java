@@ -26,7 +26,7 @@ public class WaveManager extends Actor
     public long firstWave;
     public long deltaTime;
     public long deltaTime2;
-    public long lastFrame2 = System.nanoTime();
+
     public boolean won = false;
     public World MyWorld;
     public int wave = -1;
@@ -144,7 +144,8 @@ public class WaveManager extends Actor
      @Override
     protected void addedToWorld(World world) {
         MyWorld = (MyWorld)getWorld();
-        
+        lastFrame = System.nanoTime();
+        currentFrame = System.nanoTime();
     }
     public boolean hasWon() {
         if (wave == -1 && finishedSending && MyWorld.getObjects(Zombie.class).size() == 0) {
@@ -171,8 +172,10 @@ public class WaveManager extends Actor
                 if (wave[i] != null) {
                     finishedSending = false;
                     int wait = (int)(i/5);
-                    long delayTime = (long)(wait*4000L);
-                    MyWorld.addObject(new DelayWave(wave, i, this, delayTime), 0,0);
+                    int offset = xOffset+wait*20;
+                    MyWorld.addObject(wave[i], offset, (i%5)*ySpacing+yOffset);
+                    zombieRow.get(i%5).add(wave[i]);
+                    
                 }
                 
                 /* Deprecated
@@ -192,32 +195,41 @@ public class WaveManager extends Actor
         fix.schedule(new FixOrder(this), fixTime);*/
         
         
-        long fixTime = (long)(1000L+(wave.length-1)/5*4000L);
+        
     
-        MyWorld.addObject(new FixOrder(this, fixTime), 0,0);
+        MyWorld.addObject(new FixOrder(this, 1000L), 0,0);
     }
         public void sendHugeWave(Zombie[] wave) {
         
         for (int i = 0; i < wave.length; i++) {
-            finishedSending = false;
-            
-            //If more then 1 zombie per row, delay depending on how many
-            if (wave[i] != null) {
-                finishedSending = false;
-                int wait = (int)(i/5);
-                long delayTime = (long)(wait*4000L + 8000L);
-                MyWorld.addObject(new DelayWave(wave, i, this, delayTime), 0,0);
+            if (i < 5) {
+                if (wave[i]!=null) {
+                    //Send!
+                    
+                    MyWorld.addObject(wave[i], xOffset+50, (i%5)*ySpacing+yOffset);
+                    zombieRow.get(i%5).add(wave[i]);
+                }
+            } else {
+                
+                //If more then 1 zombie per row, delay depending on how many
+                if (wave[i] != null) {
+                    finishedSending = false;
+                    int wait = (int)(i/5);
+                    int offset = xOffset+50+wait*20;
+                    MyWorld.addObject(wave[i], offset, (i%5)*ySpacing+yOffset);
+                    zombieRow.get(i%5).add(wave[i]);
+                    
+                }
+                
+                /* Deprecated
+                *if (wave[i] != null) {
+                    finishedSending = false;
+                    int wait = (int)(i/5);
+                    long delayTime = (long)(wait*4000L);
+                    Timer delay = new Timer();
+                    delay.schedule(new DelayWave(wave, i, this), delayTime);
+                }*/
             }
-            
-            /* Deprecated
-            *if (wave[i] != null) {
-                finishedSending = false;
-                int wait = (int)(i/5);
-                long delayTime = (long)(wait*4000L);
-                Timer delay = new Timer();
-                delay.schedule(new DelayWave(wave, i, this), delayTime);
-            }*/
-        
         }
         
         /* Deprecated
@@ -226,9 +238,9 @@ public class WaveManager extends Actor
         fix.schedule(new FixOrder(this), fixTime);*/
         
         
-        long fixTime = (long)(8050L+(wave.length-1)/5*4000L);
+        
     
-        MyWorld.addObject(new FixOrder(this, fixTime), 0,0);
+        MyWorld.addObject(new FixOrder(this, 1000L), 0,0);
     }
     
     

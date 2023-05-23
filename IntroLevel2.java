@@ -39,8 +39,13 @@ public class IntroLevel2 extends World
                 {n},
                 {new Conehead(), new Conehead(), new Conehead(), new BasicZombie(), new BasicZombie(), new Buckethead(), null, new BasicZombie(), new Conehead(), new Buckethead()}
     };
+    public Zombie[][] test = {
+                
+                {new BasicZombie()},
+                {new Conehead(), new Conehead(), new Conehead(), new BasicZombie(), new BasicZombie(), new Buckethead(), null, new BasicZombie(), new Conehead(), new Buckethead()}
+    };
     
-    public WaveManager level = new WaveManager(23500L, level2, 20000L, true, 8, 18);
+    public WaveManager level = new WaveManager(23500L, test, 15000L, true, 1);
     public IntroLevel2()
     {    
         
@@ -101,7 +106,7 @@ public class IntroLevel2 extends World
             
             
             
-            Greenfoot.setWorld(new MyWorld(CYS,level, seedbank));
+            Greenfoot.setWorld(new MyWorld(CYS,level, seedbank, new IntroLevel2()));
         }
        
     }
