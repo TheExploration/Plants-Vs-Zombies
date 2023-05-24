@@ -37,8 +37,6 @@ I mostly got art from spriters-resource.
 - Release
 - Fix Audio
 - Improve Wave System
-- Release
-- Fix Audio
 - Added Repeater
 - Added Brickhead
 - Added 2nd Level
