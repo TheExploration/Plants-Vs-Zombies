@@ -4,9 +4,9 @@ The most complete Greenfoot remake of Plants Vs Zombies. Probably the most compl
 **PLAY AT: https://www.greenfoot.org/scenarios/31337 or [>> Download gfar Here <<](https://github.com/TheExploration/Plants-Vs-Zombies/releases/tag/0.2)**
 
 ## Controls:
-Mouse.
-
-Click to interact.
+Press "1" to skip to level 1.
+Press "2" to skip to level 2.
+Click to interact with mouse!
 
 
 
