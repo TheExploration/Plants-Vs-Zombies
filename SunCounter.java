@@ -10,7 +10,7 @@ public class SunCounter extends Actor
 {
     public static final int x = 120;
     public static final int y = 50;
-    public int sun = 0;
+    public int sun = 50;
     public static final int textY = 45;
     public long currentFrame = System.nanoTime();
     public long lastFrame = System.nanoTime();

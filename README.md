@@ -1,7 +1,7 @@
 # Plants-Vs-Zombies
 The most complete Greenfoot remake of Plants Vs Zombies. Probably the most complete game ever made on Greenfoot.
 
-**PLAY AT: https://www.greenfoot.org/scenarios/31337 or [Download](https://github.com/TheExploration/Plants-Vs-Zombies/releases/download/0.1/PVZ.gfar)**
+**PLAY AT: https://www.greenfoot.org/scenarios/31337 or [Download](https://github.com/TheExploration/Plants-Vs-Zombies/releases/tag/0.2)**
 
 ## Controls:
 Mouse.
@@ -36,3 +36,9 @@ I mostly got art from spriters-resource.
 ## Changelog:
 - Release
 - Fix Audio
+- Improve Wave System
+- Release
+- Fix Audio
+- Added Repeater
+- Added Brickhead
+- Added 2nd Level
