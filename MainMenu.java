@@ -23,12 +23,27 @@ public class MainMenu extends World
         this.menutheme = menutheme;
         Greenfoot.setSpeed(50);
     }
+    public void act() {
+        if (Greenfoot.isKeyDown("1")) {
+            menutheme.stop();
+            Greenfoot.setWorld(new IntroLevel1());
+                    
+                
+        } else if (Greenfoot.isKeyDown("2")) {
+            menutheme.stop();
+            Greenfoot.setWorld(new IntroLevel2());
+                    
+        }
+    }
     public void started() {
         if (!menutheme.isPlaying()) {
             menutheme.setVolume(70);
             menutheme.playLoop();
         }
     
+    }
+    public void stopped() {
+        menutheme.pause();
     }
 
     public void moveHitbox() {

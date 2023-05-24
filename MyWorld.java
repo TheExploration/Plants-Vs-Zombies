@@ -157,10 +157,22 @@ public class MyWorld extends World
             loseOnce = true;
             Greenfoot.delay(250);
             addObject(new Transition(false, new GameOver(restartWorld), "gameover.png", 5), 365, 215);
-        }
-        if (!winOnce && hasWon()) {
+        } else if (!winOnce && hasWon()) {
             winOnce = true;
             addObject(new WinRepeater(), Random.Int(SeedBank.x1, SeedBank.x2), 215);
+        } else {
+            if (Greenfoot.isKeyDown("1")) {
+                CYS.stop();
+                Grasswalk.stop();
+                Greenfoot.setWorld(new IntroLevel1());
+                    
+                
+            } else if (Greenfoot.isKeyDown("2")) {
+                CYS.stop();
+                Grasswalk.stop();
+                Greenfoot.setWorld(new IntroLevel2());
+                    
+            }
         }
         
     }
