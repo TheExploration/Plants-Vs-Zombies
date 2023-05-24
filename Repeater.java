@@ -43,13 +43,13 @@ public class Repeater extends Plant
         MyWorld = (MyWorld)getWorld();
         currentFrame = System.nanoTime();
         if (!shooting) {
-            animate(idle, 250, true);
+            animate(idle, 225, true);
             lastFrame2 = System.nanoTime();
         } else {
             
             deltaTime2 = (currentFrame - lastFrame2) / 1000000;
             if (deltaTime2 < shootDelay) {
-                animate(idle, 250, true);
+                animate(idle, 225, true);
                 shootCount = 0;
                 resetFrame = false;
             } else {

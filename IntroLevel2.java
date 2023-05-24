@@ -19,40 +19,40 @@ public class IntroLevel2 extends World
     
     public SeedBank seedbank = new SeedBank(bank); 
     public Zombie[][] level2 = {
-                {null, new Brickhead(), null, null},
+                {null, n, null, new BasicZombie()},
                 {n},
                 {new BasicZombie(), null, null, null, null}, 
+                {n,n,new BasicZombie()},
+                {null, new BasicZombie(), new BasicZombie(), new BasicZombie()},
+                {new Conehead()},
+                {null, null, new Conehead(), null, null, n, new BasicZombie()},
                 {n},
-                {null, new BasicZombie(), null, new BasicZombie()},
-                {new BasicZombie()},
-                {null, null, new Conehead(), null, null},
-                {n},
-                {new BasicZombie(), new Conehead(), new BasicZombie(), new BasicZombie(), new BasicZombie(), n,new BasicZombie()}, 
+                {new BasicZombie(), new Buckethead(), new BasicZombie(), new Conehead(), new BasicZombie(), n,new BasicZombie()}, 
                 {n},
                 {new Conehead(), n, null, new BasicZombie(), null, null, new BasicZombie()},
-                {new BasicZombie(),n,n, new BasicZombie(), null, new BasicZombie(), new BasicZombie()},
-                {new Buckethead(), null, null, null, null},
-                {n,new BasicZombie(),n,n,new Conehead(), n, n, new BasicZombie()},
-                {null, new BasicZombie(), null, null, new Conehead(),n,n,new BasicZombie()},
-                {new BasicZombie(), new BasicZombie(), new BasicZombie(),  null, new Conehead()}, 
-                {null, null, new BasicZombie(), null, null},
+                {n,n,n, new Conehead(), null, new Buckethead(), new BasicZombie()},
+                {n, new Brickhead(), null, null, null},
+                {n,new BasicZombie(),new BasicZombie(), new BasicZombie(),new Conehead(), new BasicZombie(), n, new BasicZombie(), new BasicZombie()},
+                {null, new BasicZombie(), new Buckethead(), null, new Conehead(),n,n,new BasicZombie()},
+                {new BasicZombie(), new BasicZombie(), new BasicZombie(),  new Brickhead(), new Conehead()}, 
+                {null, null, new Conehead(), null, null},
                 {n},
-                {new Conehead(), new Conehead(), new Conehead(), new BasicZombie(), new BasicZombie(), new Buckethead(), null, new BasicZombie(), new Conehead(), new Buckethead()}
+                {new Brickhead(), new Conehead(), new Conehead(), new BasicZombie(), new BasicZombie(), new Buckethead(), null, new BasicZombie(), new Conehead(), new Brickhead()}
     };
   
     
-    public WaveManager level = new WaveManager(23500L, level2, 15000L, true, 1);
+    public WaveManager level = new WaveManager(23500L, level2, 15000L, true, 8, 18);
     public IntroLevel2()
     {    
         
         super(733, 430, 1, false); 
         addObject(new Basic(), 800, 200);
-        addObject(new Basic(), 900, 100);
-        addObject(new Basic(), 890, 370);
+        addObject(new IdleCone(), 900, 100);
+        addObject(new IdleCone(), 890, 370);
         addObject(new Basic(), 822, 241);
-        addObject(new IdleCone(), 890, 210);
-        addObject(new IdleCone(), 850, 70);
-        addObject(new IdleBucket(), 824, 317);
+        addObject(new IdleBucket(), 890, 210);
+        addObject(new IdleBucket(), 850, 70);
+        addObject(new IdleBrickhead(), 824, 317);
         CYS.setVolume(70);
         
     }
