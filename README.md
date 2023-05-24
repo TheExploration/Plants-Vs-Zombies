@@ -5,7 +5,9 @@ The most complete Greenfoot remake of Plants Vs Zombies. Probably the most compl
 
 ## Controls:
 Press "1" to skip to level 1.
+
 Press "2" to skip to level 2.
+
 Click to interact with mouse!
 
 
