@@ -30,7 +30,7 @@ I might update to PC edition if I manage to find all the animation spritesheets
 ## Credit:
 Art and Music by Popcap and Nintendo.
 I mostly got art from spriters-resource.
-
+Brickhead sprite made by Krakov95
 
 
 ## Changelog:
