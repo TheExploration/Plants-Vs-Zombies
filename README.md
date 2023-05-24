@@ -23,6 +23,7 @@ Seed Packet recharged opacity is bugged in browser :(
 A remake of Plants Vs Zombies DS Edition because its the only version I can find with the complete animation spritesheets. 
 I might update to PC edition if I manage to find all the animation spritesheets
 
+![demo2](https://github.com/TheExploration/Plants-Vs-Zombies/blob/master/demo2.png)
 ![demo](https://github.com/TheExploration/Plants-Vs-Zombies/blob/master/demo.png)
 
 
