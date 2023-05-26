@@ -5,7 +5,6 @@ comment1.params=
 comment1.target=PotatoMine()
 comment2.params=
 comment2.target=void\ update()
-comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ PotatoMine\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment3.params=dmg
 comment3.target=void\ hit(int)
 comment4.params=

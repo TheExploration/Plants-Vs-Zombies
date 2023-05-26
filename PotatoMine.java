@@ -11,27 +11,31 @@ public class PotatoMine extends Plant
     private GreenfootImage[] idle;
     private GreenfootImage[] arm;
     private boolean playOnce = false;
-    private boolean armed = false;
+    public boolean armed = false;
     private long lastFrame2 = System.nanoTime();
-    private long deltaTime2;
+    private boolean playSFX = false;
+    private long deltaTime2 = System.nanoTime();
     public PotatoMine() {
         idle = importSprites("potato", 5);
         arm = importSprites("potatomine", 3);
         maxHp = 60;
         hp = maxHp;
+        currentFrame = System.nanoTime();
+        lastFrame2 = System.nanoTime();
     }
-    /**
-     * Act - do whatever the PotatoMine wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void update(){
+    
+    public void update() {
+        currentFrame = System.nanoTime();
         deltaTime2 = (currentFrame - lastFrame2) / 1000000;
-        if (deltaTime2 > 5000L) {
+        if (deltaTime2 > 22000L) {
             armed = true;
             if (!playOnce) {
-                
+                if (!playSFX) {
+                    playSFX = true;
+                    AudioPlayer.play(70, "dirt_rise.mp3");
+                }
                 animate(arm, 200, false);
-                if (frame < 3) {
+                if (frame > 2) {
                     playOnce = true;
                 }
             } else {
@@ -57,7 +61,7 @@ public class PotatoMine extends Plant
             
             for (Zombie i : MyWorld.level.zombieRow.get(getYPos())) {
                 if (Math.abs(i.getX() - getX()) < 30) {
-                    getWorld().addObject(new Explosion(), getX(), getY());
+                    getWorld().addObject(new Explosion(MyWorld.level.zombieRow.get(getYPos())), getX(), getY()-25);
                     getWorld().removeObject(this);
                     return;
                 } 

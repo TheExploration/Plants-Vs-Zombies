@@ -122,11 +122,23 @@ public class Zombie extends animatedObject
     public void hit(int dmg) {
         
     }
+    
+    public void takeDmg(int dmg) {
+        hp -= dmg;
+        if (hp <= 0) {
+            getWorld().removeObject(this);
+            return;
+        }
+    }
     public boolean isEating() {
         var row = MyWorld.board.Board[getYPos()];
         for (int i = 0; i < MyWorld.board.Board[0].length; i++) {
             if (row[i] != null) {
-                
+                if (row[i] instanceof PotatoMine) {
+                    if (((PotatoMine)row[i]).armed == true) {
+                        return false;
+                    }
+                }
                 if (Math.abs(row[i].getX() - getX()+5) < 35) {
                     eating = true;
                     target = row[i];
