@@ -24,23 +24,24 @@ public class Plant extends animatedObject
      */
     public void act()
     {
-        if (isLiving()) {
-            update();    
-            if (!opaque) {
-                getImage().setTransparency(255);
+        if (getWorld() != null) {
+            if (isLiving()) {
+                update();    
+                if (!opaque) {
+                    getImage().setTransparency(255);
+                } else {
+                    getImage().setTransparency(125);
+                }
             } else {
-                getImage().setTransparency(125);
-            }
-        } else {
-            MyWorld = (MyWorld)getWorld();
-            AudioPlayer.play(80,"gulp.mp3");
-            
-            MyWorld.board.removePlant(getXPos(), getYPos());
-            MyWorld.removeObject(this);
-            
-            return;
-        } 
-
+                MyWorld = (MyWorld)getWorld();
+                AudioPlayer.play(80,"gulp.mp3");
+                
+                MyWorld.board.removePlant(getXPos(), getYPos());
+                MyWorld.removeObject(this);
+                
+                return;
+            } 
+        }
     
     }
     public void update() {

@@ -126,6 +126,12 @@ public class Zombie extends animatedObject
     public void takeDmg(int dmg) {
         hp -= dmg;
         if (hp <= 0) {
+            for (ArrayList<Zombie> i : MyWorld.level.zombieRow) {
+                if (i.contains(this)) {
+                    i.remove(this);                    
+                    break;
+                }
+            }
             getWorld().removeObject(this);
             return;
         }

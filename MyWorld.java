@@ -13,7 +13,7 @@ public class MyWorld extends World
     public GreenfootSound CYS;
     public Zombie n = null;
     public World restartWorld;
-   
+    public FallingObject winPlant;
     
     
 
@@ -96,26 +96,8 @@ public class MyWorld extends World
     public boolean hasWon() {
         return level.hasWon();
     }
-    public MyWorld()
-    {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(733, 430, 1, false); 
-        
-        Greenfoot.setSpeed(50);
-        setBackground("lawn2.png");
-        addObject(seedbank,0,0);
-        addObject(board,0,0);
-        addObject(hitbox, 0,0);
-        addObject(shovel, 690,420);
-        setPaintOrder(Transition.class, AHugeWave.class,ReadySetPlant.class, SunCounter.class, clickShovel.class, Shovel.class, TransparentObject.class, SeedPacket.class, FallingSun.class, Sun.class, Dirt.class, Projectile.class, FallingObject.class, Zombie.class, fallingZombie.class, Plant.class);
-     
-          
-        
-        
-        
-        
-    }
-    public MyWorld(GreenfootSound CYS, WaveManager level,  SeedBank seedbank, World restartWorld)
+
+    public MyWorld(GreenfootSound CYS, WaveManager level,  SeedBank seedbank, World restartWorld, FallingObject winPlant)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(733, 430, 1, false); 
@@ -123,13 +105,14 @@ public class MyWorld extends World
         this.seedbank = seedbank;
         this.restartWorld = restartWorld;
         this.level = level;
+        this.winPlant = winPlant;
         Greenfoot.setSpeed(50);
         setBackground("lawn2.png");
         addObject(seedbank,0,0);
         addObject(board,0,0);
         addObject(hitbox, 0,0);
         addObject(shovel, 690,420);
-        setPaintOrder(Transition.class,AHugeWave.class, ReadySetPlant.class, SunCounter.class, clickShovel.class, Shovel.class, TransparentObject.class, SeedPacket.class, FallingSun.class, Sun.class, Dirt.class, Projectile.class, FallingObject.class, Zombie.class, fallingZombie.class, Plant.class);
+        setPaintOrder(Transition.class,AHugeWave.class, ReadySetPlant.class, SunCounter.class, clickShovel.class, Shovel.class, TransparentObject.class, SeedPacket.class, FallingSun.class, Sun.class, Dirt.class, Projectile.class, FallingObject.class, Zombie.class, fallingZombie.class, Explosion.class, Plant.class);
         
           
         
@@ -159,15 +142,20 @@ public class MyWorld extends World
             addObject(new Transition(false, new GameOver(restartWorld), "gameover.png", 5), 365, 215);
         } else if (!winOnce && hasWon()) {
             winOnce = true;
-            addObject(new WinRepeater(), Random.Int(SeedBank.x1, SeedBank.x2), 215);
+            addObject(winPlant, Random.Int(SeedBank.x1, SeedBank.x2), 215);
         } else {
             if (Greenfoot.isKeyDown("1")) {
                 CYS.stop();
                 Grasswalk.stop();
-                Greenfoot.setWorld(new IntroLevel1());
+                Greenfoot.setWorld(new Intro());
                     
                 
             } else if (Greenfoot.isKeyDown("2")) {
+                CYS.stop();
+                Grasswalk.stop();
+                Greenfoot.setWorld(new IntroLevel1());
+                    
+            } else if (Greenfoot.isKeyDown("3")) {
                 CYS.stop();
                 Grasswalk.stop();
                 Greenfoot.setWorld(new IntroLevel2());

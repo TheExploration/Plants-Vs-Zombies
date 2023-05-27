@@ -26,11 +26,17 @@ public class MainMenu extends World
     public void act() {
         if (Greenfoot.isKeyDown("1")) {
             menutheme.stop();
-            Greenfoot.setWorld(new IntroLevel1());
+            Greenfoot.setWorld(new Intro());
                     
                 
         } else if (Greenfoot.isKeyDown("2")) {
+           menutheme.stop();
+                
+            Greenfoot.setWorld(new IntroLevel1());
+                    
+        } else if (Greenfoot.isKeyDown("3")) {
             menutheme.stop();
+                
             Greenfoot.setWorld(new IntroLevel2());
                     
         }

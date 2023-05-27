@@ -22,11 +22,12 @@ public class Explosion extends animatedObject
     }
     public void addedToWorld(World world) {
         AudioPlayer.play(80, "potato_mine.mp3");
-        for (Zombie i : zombies) {
-            if (Math.abs(i.getX() - getX()) < 40) {
-                i.takeDmg(900);
+        for (int i = 0; i < zombies.size(); i++) {
+            if (Math.abs(zombies.get(i).getX() - getX()) < 40) {
+                zombies.get(i).takeDmg(900);
             } 
         }
+       
         
     }
     public void act()

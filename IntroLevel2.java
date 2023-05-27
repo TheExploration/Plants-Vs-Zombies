@@ -15,7 +15,7 @@ public class IntroLevel2 extends World
     public int location = 0;
     public boolean started = false;
     public Zombie n = null;
-    public SeedPacket[] bank = {new SunflowerPacket(), new PeashooterPacket(), new WalnutPacket(), new CactusPacket(), new RepeaterPacket()};
+    public SeedPacket[] bank = {new SunflowerPacket(), new PeashooterPacket(), new WalnutPacket(), new PotatoPacket(), new RepeaterPacket()};
     
     public SeedBank seedbank = new SeedBank(bank); 
     public Zombie[][] level2 = {
@@ -102,7 +102,7 @@ public class IntroLevel2 extends World
             
             
             
-            Greenfoot.setWorld(new MyWorld(CYS,level, seedbank, new IntroLevel2()));
+            Greenfoot.setWorld(new MyWorld(CYS,level, seedbank, new IntroLevel2(), new WinRepeater()));
         }
        
     }
