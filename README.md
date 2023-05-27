@@ -4,9 +4,11 @@ The most complete Greenfoot remake of Plants Vs Zombies. Probably the most compl
 **PLAY AT: https://www.greenfoot.org/scenarios/31337 or [>> Download gfar Here <<](https://github.com/TheExploration/Plants-Vs-Zombies/releases/tag/0.2)**
 
 ## Controls:
-Press "1" to skip to level 1.
+- Press "1" to skip to level 1.
 
-Press "2" to skip to level 2.
+- Press "2" to skip to level 2.
+
+- Press "3" to skip to level 3...
 
 Click to interact with mouse!
 
@@ -42,3 +44,5 @@ Brickhead sprite made by Krakov95
 - Added Repeater
 - Added Brickhead
 - Added 2nd Level
+- Added Potato Mine
+- Added Another level
