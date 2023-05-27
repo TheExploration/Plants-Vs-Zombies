@@ -49,7 +49,7 @@ public class PotatoMine extends Plant
     }
     public void hit(int dmg) {
         if (isLiving() && !armed) {
-            hitFlash(arm, "potatomine");
+            
             
             hp = hp-dmg;
         }
