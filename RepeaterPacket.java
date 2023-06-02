@@ -13,7 +13,7 @@ public class RepeaterPacket extends SeedPacket
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public RepeaterPacket() {
-        super(15000L, true, 225, "repeaterpacket");
+        super(11000L, true, 225, "repeaterpacket");
         
     }
     
