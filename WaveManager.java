@@ -47,15 +47,8 @@ public class WaveManager extends Actor
         zombieRow.add(row3);
         zombieRow.add(row4);
         zombieRow.add(row5);
-
     }
-    public WaveManager() {
-        zombieRow.add(row1);
-        zombieRow.add(row2);
-        zombieRow.add(row3);
-        zombieRow.add(row4);
-        zombieRow.add(row5);
-    }
+    
     public void startLevel() {
         wave = 0;
         AudioPlayer.play(80, "readysetplant.mp3");
@@ -146,6 +139,10 @@ public class WaveManager extends Actor
         MyWorld = (MyWorld)getWorld();
         lastFrame = System.nanoTime();
         currentFrame = System.nanoTime();
+        
+        Progress progressBar = new Progress(this);
+        getWorld().addObject(progressBar, 490, 25);
+        
     }
     public boolean hasWon() {
         if (wave == -1 && finishedSending && MyWorld.getObjects(Zombie.class).size() == 0) {

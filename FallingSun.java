@@ -16,6 +16,9 @@ public class FallingSun extends FallingObject
     public GreenfootImage[] sun;
     public boolean clicked = false;
     public boolean beenClicked = false;
+    public long lastFrame2 = System.nanoTime();
+    public long deltaTime2 = System.nanoTime();
+    
     public FallingSun() {
         super(0.6, 0, 0, 0, (long)Random.Int(2000, 10000));
         sun = importSprites("sun", 2);
@@ -25,6 +28,7 @@ public class FallingSun extends FallingObject
         
         currentFrame = System.nanoTime();
         deltaTime = (currentFrame - lastFrame) / 1000000;
+        deltaTime2 = (currentFrame - lastFrame2) / 1000000;
         animate(sun, 200, true);
         if (!beenClicked) {
             if (checkClick()) {
@@ -44,7 +48,22 @@ public class FallingSun extends FallingObject
                 turn(rotate);
                 
                 vSpeed = vSpeed + acceleration;
-            } 
+                lastFrame2 = System.nanoTime();
+                
+            }  else {
+                if (deltaTime2 > 10000) {
+                    if (getImage().getTransparency() > 0) {
+                        if (getImage().getTransparency()-20 <= 0) {
+                            getImage().setTransparency(0);
+                        } else {
+                            getImage().setTransparency(getImage().getTransparency()-20);
+                        }
+                    } else {
+                        getWorld().removeObject(this);
+                        return;
+                    }
+                }
+            }
                 
             
         } else {

@@ -16,6 +16,8 @@ public class Sun extends FallingObject
     public GreenfootImage[] sun;
     public boolean clicked = false;
     public boolean beenClicked = false;
+    public long lastFrame2 = System.nanoTime();
+    public long deltaTime2 = System.nanoTime();
     public Sun() {
         super(-3, 0.15, Random.Double(-100, 100), 0, 800L);
         sun = importSprites("sun", 2);
@@ -25,6 +27,7 @@ public class Sun extends FallingObject
         
         currentFrame = System.nanoTime();
         deltaTime = (currentFrame - lastFrame) / 1000000;
+        deltaTime2 = (currentFrame - lastFrame2) / 1000000;
         animate(sun, 200, true);
         if (!beenClicked) {
             if (checkClick()) {
@@ -32,6 +35,19 @@ public class Sun extends FallingObject
                 AudioPlayer.play(90, "points.mp3");
                 MyWorld.seedbank.suncounter.addSun(25);
                 
+            } else {
+                if (deltaTime2 > 12000) {
+                    if (getImage().getTransparency() > 0) {
+                        if (getImage().getTransparency()-20 <= 0) {
+                            getImage().setTransparency(0);
+                        } else {
+                            getImage().setTransparency(getImage().getTransparency()-20);
+                        }
+                    } else {
+                        getWorld().removeObject(this);
+                        return;
+                    }
+                }
             }
         }
         
