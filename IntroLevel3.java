@@ -2,12 +2,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
 /**
- * Write a description of class IntroLevel2 here.
+ * Write a description of class IntroLevel3 here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class IntroLevel2 extends World
+public class IntroLevel3 extends World
 {
     public GreenfootSound CYS = new GreenfootSound("chooseyourseeds.mp3");
     public int count = 0;
@@ -15,17 +15,18 @@ public class IntroLevel2 extends World
     public int location = 0;
     public boolean started = false;
     public Zombie n = null;
-    public SeedPacket[] bank = {new SunflowerPacket(), new PeashooterPacket(), new WalnutPacket(), new PotatoPacket(), new RepeaterPacket()};
+    public SeedPacket[] bank = {new SunflowerPacket(), new PeashooterPacket(), new WalnutPacket(), new PotatoPacket(), new RepeaterPacket(), new TwinSunflowerPacket()};
     
     public SeedBank seedbank = new SeedBank(bank); 
-    public Zombie[][] level2 = {
+    public Zombie[][] level3 = {
                 {null, n, null, new BasicZombie()},
                 {n},
-                {new BasicZombie(), null, null, null, null}, 
-                {n,n,new BasicZombie()},
-                {null, new BasicZombie(), new BasicZombie(), new BasicZombie()},
-                {new Conehead()},
-                {null, null, new Conehead(), null, null, n, new BasicZombie()},
+                {new BasicZombie(), new Buckethead(), new Buckethead(), new Buckethead(), null}, 
+                {new BasicZombie(),n,n,n,n,new BasicZombie()},
+                {null, new Conehead(), new Buckethead(), new Buckethead(),n,n,new Conehead()},
+               
+                {new Brickhead()},
+                
                 {n},
                 {new BasicZombie(), new Buckethead(), new BasicZombie(), new Conehead(), new BasicZombie(), n,new BasicZombie()}, 
                 {n},
@@ -41,17 +42,20 @@ public class IntroLevel2 extends World
     };
   
     
-    public WaveManager level = new WaveManager(23500L, level2, 15000L, true, 8, 18);
-    public IntroLevel2()
+    public WaveManager level = new WaveManager(23500L, level3, 15000L, true, 8, 18);
+    public IntroLevel3()
     {    
         
         super(733, 430, 1, false); 
         addObject(new Basic(), 800, 200);
-        addObject(new IdleCone(), 900, 100);
+         addObject(new Basic(), 920, 310);
+        addObject(new IdleCone(), 800, 110);
+        addObject(new IdleBucket(), 900, 100);
         addObject(new IdleCone(), 890, 370);
-        addObject(new Basic(), 822, 241);
-        addObject(new IdleBucket(), 890, 210);
-        addObject(new IdleBucket(), 850, 70);
+        
+        addObject(new IdleBucket(), 822, 241);
+        addObject(new IdleBrickhead(), 890, 210);
+        addObject(new IdleBrickhead(), 850, 70);
         addObject(new IdleBrickhead(), 824, 317);
         CYS.setVolume(70);
         
@@ -102,7 +106,7 @@ public class IntroLevel2 extends World
             
             
             
-            Greenfoot.setWorld(new MyWorld(CYS,level, seedbank, new IntroLevel2(), new WinTwinsunflower()));
+            Greenfoot.setWorld(new MyWorld(CYS,level, seedbank, new IntroLevel3(), new WinRepeater()));
         }
        
     }

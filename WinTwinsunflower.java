@@ -6,19 +6,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class WinPotato extends FallingObject
+public class WinTwinsunflower extends FallingObject
 {
     /**
      * Act - do whatever the MoneyBag wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public GreenfootImage[] sprites = importSprites("spotatopacket", 2);
+    public GreenfootImage[] sprites = importSprites("stwinsunflowerpacket", 2);
     public boolean move = false;    
     public boolean addTrans = false;
     
-    public WinPotato() {
+    public WinTwinsunflower() {
         super(-3, 0.15, Random.Double(-100, 100), 0, 750L);
-        
     }
     public void update() {
         
@@ -26,7 +25,7 @@ public class WinPotato extends FallingObject
         currentFrame = System.nanoTime();
         deltaTime = (currentFrame - lastFrame) / 1000000;
         if (move) {
-            setImage("spotatopacket1.png");
+            setImage("stwinsunflowerpacket1.png");
             
             
             if (getX() < (getWorld().getWidth()/2-5)) {
@@ -36,7 +35,7 @@ public class WinPotato extends FallingObject
             } else {
                 if (!addTrans) {
                     addTrans=true;
-                    getWorld().addObject(new Transition(false, new IntroLevel1(), "whitetransition.png", 1), 360, 215);
+                    getWorld().addObject(new Transition(false, new IntroLevel3(), "whitetransition.png", 1), 360, 215);
                     AudioPlayer.play(70, "lightfill.mp3");
                 }
             }

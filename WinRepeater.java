@@ -12,7 +12,7 @@ public class WinRepeater extends FallingObject
      * Act - do whatever the MoneyBag wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public GreenfootImage[] sprites = importSprites("repeaterpacket", 2);
+    public GreenfootImage[] sprites = importSprites("srepeaterpacket", 2);
     public boolean move = false;    
     public boolean addTrans = false;
     
@@ -25,7 +25,7 @@ public class WinRepeater extends FallingObject
         currentFrame = System.nanoTime();
         deltaTime = (currentFrame - lastFrame) / 1000000;
         if (move) {
-            setImage("repeaterpacket1.png");
+            setImage("srepeaterpacket1.png");
             
             
             if (getX() < (getWorld().getWidth()/2-5)) {
