@@ -22,8 +22,9 @@ public class Explosion extends animatedObject
     }
     public void addedToWorld(World world) {
         AudioPlayer.play(80, "potato_mine.mp3");
-        for (int i = 0; i < zombies.size(); i++) {
-            if (Math.abs(zombies.get(i).getX() - getX()) < 40) {
+        
+        for (int i = zombies.size()-1; i >= 0; i--) {
+            if (Math.abs(zombies.get(i).getX() - getX()) < 44) {
                 zombies.get(i).takeDmg(900);
             } 
         }

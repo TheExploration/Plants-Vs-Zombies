@@ -22,27 +22,17 @@ public class IntroLevel3 extends World
                 {null, n, null, new BasicZombie()},
                 {n},
                 {new BasicZombie(), new Buckethead(), new Buckethead(), new Buckethead(), null}, 
-                {new BasicZombie(),n,n,n,n,new BasicZombie()},
-                {null, new Conehead(), new Buckethead(), new Buckethead(),n,n,new Conehead()},
-               
-                {new Brickhead()},
+                {new BasicZombie(),n,new Buckethead(),new Buckethead(),n,new BasicZombie()},
+                {n, new Conehead(), n, new Buckethead(),n,n,new BasicZombie(),n,n,n,new BasicZombie(),new BasicZombie()},
+                {new BasicZombie(),n,n,n,new Conehead(), n,n,n,n,new BasicZombie()},
+                {n},
+                {new BasicZombie(), new Conehead(), new Brickhead(), new BasicZombie(), new Conehead(), new BasicZombie(), new BasicZombie(), new Buckethead()},
+                {new BasicZombie(),n,n,n,new BasicZombie()}
                 
-                {n},
-                {new BasicZombie(), new Buckethead(), new BasicZombie(), new Conehead(), new BasicZombie(), n,new BasicZombie()}, 
-                {n},
-                {new Conehead(), n, null, new BasicZombie(), null, null, new BasicZombie()},
-                {n,n,n, new Conehead(), null, new Buckethead(), new BasicZombie()},
-                {n, new Brickhead(), null, null, null},
-                {n,new BasicZombie(),new BasicZombie(), new BasicZombie(),new Conehead(), new BasicZombie(), n, new BasicZombie(), new BasicZombie()},
-                {null, new BasicZombie(), new Buckethead(), null, new Conehead(),n,n,new BasicZombie()},
-                {new BasicZombie(), new BasicZombie(), new BasicZombie(),  new Brickhead(), new Conehead()}, 
-                {null, null, new Conehead(), null, null},
-                {n},
-                {new Brickhead(), new Conehead(), new Conehead(), new BasicZombie(), new BasicZombie(), new Buckethead(), null, new BasicZombie(), new Conehead(), new Brickhead()}
     };
   
     
-    public WaveManager level = new WaveManager(23500L, level3, 15000L, true, 8, 18);
+    public WaveManager level = new WaveManager(23500L, level3, 15000L, true, 7, 18);
     public IntroLevel3()
     {    
         

@@ -60,7 +60,7 @@ public class PotatoMine extends Plant
         } else {
             
             for (Zombie i : MyWorld.level.zombieRow.get(getYPos())) {
-                if (Math.abs(i.getX() - getX()) < 30) {
+                if (Math.abs(i.getX() - getX()) < 28) {
                     
                     getWorld().addObject(new Explosion(MyWorld.level.zombieRow.get(getYPos())), getX(), getY()-25);
                     ((MyWorld)getWorld()).board.removePlant(getXPos(), getYPos());
