@@ -24,15 +24,22 @@ public class IntroLevel3 extends World
                 {new BasicZombie(), new Buckethead(), new Buckethead(), new Buckethead(), null}, 
                 {new BasicZombie(),n,new Buckethead(),new Buckethead(),n,new BasicZombie()},
                 {n, new Conehead(), n, new Buckethead(),n,n,new BasicZombie(),n,n,n,new BasicZombie(),new BasicZombie()},
-                {new BasicZombie(),n,n,n,new Conehead(), n,n,n,n,new BasicZombie()},
+                {new BasicZombie(),n,n,n,new Conehead(), n,n,n,n,n,n,n,n,n,new BasicZombie()},
                 {n},
                 {new BasicZombie(), new Conehead(), new Brickhead(), new BasicZombie(), new Conehead(), new BasicZombie(), new BasicZombie(), new Buckethead()},
-                {new BasicZombie(),n,n,n,new BasicZombie()}
+                {new BasicZombie(),n,n,new BasicZombie(),new BasicZombie()},
+                {n,n,new Buckethead(), n,n,n,n,new Buckethead()},
+                {new Conehead(), new Conehead(),new Buckethead(), new Conehead(),new Conehead()},
+                {new BasicZombie(), new Conehead(), new BasicZombie(), new BasicZombie(), new BasicZombie()},
+                {new Brickhead()},
+                {new Buckethead(), new Buckethead(), new Buckethead(), new Buckethead(), new Buckethead()},
+                {n},
+                
                 
     };
   
     
-    public WaveManager level = new WaveManager(23500L, level3, 15000L, true, 7, 18);
+    public WaveManager level = new WaveManager(23500L, level3, 15000L, true, 7, 13);
     public IntroLevel3()
     {    
         
