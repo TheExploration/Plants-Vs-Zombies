@@ -32,14 +32,29 @@ public class IntroLevel3 extends World
                 {new Conehead(), new Conehead(),new Buckethead(), new Conehead(),new Conehead()},
                 {new BasicZombie(), new Conehead(), new BasicZombie(), new BasicZombie(), new BasicZombie()},
                 {new Brickhead()},
-                {new Buckethead(), new Buckethead(), new Buckethead(), new Buckethead(), new Buckethead()},
+                {new Conehead(), new Buckethead(), new Buckethead(), new Conehead(), new Buckethead()},
                 {n},
+                {new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie()},
+                {n,n,n,new Brickhead(), new Brickhead()},
+                {new Conehead(), new Buckethead(), new Conehead()},
+                {n},
+                {new Buckethead(), new Buckethead(), new Buckethead(), new Buckethead(), new Buckethead()},
+                {new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie(), new BasicZombie()},
+                {n, new Conehead()},
+                {n,n,n,n,new BasicZombie()},
+                {n}, 
+                {new BasicZombie(), new BasicZombie(),new BasicZombie(),new BasicZombie(),new BasicZombie()},
+                {new Conehead(),new Conehead(),new Conehead(),new Conehead(),new Conehead(), new Buckethead(),new Buckethead(),new Buckethead(),new Buckethead(),new Buckethead(), new Brickhead(),new Brickhead(),new Brickhead(),new Brickhead(),new Brickhead()},
+                {n},
+                {n,n,new Buckethead(), n,n,n,n,new Buckethead(),n,n,n,n,new Buckethead(),n,n,n,n,new Buckethead(), n,n,n,n,new Buckethead(),n,n,n,n,new Buckethead()}
+                
+                
                 
                 
     };
   
     
-    public WaveManager level = new WaveManager(23500L, level3, 15000L, true, 7, 13);
+    public WaveManager level = new WaveManager(23500L, level3, 15000L, true, 7, 13, 19, 24, 27);
     public IntroLevel3()
     {    
         
@@ -103,7 +118,7 @@ public class IntroLevel3 extends World
             
             
             
-            Greenfoot.setWorld(new MyWorld(CYS,level, seedbank, new IntroLevel3(), new WinRepeater()));
+            Greenfoot.setWorld(new MyWorld(CYS,level, seedbank, new IntroLevel3(), new WinTwinsunflower()));
         }
        
     }

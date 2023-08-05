@@ -39,6 +39,11 @@ public class MainMenu extends World
                 
             Greenfoot.setWorld(new IntroLevel2());
                     
+        } else if (Greenfoot.isKeyDown("4")) {
+            menutheme.stop();
+                
+            Greenfoot.setWorld(new IntroLevel3());
+                    
         }
     }
     public void started() {
