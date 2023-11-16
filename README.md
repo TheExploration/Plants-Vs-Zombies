@@ -34,6 +34,8 @@ Seed Packet recharged opacity is bugged in browser :(
 
 I might update to PC edition if I manage to find all the animation spritesheets
 
+GFAR in [>> Releases <<](https://github.com/TheExploration/Plants-Vs-Zombies/releases/tag/1.0)
+
 ![demo2](https://github.com/TheExploration/Plants-Vs-Zombies/blob/master/demo2.png)
 ![demo](https://github.com/TheExploration/Plants-Vs-Zombies/blob/master/demo.png)
 
