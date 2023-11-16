@@ -1,3 +1,4 @@
+![GitHub Repo stars](https://img.shields.io/github/stars/TheExploration/Plants-Vs-Zombies)
 ![GitHub all releases](https://img.shields.io/github/downloads/TheExploration/Plants-Vs-Zombies/total)
 # Plants-Vs-Zombies
 The most complete Greenfoot remake of Plants Vs Zombies. Probably the most complete game ever made on Greenfoot.
