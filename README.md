@@ -1,5 +1,5 @@
 ![Static Badge](https://img.shields.io/badge/build-passing-brightgreen)
-[![GitHub release](https://img.shields.io/github/release/TheExploration/Plants-Vs-Zombies.svg)](https://GitHub.com/TheExploration/Plants-Vs-Zombies.js/releases/)
+[![GitHub release](https://img.shields.io/github/release/TheExploration/Plants-Vs-Zombies.svg)](https://GitHub.com/TheExploration/Plants-Vs-Zombies/releases/)
 [![Website Greenfoot](https://img.shields.io/website-up-down-green-red/http/greenfoot.org/scenarios/31337.svg)](https://www.greenfoot.org/scenarios/31337)
 ![GitHub Repo stars](https://img.shields.io/github/stars/TheExploration/Plants-Vs-Zombies)
 ![GitHub all releases](https://img.shields.io/github/downloads/TheExploration/Plants-Vs-Zombies/total)
