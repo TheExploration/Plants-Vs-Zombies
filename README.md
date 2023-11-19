@@ -7,7 +7,7 @@
 The most complete Greenfoot remake of Plants Vs Zombies. Probably the most complete game ever made on Greenfoot.
 
 
-**PLAY AT: https://www.greenfoot.org/scenarios/31337 or [>> Download Here <<](https://github.com/TheExploration/Plants-Vs-Zombies/releases/tag/1.0)**
+**PLAY AT: https://www.greenfoot.org/scenarios/31337 or [>> Download Here <<](https://github.com/TheExploration/Plants-Vs-Zombies/releases/tag/1.0) or https://exploration.itch.io/plants-vs-zombies-ds**
 
 ## Controls:
 Click to interact with mouse!
