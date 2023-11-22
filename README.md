@@ -1,7 +1,13 @@
+![Static Badge](https://img.shields.io/badge/build-passing-brightgreen)
+[![GitHub release](https://img.shields.io/github/release/TheExploration/Plants-Vs-Zombies.svg)](https://GitHub.com/TheExploration/Plants-Vs-Zombies/releases/)
+[![Website Greenfoot](https://img.shields.io/website-up-down-green-red/http/greenfoot.org/scenarios/31337.svg)](https://www.greenfoot.org/scenarios/31337)
+![GitHub Repo stars](https://img.shields.io/github/stars/TheExploration/Plants-Vs-Zombies)
+![GitHub all releases](https://img.shields.io/github/downloads/TheExploration/Plants-Vs-Zombies/total)
 # Plants-Vs-Zombies
 The most complete Greenfoot remake of Plants Vs Zombies. Probably the most complete game ever made on Greenfoot.
 
-**PLAY AT: https://www.greenfoot.org/scenarios/31337 or [>> Download Here <<](https://github.com/TheExploration/Plants-Vs-Zombies/releases/tag/1.0)**
+
+**PLAY AT: https://www.greenfoot.org/scenarios/31337 or [>> Download Here <<](https://github.com/TheExploration/Plants-Vs-Zombies/releases/tag/1.0) or https://exploration.itch.io/plants-vs-zombies-ds**
 
 ## Controls:
 Click to interact with mouse!
@@ -27,6 +33,8 @@ A remake of Plants Vs Zombies DS Edition because its the only version I can find
 Seed Packet recharged opacity is bugged in browser :(
 
 I might update to PC edition if I manage to find all the animation spritesheets
+
+GFAR in [>> Releases <<](https://github.com/TheExploration/Plants-Vs-Zombies/releases/tag/1.0)
 
 ![demo2](https://github.com/TheExploration/Plants-Vs-Zombies/blob/master/demo2.png)
 ![demo](https://github.com/TheExploration/Plants-Vs-Zombies/blob/master/demo.png)
